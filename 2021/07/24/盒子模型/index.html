@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>盒子模型 | DanielLin</title>
+  <meta name="description" content="盒子模型每一个盒子由以下部分组成：(一共盒子的可见框的大小由内容区，内边距，边框共同决定，所以在计算盒子大小时，需要将三个区域加到一块计算) 内容区（content）内容区大小由width和height属性设置 width：设置内容区的宽度 height：设置内容区的高度 内边距（padding） 内容区和边框之间的距离是内边距,，内边距设置会影响盒子大小  背景颜色会延申到内边距上 123456">
+<meta property="og:type" content="article">
+<meta property="og:title" content="盒子模型">
+<meta property="og:url" content="http://daniellin0516.github.io/2021/07/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Daniel Blog">
+<meta property="og:description" content="盒子模型每一个盒子由以下部分组成：(一共盒子的可见框的大小由内容区，内边距，边框共同决定，所以在计算盒子大小时，需要将三个区域加到一块计算) 内容区（content）内容区大小由width和height属性设置 width：设置内容区的宽度 height：设置内容区的高度 内边距（padding） 内容区和边框之间的距离是内边距,，内边距设置会影响盒子大小  背景颜色会延申到内边距上 123456">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/25/Wgmf6U.png">
+<meta property="og:image" content="https://img1.baidu.com/it/u=2981699784,2055849446&fm=26&fmt=auto&gp=0.jpg">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/26/WRT8QU.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/28/WIcl1U.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/28/WIc3X4.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/28/WIcah6.png">
+<meta property="article:published_time" content="2021-07-24T14:37:52.000Z">
+<meta property="article:modified_time" content="2021-07-29T01:40:47.289Z">
+<meta property="article:author" content="Daniel Lin">
+<meta property="article:tag" content="HTML&amp;&amp;CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/07/25/Wgmf6U.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://daniellin0516.github.io/2021/07/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-black# 主题颜色 theme-black theme-blue theme-green theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Daniel Lin</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Dalian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://daniellin0516.github.io" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/" rel="tag">Ajax</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/" rel="tag">HTML&&CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 13.5px;">Ajax</a> <a href="/tags/Blog/" style="font-size: 13px;">Blog</a> <a href="/tags/HTML-CSS/" style="font-size: 14px;">HTML&&CSS</a> <a href="/tags/Markdown/" style="font-size: 13px;">Markdown</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/09/11/JQuery%E5%8F%91%E9%80%81AJAX/" class="title">JQuery发送AJAX</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-11T07:52:01.000Z" itemprop="datePublished">2021-09-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/09/11/AJAX%E8%B6%85%E6%97%B6%E8%AF%B7%E6%B1%82%E3%80%81%E5%8F%96%E6%B6%88%E8%AF%B7%E6%B1%82%E3%80%81%E9%87%8D%E5%A4%8D%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/" class="title">AJAX超时请求、取消请求、重复发送请求</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-11T01:46:57.000Z" itemprop="datePublished">2021-09-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/09/10/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%93%8D%E5%BA%94JSON%E6%95%B0%E6%8D%AE/" class="title">服务端响应JSON数据</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-10T12:33:49.000Z" itemprop="datePublished">2021-09-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/09/10/%E5%8E%9F%E7%94%9FAJAX%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/" class="title">原生AJAX发送请求</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-10T07:24:52.000Z" itemprop="datePublished">2021-09-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/09/09/HTTP%E5%8D%8F%E8%AE%AE/" class="title">HTTP协议</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-09T08:40:45.000Z" itemprop="datePublished">2021-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">盒子模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%8C%BA%EF%BC%88content%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">内容区（content）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E8%BE%B9%E8%B7%9D%EF%BC%88padding%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">内边距（padding）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E6%A1%86%EF%BC%88border%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">边框（border）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E8%BE%B9%E8%B7%9D%EF%BC%88margin%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">外边距（margin）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91%E7%9A%84%E5%B8%83%E5%B1%80"><span class="toc-number">2.</span> <span class="toc-text">盒子模型-水平方向的布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%82%E7%9B%B4%E6%96%B9%E5%90%91%E7%9A%84%E5%B8%83%E5%B1%80"><span class="toc-number">3.</span> <span class="toc-text">垂直方向的布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%9A%84%E6%8A%98%E5%8F%A0"><span class="toc-number">4.</span> <span class="toc-text">外边距的折叠</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%E7%9A%84%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">行内元素的盒模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AE%E5%BB%93%E9%98%B4%E5%BD%B1%E5%92%8C%E5%9C%86%E8%A7%92"><span class="toc-number">6.</span> <span class="toc-text">轮廓阴影和圆角</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AE%E5%BB%93%E7%BA%BF"><span class="toc-number">6.1.</span> <span class="toc-text">轮廓线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B4%E5%BD%B1"><span class="toc-number">6.2.</span> <span class="toc-text">阴影</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%86%E8%A7%92"><span class="toc-number">6.3.</span> <span class="toc-text">圆角</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-盒子模型" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      盒子模型
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/07/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="article-date">
+	  <time datetime="2021-07-24T14:37:52.000Z" itemprop="datePublished">2021-07-24</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/HTML-CSS/" rel="tag">HTML&&CSS</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2021/07/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="leancloud_visitors"  data-flag-title="盒子模型">0</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/07/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 8(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><p>每一个盒子由以下部分组成：<font color="blue">(一共盒子的可见框的大小由内容区，内边距，边框共同决定，所以在计算盒子大小时，需要将三个区域加到一块计算)</font></p>
+<h3 id="内容区（content）"><a href="#内容区（content）" class="headerlink" title="内容区（content）"></a>内容区（content）</h3><p>内容区大小由width和height属性设置</p>
+<p>width：设置内容区的宽度</p>
+<p>height：设置内容区的高度</p>
+<h3 id="内边距（padding）"><a href="#内边距（padding）" class="headerlink" title="内边距（padding）"></a>内边距（padding）</h3><ul>
+<li>内容区和边框之间的距离是内边距,，内边距设置会影响盒子大小</li>
+</ul>
+<p>背景颜色会延申到内边距上</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>:green;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">10px</span> orange solid;</span><br><span class="line">    <span class="attribute">padding-top</span>:<span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://z3.ax1x.com/2021/07/25/Wgmf6U.png"></p>
+<ul>
+<li>一共有四个方向的内边距</li>
+</ul>
+<p>padding-top</p>
+<p>padding-right</p>
+<p>padding-bottom</p>
+<p>padding left</p>
+<ul>
+<li>padding简写属性：可以同时指定四个方向的内边距，规则和border-width一样</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">40px</span>;</span><br><span class="line"><span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span>;</span><br><span class="line"><span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">20px</span>;</span><br><span class="line"><span class="attribute">padding</span>:<span class="number">10px</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="边框（border）"><a href="#边框（border）" class="headerlink" title="边框（border）"></a>边框（border）</h3><p>边框属于盒子的边缘，边框里面属于盒子的内容，出了边框都是盒子的外部，边框的大小会影响到整个盒子的大小，要设置边框，需要至少设置三个样式：</p>
+<p>边框的宽度：border-width</p>
+<p>值的情况：</p>
+<ul>
+<li><p>四个值（顺时针）：上 右 下 左（例如border width：10px  20px  30px 40px；）</p>
+</li>
+<li><p>三个值：上 左右 下</p>
+</li>
+<li><p>两个值：上下 左右</p>
+</li>
+<li><p>一个值：上下左右</p>
+</li>
+</ul>
+<p>除了border-width还有一组border-xxx-width</p>
+<p>xxx可以是top right bottom left</p>
+<p>用来单独指定摸一个边的宽度</p>
+<p>边框的颜色：border color</p>
+<p>同样可以分别指定4个边框的颜色规则和border一样，默认值为黑色</p>
+<p>边框的样式：border-style</p>
+<p>指定边框样式，solid表示实线，dotted点状虚线，dashed虚线，double双线</p>
+<p>border以及boder-xxx简写属性：10px solid orange；（无顺序要求）</p>
+<h3 id="外边距（margin）"><a href="#外边距（margin）" class="headerlink" title="外边距（margin）"></a>外边距（margin）</h3><p>不会影响可见框的大小，会影响盒子所在位置</p>
+<p>一共由四个方向的外边距：</p>
+<ul>
+<li>margin-top：</li>
+</ul>
+<p>上外边距，设置一个正值，元素会向下移动</p>
+<ul>
+<li>margin-right</li>
+</ul>
+<p>margin-bottom：</p>
+<ul>
+<li>下外边距，设置一个正值，其下边的元素会向下移动</li>
+</ul>
+<p>margin-left：</p>
+<ul>
+<li>左外边距，设置一个正值，元素会向右移动</li>
+</ul>
+<blockquote>
+<p> margin也可以设置负值，如果是负值则元素会向相反的方向移动</p>
+<p>magin简写属性：</p>
+<p>margin可同时设置4个方向的外边距，用法和padding一样</p>
+<p>margin会影响到盒子的实际占用空间</p>
+</blockquote>
+<p><img src="https://img1.baidu.com/it/u=2981699784,2055849446&fm=26&fmt=auto&gp=0.jpg"></p>
+<h2 id="盒子模型-水平方向的布局"><a href="#盒子模型-水平方向的布局" class="headerlink" title="盒子模型-水平方向的布局"></a>盒子模型-水平方向的布局</h2><p>元素的水平方向的布局：</p>
+<p>元素在其父元素的水平方向的位置由以下几个属性共同决定：</p>
+<ul>
+<li>margin-left</li>
+<li>border-left</li>
+<li>padding-left</li>
+<li>width</li>
+<li>padding-right</li>
+<li>border-right</li>
+<li>margin-right</li>
+</ul>
+<p>一个元素在其父元素中，水平布局必须要满足以下的等式：</p>
+<p>margin-left+border-left+padding-left+width+padding-right+border-right+margin-right=其父元素内容的宽度（必须满足）</p>
+<blockquote>
+<p>调整情况：</p>
+<p>1.如果这7个值中没有设为auto的情况，则浏览器会自动调整margin-right</p>
+<p>这七个值中有三个值可以设置为auto：</p>
+<p>width</p>
+<p>margin-left</p>
+<p>margin-right</p>
+<p>如果某个值为auto，则会自动调整为auto那个值以使等式成立</p>
+<p>0+0+0+auto+0+0+0=800  auto=800</p>
+<ul>
+<li>如果将一个宽度和一个外边距设置为auto，则宽度会调整到最大，设置为aut0</li>
+<li>如果将三个都设置为auto，则外边距都是0，宽度最大</li>
+<li>如果将两个外边距设置为auto，宽度固定值，则会将外边距设置为相同的值，所以我们经常利用这个特点来使一个元素在其父元素中水平居中</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">width</span>:xxxpx;</span><br><span class="line"><span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="垂直方向的布局"><a href="#垂直方向的布局" class="headerlink" title="垂直方向的布局"></a>垂直方向的布局</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        <span class="selector-class">.box1</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">            <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: chartreuse;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-class">.box2</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">height</span>:<span class="number">250px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: coral;</span><br><span class="line">        &#125;  </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>运行后结果：</p>
+<p><img src="https://z3.ax1x.com/2021/07/26/WRT8QU.png"></p>
+<p>子元素是在父元素的内容区中排列的：</p>
+<p>如果子元素的大小超过了父元素，则子元素会从父元素中溢出使用<code>overflow</code>属性来设置父元素如何处理溢出的子元素</p>
+<ul>
+<li><p><code>overflow</code>可选值：</p>
+</li>
+<li><p>visible：默认值，子元素会从父元素中溢出，在父元素外部的位置显示</p>
+</li>
+<li><p>hidden：溢出内容将会被裁剪不会显示</p>
+</li>
+<li><p>scroll：生成两个滚动条，通过滚动条来查看完整内容</p>
+</li>
+<li><p>auto：根据需要生成滚动条</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        <span class="selector-class">.box1</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">            <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: chartreuse;</span><br><span class="line">            <span class="attribute">overflow</span>:hidden;  <span class="comment">/*在父元素下面写overlow*/</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-class">.box2</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">height</span>:<span class="number">250px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: coral;</span><br><span class="line">        &#125;  </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>overflow-x</code>：处理水平方向溢出</p>
+</li>
+<li><p><code>overflow-y</code>：处理竖直方向溢出</p>
+</li>
+</ul>
+<h2 id="外边距的折叠"><a href="#外边距的折叠" class="headerlink" title="外边距的折叠"></a>外边距的折叠</h2><p>相邻的垂直方向外边距会发生重叠现象</p>
+<ul>
+<li>兄弟元素</li>
+</ul>
+<blockquote>
+<p>兄弟元素间的相等垂直外边距会取两者之间的较大值（两者都是正值）</p>
+<p>特殊情况：</p>
+<p>如果相邻的外边距一正一负，则取两者的和</p>
+<p>如果相邻的外边距都是负值，则取两者中绝对值较大的</p>
+<p>兄弟元素之间的外边距重叠，对于开发使有利的，所以我们不需要进行处理</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>父子元素</li>
+</ul>
+<blockquote>
+<p>父子元素间相邻外边距，子元素的会传递给父元素（上外边距）</p>
+<p>父子外边距的折叠会影响到页面的布局，必须要进行处理1.利用padding-top</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="行内元素的盒模型"><a href="#行内元素的盒模型" class="headerlink" title="行内元素的盒模型"></a>行内元素的盒模型</h2><p>行内元素不支持设置宽度和高度</p>
+<p>行内元素可以设置padding，但是垂直方向padding不会影响页面的布局</p>
+<p>行内元素可以设置border，垂直方向的border不会影响页面的布局</p>
+<p>行内元素可以设置margin，垂直方向的border不会影响页面的布局</p>
+<ul>
+<li><code>display</code>用来设置元素显示的类型：</li>
+</ul>
+<p>可选值：</p>
+<ul>
+<li><code>inline</code>：将元素设行内元素</li>
+<li><code>block</code>:将元素设置为块元素</li>
+<li><code>inline-block</code>：行内块元素（可放置宽高又不会独占一行）</li>
+<li><code>table</code>：将元素设为一个表格</li>
+<li><code>none</code>:元素不在页面显示</li>
+<li><code>visibility</code>用来设置元素的显示状态：</li>
+</ul>
+<p>可选值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```hidden```：元素在页面隐藏，不显示，但是依然占据页面位置</span><br><span class="line"></span><br><span class="line">## 盒子的尺寸大小</span><br><span class="line"></span><br><span class="line">```css</span><br><span class="line">.box1&#123;</span><br><span class="line">    width:100px;</span><br><span class="line">    height:100px;</span><br><span class="line">    backgroud-color:#bfa;</span><br><span class="line">    padding:10px;</span><br><span class="line">    border:10px red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，盒子可见框的大小由内容区、内边距和边框共同决定（上述代码可见框140px）</p>
+<p>box-sizing：用来设置尺寸的计算方式（设置width和height的作用）</p>
+<blockquote>
+<p>可选值：</p>
+<blockquote>
+<p>content-box：默认值，宽度和高度用来设置内容区的大小</p>
+<p>border-box：宽度和高度用来设置整个盒子可见框的大小</p>
+<p>​                        width和height指的是内容区和内边距和边框的大小</p>
+</blockquote>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    backgroud-<span class="attribute">color</span>:<span class="number">#bfa</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">10px</span> red solid;</span><br><span class="line">    <span class="attribute">box-sizing</span>:border-box</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码则为100px×100px的可见框大小，会自动缩小内容区的大小</p>
+<h2 id="轮廓阴影和圆角"><a href="#轮廓阴影和圆角" class="headerlink" title="轮廓阴影和圆角"></a>轮廓阴影和圆角</h2><h3 id="轮廓线"><a href="#轮廓线" class="headerlink" title="轮廓线"></a>轮廓线</h3><p>outline：用来设置元素的轮廓线，用法和border一模一样</p>
+<p>轮廓线不会影响到可见框的大小</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>-colorblue;</span><br><span class="line">    <span class="attribute">outline</span>:<span class="number">10px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span>&#123;    </span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;    </span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;    </span><br><span class="line">    <span class="attribute">background-color</span>:blue;    </span><br><span class="line">    <span class="attribute">border</span>:<span class="number">10px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/WIcl1U"><img src="https://z3.ax1x.com/2021/07/28/WIcl1U.png" alt="WIcl1U.png"></a><a target="_blank" rel="noopener" href="https://imgtu.com/i/WIc3X4"><img src="https://z3.ax1x.com/2021/07/28/WIc3X4.png" alt="WIc3X4.png"></a></p>
+<p>​    </p>
+<p>outline（左）和border（右）的区别</p>
+<h3 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h3><p>box-shadow:用来设置元素的阴影效果，阴影不会影响页面的布局</p>
+<p>第一个值：水平偏移量 设置阴影的水平位置 正值向右移动 负值向左移动</p>
+<p>第二个值：垂直偏移量 设置阴影的垂直位置 正值向下移动 负值向上移动</p>
+<p>第三个值：阴影的模糊半径，像素越大越模糊</p>
+<p>第四个值：阴影的颜色</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        <span class="selector-class">.box1</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: blue;</span><br><span class="line">            <span class="attribute">box-shadow</span>:<span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>,<span class="number">0</span>, <span class="number">0.5</span>);</span><br><span class="line">        &#125;</span><br><span class="line">       </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>效果图：</p>
+<p><img src="https://z3.ax1x.com/2021/07/28/WIcah6.png"></p>
+<h3 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h3><p>border-radius：用来设置与圆角</p>
+<p>border-top-left-radius:</p>
+<p>border-top-right-radius</p>
+<p>border-bottom-left-radius</p>
+<p>border-bottom-right-radius</p>
+<p><strong>border-radius</strong>可以分别指定四个角的圆角</p>
+<p>四个值：左上 右上 右下 坐下</p>
+<p>三个值：左上 右上/左下 右下</p>
+<p>两个值：左上/右下 右上/左下</p>
+<p>将图形设置为圆形：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-radius</span>:<span class="number">50%</span>;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://daniellin0516.github.io/2021/07/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" title="盒子模型" target="_blank" rel="external">http://daniellin0516.github.io/2021/07/24/盒子模型/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">Daniel Lin</span><small class="ml-1x">Web Developer</small></a></h3>
+        <div>大连理工大三学生……</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/07/28/%E6%B5%AE%E5%8A%A8/" title="浮动"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/07/22/%E9%80%89%E6%8B%A9%E5%99%A8/" title="选择器"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://daniellin0516.github.io" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2021 Daniel Lin
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<!-- custom analytics part create by xiamo -->
+<script defer src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+<script defer>
+AV.init({
+  appId: '',
+  appKey: ''
+});
+
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+		var visitors= $('.leancloud_visitors');
+		query.greaterThanOrEqualTo("time", 0);		
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {				
+					return;
+				}
+				var data = results;
+				visitors.each(function(){
+					var url = $(this).attr('id').trim();					
+					for (var i = 0; i < data.length; i++) {
+						var object = data[i];
+						var content = object.get('time');
+						var _url = object.get('url')
+						if(url == _url){
+							$(this).text(content);
+						}
+					}
+				})
+				
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else {
+		showTime(Counter);
+	}
+}); 
+</script>
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/gh/ygbhf/clicklove/clicklove.js"></script>
+
+</body>
+</html>

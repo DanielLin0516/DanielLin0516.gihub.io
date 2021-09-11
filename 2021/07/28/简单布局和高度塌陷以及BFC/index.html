@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>简单布局和高度塌陷以及BFC | DanielLin</title>
+  <meta name="description" content="页面的简单布局123456789101112131415161718192021222324252627282930313233343536373839&lt;style&gt;        header,main,footer&amp;#123;            width: 1000px;            margin: 0 auto;        &amp;#125;        &#x2F;*设置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单布局和高度塌陷以及BFC">
+<meta property="og:url" content="http://daniellin0516.github.io/2021/07/28/%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E5%92%8C%E9%AB%98%E5%BA%A6%E5%A1%8C%E9%99%B7%E4%BB%A5%E5%8F%8ABFC/index.html">
+<meta property="og:site_name" content="Daniel Blog">
+<meta property="og:description" content="页面的简单布局123456789101112131415161718192021222324252627282930313233343536373839&lt;style&gt;        header,main,footer&amp;#123;            width: 1000px;            margin: 0 auto;        &amp;#125;        &#x2F;*设置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/28/WTVjCF.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/28/WTmPfO.md.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/28/WTuI0A.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/28/WTM4II.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/29/WHIvrR.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/29/WHolRg.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/29/WH7PjH.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/07/29/WHObjO.png">
+<meta property="article:published_time" content="2021-07-28T06:52:15.000Z">
+<meta property="article:modified_time" content="2021-07-29T06:54:03.456Z">
+<meta property="article:author" content="Daniel Lin">
+<meta property="article:tag" content="HTML&amp;&amp;CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/07/28/WTVjCF.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://daniellin0516.github.io/2021/07/28/%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E5%92%8C%E9%AB%98%E5%BA%A6%E5%A1%8C%E9%99%B7%E4%BB%A5%E5%8F%8ABFC/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-black# 主题颜色 theme-black theme-blue theme-green theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Daniel Lin</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Dalian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://daniellin0516.github.io" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/" rel="tag">Ajax</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/" rel="tag">HTML&&CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 13.5px;">Ajax</a> <a href="/tags/Blog/" style="font-size: 13px;">Blog</a> <a href="/tags/HTML-CSS/" style="font-size: 14px;">HTML&&CSS</a> <a href="/tags/Markdown/" style="font-size: 13px;">Markdown</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/09/11/JQuery%E5%8F%91%E9%80%81AJAX/" class="title">JQuery发送AJAX</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-11T07:52:01.000Z" itemprop="datePublished">2021-09-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/09/11/AJAX%E8%B6%85%E6%97%B6%E8%AF%B7%E6%B1%82%E3%80%81%E5%8F%96%E6%B6%88%E8%AF%B7%E6%B1%82%E3%80%81%E9%87%8D%E5%A4%8D%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/" class="title">AJAX超时请求、取消请求、重复发送请求</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-11T01:46:57.000Z" itemprop="datePublished">2021-09-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/09/10/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%93%8D%E5%BA%94JSON%E6%95%B0%E6%8D%AE/" class="title">服务端响应JSON数据</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-10T12:33:49.000Z" itemprop="datePublished">2021-09-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/09/10/%E5%8E%9F%E7%94%9FAJAX%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/" class="title">原生AJAX发送请求</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-10T07:24:52.000Z" itemprop="datePublished">2021-09-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/09/09/HTTP%E5%8D%8F%E8%AE%AE/" class="title">HTTP协议</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-09-09T08:40:45.000Z" itemprop="datePublished">2021-09-09</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E7%9A%84%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80"><span class="toc-number">1.</span> <span class="toc-text">页面的简单布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E5%BA%A6%E5%A1%8C%E9%99%B7"><span class="toc-number">2.</span> <span class="toc-text">高度塌陷</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC"><span class="toc-number">2.1.</span> <span class="toc-text">BFC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%AE%BE%E7%BD%AE%E5%85%83%E7%B4%A0%E7%9A%84%E6%B5%AE%E5%8A%A8%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">1.设置元素的浮动（不推荐）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B0%86%E5%85%83%E7%B4%A0%E8%AE%BE%E7%BD%AE%E4%B8%BA%E8%A1%8C%E5%86%85%E5%9D%97%E5%85%83%E7%B4%A0%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">2.将元素设置为行内块元素（不推荐）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B0%86%E5%85%83%E7%B4%A0%E7%9A%84overflow%E8%AE%BE%E7%BD%AE%E4%B8%BA%E4%B8%80%E4%B8%AA%E9%9D%9Evisible%E7%9A%84%E5%80%BC"><span class="toc-number">2.4.</span> <span class="toc-text">3.将元素的overflow设置为一个非visible的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clear"><span class="toc-number">2.5.</span> <span class="toc-text">clear</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E5%BA%A6%E5%A1%8C%E9%99%B7%E6%9C%80%E7%BB%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%88%E6%9C%80%E4%BD%B3%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">高度塌陷最终解决方法（最佳）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clearfix%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">Clearfix（重要）</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-简单布局和高度塌陷以及BFC" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      简单布局和高度塌陷以及BFC
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/07/28/%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E5%92%8C%E9%AB%98%E5%BA%A6%E5%A1%8C%E9%99%B7%E4%BB%A5%E5%8F%8ABFC/" class="article-date">
+	  <time datetime="2021-07-28T06:52:15.000Z" itemprop="datePublished">2021-07-28</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/HTML-CSS/" rel="tag">HTML&&CSS</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2021/07/28/%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E5%92%8C%E9%AB%98%E5%BA%A6%E5%A1%8C%E9%99%B7%E4%BB%A5%E5%8F%8ABFC/" class="leancloud_visitors"  data-flag-title="简单布局和高度塌陷以及BFC">0</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/07/28/%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E5%92%8C%E9%AB%98%E5%BA%A6%E5%A1%8C%E9%99%B7%E4%BB%A5%E5%8F%8ABFC/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="页面的简单布局"><a href="#页面的简单布局" class="headerlink" title="页面的简单布局"></a>页面的简单布局</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        <span class="selector-tag">header</span>,<span class="selector-tag">main</span>,<span class="selector-tag">footer</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">            <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*设置头部*/</span></span><br><span class="line">        <span class="selector-tag">header</span>&#123;</span><br><span class="line">            <span class="attribute">height</span>:<span class="number">150px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: silver;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-tag">main</span>&#123;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: <span class="number">#bfa</span>;</span><br><span class="line">            <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-tag">nav</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">190px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: yellow;</span><br><span class="line">            <span class="attribute">float</span>: left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-tag">article</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: orange;</span><br><span class="line">            <span class="attribute">float</span>: left;</span><br><span class="line">            <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">10px</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-tag">aside</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">190px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: pink;</span><br><span class="line">            <span class="attribute">float</span>: left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-tag">footer</span>&#123;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: tomato;</span><br><span class="line">        &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>下面是html基本写法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">nav</span>&gt;</span><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aside</span>&gt;</span><span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果图：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/WTVjCF"><img src="https://z3.ax1x.com/2021/07/28/WTVjCF.png" alt="WTVjCF.png"></a></p>
+<hr>
+<h2 id="高度塌陷"><a href="#高度塌陷" class="headerlink" title="高度塌陷"></a>高度塌陷</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        <span class="selector-class">.outer</span>&#123;</span><br><span class="line">            <span class="attribute">border</span>: <span class="number">10px</span> red solid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-class">.inner</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: <span class="number">#bfa</span>;</span><br><span class="line">            <span class="attribute">float</span>: left;</span><br><span class="line">        &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;outer&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果图：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/WTmPfO"><img src="https://z3.ax1x.com/2021/07/28/WTmPfO.md.png" alt="WTmPfO.md.png"></a></p>
+<p>里面的方块不随外面边框浮动，这就是高度塌陷</p>
+<p>高度塌陷的问题：</p>
+<blockquote>
+<p>在浮动布局中，父元素的高度默认是被子元素撑开的，当子元素浮动后，其会完全脱离文档流，子元素从文档流中脱离将会无法撑起父元素的高度，导致父元素的高度丢失</p>
+<p>父元素高度丢失后，其下的元素会自动上移，导致页面的布局混乱</p>
+<p>所以高度塌陷是浮动布局中比较常见的一个问题，这个问题要处理</p>
+</blockquote>
+<h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3><p>BFC（Block Formatting Content）块级格式化环境</p>
+<ul>
+<li>BFC是一个CSS中的一个隐含的属性，可以设为一个元素开启BFC</li>
+<li>开启BFC该元素会变成一个独立的布局区域</li>
+</ul>
+<p>元素开启BFC后的特点：</p>
+<p>1.开启BFC的元素不会被浮动元素所覆盖</p>
+<p>2.开启BFC的元素子元素和父元素外边距不会重叠</p>
+<p>3.开始BFC的元素可以包含浮动的子元素</p>
+<p>可以通过一些特殊方式来开启元素的BFC：</p>
+<blockquote>
+<h3 id="1-设置元素的浮动（不推荐）"><a href="#1-设置元素的浮动（不推荐）" class="headerlink" title="1.设置元素的浮动（不推荐）"></a>1.设置元素的浮动（不推荐）</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">     <span class="selector-class">.outer</span>&#123;</span><br><span class="line">         <span class="attribute">border</span>: <span class="number">10px</span> red solid;</span><br><span class="line">         <span class="attribute">float</span><span class="selector-pseudo">:left</span>    <span class="comment">/*添加浮动*/</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-class">.inner</span>&#123;</span><br><span class="line">         <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">         <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">         <span class="attribute">background-color</span>: <span class="number">#bfa</span>;</span><br><span class="line">         <span class="attribute">float</span>: left;</span><br><span class="line">     &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/WTuI0A"><img src="https://z3.ax1x.com/2021/07/28/WTuI0A.png" alt="WTuI0A.png"></a></p>
+<p>副作用：宽度会丢失</p>
+<h3 id="2-将元素设置为行内块元素（不推荐）"><a href="#2-将元素设置为行内块元素（不推荐）" class="headerlink" title="2.将元素设置为行内块元素（不推荐）"></a>2.将元素设置为行内块元素（不推荐）</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">     <span class="selector-class">.outer</span>&#123;</span><br><span class="line">         <span class="attribute">border</span>: <span class="number">10px</span> red solid;</span><br><span class="line">         <span class="attribute">display</span>:inline-block;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-class">.inner</span>&#123;</span><br><span class="line">         <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">         <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">         <span class="attribute">background-color</span>: <span class="number">#bfa</span>;</span><br><span class="line">         <span class="attribute">float</span>: left;</span><br><span class="line">     &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-将元素的overflow设置为一个非visible的值"><a href="#3-将元素的overflow设置为一个非visible的值" class="headerlink" title="3.将元素的overflow设置为一个非visible的值"></a>3.将元素的overflow设置为一个非visible的值</h3><p><font color="red">常用的方式，为元素试着overflow：hidden开启其BFC以使其可以包含浮动元素</font></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">     <span class="selector-class">.outer</span>&#123;</span><br><span class="line">         <span class="attribute">border</span>: <span class="number">10px</span> red solid;</span><br><span class="line">         <span class="attribute">overflow</span>:hidden;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="selector-class">.inner</span>&#123;</span><br><span class="line">         <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">         <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">         <span class="attribute">background-color</span>: <span class="number">#bfa</span>;</span><br><span class="line">         <span class="attribute">float</span>: left;</span><br><span class="line">     &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/WTM4II"><img src="https://z3.ax1x.com/2021/07/28/WTM4II.png" alt="WTM4II.png"></a></p>
+</blockquote>
+<h3 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h3><p>作用：清除浮动元素对当前元素产生的影响</p>
+<p>可选值：</p>
+<ul>
+<li>left：清除左侧浮动元素对当前元素的影响</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>:blue;</span><br><span class="line">        <span class="attribute">font-size</span>:<span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box3</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: purple;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">clear</span><span class="selector-pseudo">:left</span>;      <span class="comment">/**清除box1浮动带来的影响，否则数字会环绕在box1旁边**/</span></span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/WHIvrR"><img src="https://z3.ax1x.com/2021/07/29/WHIvrR.png" alt="WHIvrR.png"></a> 用<code>clear:left</code>清除box1带来的浮动影响<img src="https://z3.ax1x.com/2021/07/29/WHolRg.png" alt="WHolRg.png">](<a target="_blank" rel="noopener" href="https://imgtu.com/i/WHolRg">https://imgtu.com/i/WHolRg</a>)</p>
+<ul>
+<li>right：清除右侧浮动元素对当前元素的影响</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>:blue;</span><br><span class="line">        <span class="attribute">font-size</span>:<span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">float</span>: left;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.box2</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: yellow;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">float</span><span class="selector-pseudo">:right</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.box3</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: purple;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">        <span class="attribute">clear</span><span class="selector-pseudo">:right</span>        <span class="comment">/**清除box2带来的浮动影响**/</span></span><br><span class="line">    &#125;    </span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/WH7PjH"><img src="https://z3.ax1x.com/2021/07/29/WH7PjH.png" alt="WH7PjH.png"></a></p>
+<ul>
+<li>both:清除两侧中最大影响的那侧</li>
+</ul>
+<p>原理：</p>
+<p>设置清除浮动以后，浏览器会自动为元素添加一个上外边距，以使其位置不受其他元素的影响</p>
+<h2 id="高度塌陷最终解决方法（最佳）"><a href="#高度塌陷最终解决方法（最佳）" class="headerlink" title="高度塌陷最终解决方法（最佳）"></a>高度塌陷最终解决方法（最佳）</h2><p>运用伪元素<code>::after</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="selector-class">.box1</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> red solid;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.box2</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#bfa</span>;</span><br><span class="line">        <span class="attribute">float</span>: left;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.box1</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">        <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">        <span class="attribute">clear</span>:both;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span>              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/WHObjO"><img src="https://z3.ax1x.com/2021/07/29/WHObjO.png" alt="WHObjO.png"></a></p>
+<p>会根据内容高度而改变</p>
+<h2 id="Clearfix（重要）"><a href="#Clearfix（重要）" class="headerlink" title="Clearfix（重要）"></a>Clearfix（重要）</h2><p>这个样式可以同时解决高度塌陷和外边距重叠的问题，当你再遇到这些问题时，直接使用clearfix</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="selector-class">.box1</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">10px</span> red solid;</span><br><span class="line"> &#125;</span><br><span class="line">    <span class="selector-class">.box2</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#bfa</span>;</span><br><span class="line">        <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="selector-class">.clearfix</span><span class="selector-pseudo">::before</span>,</span><br><span class="line">    <span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">        <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="attribute">display</span>: table;</span><br><span class="line">        <span class="attribute">clear</span>: both;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1 clearfix&quot;</span> &gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://daniellin0516.github.io/2021/07/28/%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E5%92%8C%E9%AB%98%E5%BA%A6%E5%A1%8C%E9%99%B7%E4%BB%A5%E5%8F%8ABFC/" title="简单布局和高度塌陷以及BFC" target="_blank" rel="external">http://daniellin0516.github.io/2021/07/28/简单布局和高度塌陷以及BFC/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">Daniel Lin</span><small class="ml-1x">Web Developer</small></a></h3>
+        <div>大连理工大三学生……</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/07/30/%E6%96%87%E6%9C%AC%E7%9A%84%E6%B0%B4%E5%B9%B3%E5%92%8C%E5%9E%82%E7%9B%B4%E5%AF%B9%E9%BD%90/" title="文本的水平和垂直对齐"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/07/28/%E6%B5%AE%E5%8A%A8/" title="浮动"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://daniellin0516.github.io" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2021 Daniel Lin
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<!-- custom analytics part create by xiamo -->
+<script defer src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+<script defer>
+AV.init({
+  appId: '',
+  appKey: ''
+});
+
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+		var visitors= $('.leancloud_visitors');
+		query.greaterThanOrEqualTo("time", 0);		
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {				
+					return;
+				}
+				var data = results;
+				visitors.each(function(){
+					var url = $(this).attr('id').trim();					
+					for (var i = 0; i < data.length; i++) {
+						var object = data[i];
+						var content = object.get('time');
+						var _url = object.get('url')
+						if(url == _url){
+							$(this).text(content);
+						}
+					}
+				})
+				
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else {
+		showTime(Counter);
+	}
+}); 
+</script>
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/gh/ygbhf/clicklove/clicklove.js"></script>
+
+</body>
+</html>
