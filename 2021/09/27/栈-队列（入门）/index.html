@@ -17,23 +17,24 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Git_Githhb推送本地库到远程库 | DanielLin</title>
-  <meta name="description" content="推送本地库到远程库基本语法git push别名  分支 git checkout master  是切换成master分支 实例1git push xxx(如果没有别名可以不写) master     拉取远程库到本地库基本语法git pull 别名 分支 克隆远程仓库到本地 语法git clone  https:&#x2F;&#x2F;xxxxx.git clone会做如下操作：  1.拉取代码 2.初始化本地仓库">
+  <title>栈/队列（入门） | DanielLin</title>
+  <meta name="description" content="栈&#x2F;队列1.有效的括号给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;&amp;#123;&#39;，&#39;&amp;#125;&#39;，&#39;[&#39;，&#39;]&#39; 的字符串 s ，判断字符串是否有效。 有效字符串需满足： 左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。  思路：利用栈的先进后出，匹配后将元素出栈，若栈还有元素则返回false 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git_Githhb推送本地库到远程库">
-<meta property="og:url" content="http://daniellin0516.github.io/2021/09/23/Git-Githhb%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%BA%93%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%BA%93/index.html">
+<meta property="og:title" content="栈&#x2F;队列（入门）">
+<meta property="og:url" content="http://daniellin0516.github.io/2021/09/27/%E6%A0%88-%E9%98%9F%E5%88%97%EF%BC%88%E5%85%A5%E9%97%A8%EF%BC%89/index.html">
 <meta property="og:site_name" content="Daniel Blog">
-<meta property="og:description" content="推送本地库到远程库基本语法git push别名  分支 git checkout master  是切换成master分支 实例1git push xxx(如果没有别名可以不写) master     拉取远程库到本地库基本语法git pull 别名 分支 克隆远程仓库到本地 语法git clone  https:&#x2F;&#x2F;xxxxx.git clone会做如下操作：  1.拉取代码 2.初始化本地仓库">
+<meta property="og:description" content="栈&#x2F;队列1.有效的括号给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;&amp;#123;&#39;，&#39;&amp;#125;&#39;，&#39;[&#39;，&#39;]&#39; 的字符串 s ，判断字符串是否有效。 有效字符串需满足： 左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。  思路：利用栈的先进后出，匹配后将元素出栈，若栈还有元素则返回false 1">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://z3.ax1x.com/2021/09/23/4wG5M4.png">
-<meta property="article:published_time" content="2021-09-23T08:15:01.000Z">
-<meta property="article:modified_time" content="2021-09-23T08:37:38.833Z">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/27/4gyO4s.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/09/27/4g6jde.png">
+<meta property="article:published_time" content="2021-09-27T02:59:22.000Z">
+<meta property="article:modified_time" content="2021-09-27T03:08:40.200Z">
 <meta property="article:author" content="Daniel Lin">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="JavaScript数据结构和算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://z3.ax1x.com/2021/09/23/4wG5M4.png">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/09/27/4gyO4s.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://daniellin0516.github.io/2021/09/23/Git-Githhb%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%BA%93%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%BA%93/index.html">
+  <link rel="canonical" href="http://daniellin0516.github.io/2021/09/27/%E6%A0%88-%E9%98%9F%E5%88%97%EF%BC%88%E5%85%A5%E9%97%A8%EF%BC%89/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -307,21 +308,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%BA%93%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text">推送本地库到远程库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.2.</span> <span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">拉取远程库到本地库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-1"><span class="toc-number">2.1.</span> <span class="toc-text">基本语法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">3.</span> <span class="toc-text">克隆远程仓库到本地</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">语法</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%88-%E9%98%9F%E5%88%97"><span class="toc-number">1.</span> <span class="toc-text">栈&#x2F;队列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7"><span class="toc-number">1.1.</span> <span class="toc-text">1.有效的括号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97"><span class="toc-number">1.2.</span> <span class="toc-text">2.用栈实现队列</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Git-Githhb推送本地库到远程库" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-栈-队列（入门）" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Git_Githhb推送本地库到远程库
+      栈/队列（入门）
     </h1>
   
 
@@ -329,15 +330,15 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2021/09/23/Git-Githhb%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%BA%93%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%BA%93/" class="article-date">
-	  <time datetime="2021-09-23T08:15:01.000Z" itemprop="datePublished">2021-09-23</time>
+	<a href="/2021/09/27/%E6%A0%88-%E9%98%9F%E5%88%97%EF%BC%88%E5%85%A5%E9%97%A8%EF%BC%89/" class="article-date">
+	  <time datetime="2021-09-27T02:59:22.000Z" itemprop="datePublished">2021-09-27</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Git/" rel="tag">Git</a>
+	<a class="article-tag-link-link" href="/tags/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" rel="tag">JavaScript数据结构和算法</a>
   </span>
 
 
@@ -352,38 +353,39 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2021/09/23/Git-Githhb%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%BA%93%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%BA%93/" class="leancloud_visitors"  data-flag-title="Git_Githhb推送本地库到远程库">0</span>
+    	<span id="/2021/09/27/%E6%A0%88-%E9%98%9F%E5%88%97%EF%BC%88%E5%85%A5%E9%97%A8%EF%BC%89/" class="leancloud_visitors"  data-flag-title="栈/队列（入门）">0</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/09/23/Git-Githhb%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%BA%93%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%BA%93/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/09/27/%E6%A0%88-%E9%98%9F%E5%88%97%EF%BC%88%E5%85%A5%E9%97%A8%EF%BC%89/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 105(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 470(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="推送本地库到远程库"><a href="#推送本地库到远程库" class="headerlink" title="推送本地库到远程库"></a>推送本地库到远程库</h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p><code>git push</code>别名  分支</p>
-<p><code>git checkout master</code>  是切换成master分支</p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push xxx(如果没有别名可以不写) master</span><br></pre></td></tr></table></figure>
+        <h1 id="栈-队列"><a href="#栈-队列" class="headerlink" title="栈/队列"></a>栈/队列</h1><h2 id="1-有效的括号"><a href="#1-有效的括号" class="headerlink" title="1.有效的括号"></a>1.有效的括号</h2><p>给定一个只包括 <code>&#39;(&#39;</code>，<code>&#39;)&#39;</code>，<code>&#39;&#123;&#39;</code>，<code>&#39;&#125;&#39;</code>，<code>&#39;[&#39;</code>，<code>&#39;]&#39; </code>的字符串 s ，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<p>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4gyO4s"><img src="https://z3.ax1x.com/2021/09/27/4gyO4s.png" alt="4gyO4s.png"></a></p>
+<p>思路：利用栈的先进后出，匹配后将元素出栈，若栈还有元素则返回false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> n = s.length;</span><br><span class="line">    <span class="keyword">if</span> (n % <span class="number">2</span> === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> pairs = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">        [<span class="string">&#x27;)&#x27;</span>, <span class="string">&#x27;(&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;]&#x27;</span>, <span class="string">&#x27;[&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;&#125;&#x27;</span>, <span class="string">&#x27;&#123;&#x27;</span>]</span><br><span class="line">    ]);</span><br><span class="line">    <span class="keyword">const</span> stk = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> ch <span class="keyword">of</span> s)&#123;</span><br><span class="line">        <span class="keyword">if</span> (pairs.has(ch)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!stk.length || stk[stk.length - <span class="number">1</span>] !== pairs.get(ch)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            stk.pop();</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            stk.push(ch);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> !stk.length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<h2 id="2-用栈实现队列"><a href="#2-用栈实现队列" class="headerlink" title="2.用栈实现队列"></a>2.用栈实现队列</h2><p>请你仅使用两个栈实现先入先出队列。队列应当支持一般队列支持的所有操作（push、pop、peek、empty）：</p>
+<p>实现 <code>MyQueue</code> 类：</p>
+<p>void push(int x) 将元素 x 推到队列的末尾<br>int pop() 从队列的开头移除并返回元素<br>int peek() 返回队列开头的元素<br>boolean empty() 如果队列为空，返回 true ；否则，返回 false</p>
+<p>说明：</p>
+<p>你只能使用标准的栈操作 —— 也就是只有 push to top, peek/pop from top, size, 和 is empty 操作是合法的。<br>你所使用的语言也许不支持栈。你可以使用 list 或者 deque（双端队列）来模拟一</p>
+<p>一个栈，只要是标准的栈操作即可。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4g6jde"><img src="https://z3.ax1x.com/2021/09/27/4g6jde.png" alt="4g6jde.png"></a></p>
+<p>思路：利用辅助栈</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MyQueue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.inStack = [];</span><br><span class="line">    <span class="built_in">this</span>.outStack = [];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MyQueue.prototype.push = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.inStack.push(x);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MyQueue.prototype.pop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">this</span>.outStack.length) &#123;</span><br><span class="line">        <span class="built_in">this</span>.in2out();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.outStack.pop();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MyQueue.prototype.peek = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">this</span>.outStack.length) &#123;</span><br><span class="line">        <span class="built_in">this</span>.in2out();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.outStack[<span class="built_in">this</span>.outStack.length - <span class="number">1</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MyQueue.prototype.empty = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.outStack.length === <span class="number">0</span> &amp;&amp; <span class="built_in">this</span>.inStack.length === <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">MyQueue.prototype.in2out = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">this</span>.inStack.length) &#123;</span><br><span class="line">        <span class="built_in">this</span>.outStack.push(<span class="built_in">this</span>.inStack.pop());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-<hr>
-<h1 id="拉取远程库到本地库"><a href="#拉取远程库到本地库" class="headerlink" title="拉取远程库到本地库"></a>拉取远程库到本地库</h1><h2 id="基本语法-1"><a href="#基本语法-1" class="headerlink" title="基本语法"></a>基本语法</h2><p><code>git pull </code>别名 分支</p>
-<h1 id="克隆远程仓库到本地"><a href="#克隆远程仓库到本地" class="headerlink" title="克隆远程仓库到本地"></a>克隆远程仓库到本地</h1><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4wG5M4"><img src="https://z3.ax1x.com/2021/09/23/4wG5M4.png" alt="4wG5M4.png"></a></p>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p><code>git clone</code>  <a target="_blank" rel="noopener" href="https://xxxxx.git/">https://xxxxx.git</a></p>
-<p>clone会做如下操作：</p>
-<blockquote>
-<p>1.拉取代码</p>
-<p>2.初始化本地仓库</p>
-<p>3.创建别名</p>
-</blockquote>
 
       
     </div>
@@ -393,7 +395,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://daniellin0516.github.io/2021/09/23/Git-Githhb%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%BA%93%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%BA%93/" title="Git_Githhb推送本地库到远程库" target="_blank" rel="external">http://daniellin0516.github.io/2021/09/23/Git-Githhb推送本地库到远程库/</a>
+      <a href="http://daniellin0516.github.io/2021/09/27/%E6%A0%88-%E9%98%9F%E5%88%97%EF%BC%88%E5%85%A5%E9%97%A8%EF%BC%89/" title="栈/队列（入门）" target="_blank" rel="external">http://daniellin0516.github.io/2021/09/27/栈-队列（入门）/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -439,13 +441,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2021/09/24/%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%85%A5%E9%97%A8/" title="字符串(入门)"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2021/09/23/Git-Github%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E5%BA%93-%E5%88%9B%E5%BB%BA%E5%88%AB%E5%90%8D/" title="Git_Github创建远程库&amp;创建别名"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/09/25/%E9%93%BE%E8%A1%A8%EF%BC%88%E5%85%A5%E9%97%A8%EF%BC%89/" title="链表（入门）"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
