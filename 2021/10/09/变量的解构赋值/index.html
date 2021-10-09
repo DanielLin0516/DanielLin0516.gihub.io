@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>块级作用域绑定 | DanielLin</title>
-  <meta name="description" content="let声明声明变量 1234let a;let b,c,d;let e &#x3D; 100;let f &#x3D; 521 , g &#x3D; &amp;#x27;Iloveyou&amp;#x27;  1.变量不能重复声明12let star &#x3D; &amp;#x27;罗志祥&amp;#x27;let star &#x3D; &amp;#x27;小猪&amp;#x27;  2.块级作用域全局，函数，eval if else while for 1234&amp;#123;    let">
+  <title>变量的解构赋值 | DanielLin</title>
+  <meta name="description" content="解构ES6允许按照一定模式从数组和对象中提取值，对变量进行复制，这被称为解构赋值 1.数组的解构123456const F4 &#x3D; [&amp;#x27;11&amp;#x27;,&amp;#x27;22&amp;#x27;,&amp;#x27;33&amp;#x27;,&amp;#x27;44&amp;#x27;]let [xiao,liu,zhao,song] &#x3D; F4console.log(xiao)  &#x2F;&#x2F;11console.log(liu)  &#x2F;&#x2F;22">
 <meta property="og:type" content="article">
-<meta property="og:title" content="块级作用域绑定">
-<meta property="og:url" content="http://daniellin0516.github.io/2021/10/09/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%BB%91%E5%AE%9A/index.html">
+<meta property="og:title" content="变量的解构赋值">
+<meta property="og:url" content="http://daniellin0516.github.io/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/index.html">
 <meta property="og:site_name" content="Daniel Blog">
-<meta property="og:description" content="let声明声明变量 1234let a;let b,c,d;let e &#x3D; 100;let f &#x3D; 521 , g &#x3D; &amp;#x27;Iloveyou&amp;#x27;  1.变量不能重复声明12let star &#x3D; &amp;#x27;罗志祥&amp;#x27;let star &#x3D; &amp;#x27;小猪&amp;#x27;  2.块级作用域全局，函数，eval if else while for 1234&amp;#123;    let">
+<meta property="og:description" content="解构ES6允许按照一定模式从数组和对象中提取值，对变量进行复制，这被称为解构赋值 1.数组的解构123456const F4 &#x3D; [&amp;#x27;11&amp;#x27;,&amp;#x27;22&amp;#x27;,&amp;#x27;33&amp;#x27;,&amp;#x27;44&amp;#x27;]let [xiao,liu,zhao,song] &#x3D; F4console.log(xiao)  &#x2F;&#x2F;11console.log(liu)  &#x2F;&#x2F;22">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-09T02:29:00.000Z">
-<meta property="article:modified_time" content="2021-10-09T05:15:26.673Z">
+<meta property="article:published_time" content="2021-10-09T06:58:41.000Z">
+<meta property="article:modified_time" content="2021-10-09T08:31:13.316Z">
 <meta property="article:author" content="Daniel Lin">
 <meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://daniellin0516.github.io/2021/10/09/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%BB%91%E5%AE%9A/index.html">
+  <link rel="canonical" href="http://daniellin0516.github.io/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -305,21 +305,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#let%E5%A3%B0%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">let声明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8F%98%E9%87%8F%E4%B8%8D%E8%83%BD%E9%87%8D%E5%A4%8D%E5%A3%B0%E6%98%8E"><span class="toc-number">1.1.</span> <span class="toc-text">1.变量不能重复声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.2.</span> <span class="toc-text">2.块级作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%8D%E5%AD%98%E5%9C%A8%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87"><span class="toc-number">1.3.</span> <span class="toc-text">3.不存在变量提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%8D%E5%BD%B1%E5%93%8D%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-number">1.4.</span> <span class="toc-text">4.不影响作用域链</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#const-%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">const 定义常量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%80%E5%AE%9A%E8%A6%81%E8%B5%8B%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="toc-number">2.1.</span> <span class="toc-text">1.一定要赋初始值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%80%E8%88%AC%E5%B8%B8%E9%87%8F%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%86%99%EF%BC%88%E6%BD%9C%E8%A7%84%E5%88%99%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">2.一般常量使用大写（潜规则）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B8%B8%E9%87%8F%E7%9A%84%E5%80%BC%E4%B8%8D%E8%83%BD%E4%BF%AE%E6%94%B9"><span class="toc-number">2.3.</span> <span class="toc-text">3.常量的值不能修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">2.4.</span> <span class="toc-text">4.块级作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AF%B9%E4%BA%8E%E6%95%B0%E7%BB%84%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%83%E7%B4%A0%E4%BF%AE%E6%94%B9%EF%BC%8C%E4%B8%8D%E7%AE%97%E5%81%9A%E5%AF%B9%E5%B8%B8%E9%87%8F%E7%9A%84%E4%BF%AE%E6%94%B9%EF%BC%8C%E4%B8%8D%E4%BC%9A%E6%8A%A5%E9%94%99"><span class="toc-number">2.5.</span> <span class="toc-text">5.对于数组和对象的元素修改，不算做对常量的修改，不会报错</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">解构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E7%BB%84%E7%9A%84%E8%A7%A3%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">1.数组的解构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%A3%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">2.对象的解构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.</span> <span class="toc-text">模板字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A3%B0%E6%98%8E"><span class="toc-number">2.1.</span> <span class="toc-text">1.声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%86%85%E5%AE%B9%E4%B8%AD%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E5%87%BA%E7%8E%B0%E6%8D%A2%E8%A1%8C%E7%AC%A6"><span class="toc-number">2.2.</span> <span class="toc-text">2.内容中可以直接出现换行符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%8F%98%E9%87%8F%E6%8B%BC%E6%8E%A5"><span class="toc-number">2.3.</span> <span class="toc-text">3.变量拼接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%AE%80%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">对象的简化方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%A3%B0%E6%98%8E%E7%89%B9%E7%82%B9"><span class="toc-number">4.</span> <span class="toc-text">箭头函数以及声明特点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-this%E6%98%AF%E9%9D%99%E6%80%81%E7%9A%84%EF%BC%8Cthis%E5%A7%8B%E7%BB%88%E6%8C%87%E5%90%91%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E6%97%B6%E6%89%80%E5%9C%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8B%E7%9A%84this%E7%9A%84%E5%80%BC"><span class="toc-number">4.1.</span> <span class="toc-text">1.this是静态的，this始终指向函数声明时所在作用域下的this的值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8D%E8%83%BD%E4%BD%9C%E4%B8%BA%E6%9E%84%E9%80%A0%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.2.</span> <span class="toc-text">2.不能作为构造实例化对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8arguments%E5%8F%98%E9%87%8F"><span class="toc-number">4.3.</span> <span class="toc-text">3.不能使用arguments变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E7%9A%84%E7%AE%80%E5%86%99"><span class="toc-number">4.4.</span> <span class="toc-text">4.箭头函数的简写</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-块级作用域绑定" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-变量的解构赋值" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      块级作用域绑定
+      变量的解构赋值
     </h1>
   
 
@@ -327,8 +327,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2021/10/09/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%BB%91%E5%AE%9A/" class="article-date">
-	  <time datetime="2021-10-09T02:29:00.000Z" itemprop="datePublished">2021-10-09</time>
+	<a href="/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" class="article-date">
+	  <time datetime="2021-10-09T06:58:41.000Z" itemprop="datePublished">2021-10-09</time>
 	</a>
 </span>
         
@@ -350,53 +350,75 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2021/10/09/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%BB%91%E5%AE%9A/" class="leancloud_visitors"  data-flag-title="块级作用域绑定">0</span>
+    	<span id="/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" class="leancloud_visitors"  data-flag-title="变量的解构赋值">0</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/10/09/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%BB%91%E5%AE%9A/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 296(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 660(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="let声明"><a href="#let声明" class="headerlink" title="let声明"></a>let声明</h1><p><strong>声明变量</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a;</span><br><span class="line"><span class="keyword">let</span> b,c,d;</span><br><span class="line"><span class="keyword">let</span> e = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">let</span> f = <span class="number">521</span> , g = <span class="string">&#x27;Iloveyou&#x27;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h1><p>ES6允许按照一定模式从数组和对象中提取值，对变量进行复制，这被称为解构赋值</p>
+<h2 id="1-数组的解构"><a href="#1-数组的解构" class="headerlink" title="1.数组的解构"></a>1.数组的解构</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> F4 = [<span class="string">&#x27;11&#x27;</span>,<span class="string">&#x27;22&#x27;</span>,<span class="string">&#x27;33&#x27;</span>,<span class="string">&#x27;44&#x27;</span>]</span><br><span class="line"><span class="keyword">let</span> [xiao,liu,zhao,song] = F4</span><br><span class="line"><span class="built_in">console</span>.log(xiao)  <span class="comment">//11</span></span><br><span class="line"><span class="built_in">console</span>.log(liu)  <span class="comment">//22</span></span><br><span class="line"><span class="built_in">console</span>.log(zhao)  <span class="comment">//33</span></span><br><span class="line"><span class="built_in">console</span>.log(song)  <span class="comment">//44</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="1-变量不能重复声明"><a href="#1-变量不能重复声明" class="headerlink" title="1.变量不能重复声明"></a>1.变量不能重复声明</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> star = <span class="string">&#x27;罗志祥&#x27;</span></span><br><span class="line"><span class="keyword">let</span> star = <span class="string">&#x27;小猪&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="2-块级作用域"><a href="#2-块级作用域" class="headerlink" title="2.块级作用域"></a>2.块级作用域</h2><p><strong>全局，函数，eval</strong></p>
-<p><code>if</code> <code>else</code> <code>while</code> <code>for</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> girl = <span class="string">&#x27;周扬青&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(girl)    <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> girl = <span class="string">&#x27;周扬青&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(girl)    <span class="comment">//周扬青</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-对象的解构"><a href="#2-对象的解构" class="headerlink" title="2.对象的解构"></a>2.对象的解构</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> zhao = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;赵本山&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>:<span class="string">&#x27;不详&#x27;</span>,</span><br><span class="line">    <span class="attr">xiaopin</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;我可以演小品&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123;name,age,xiaopin&#125; = zhao</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-不存在变量提升"><a href="#3-不存在变量提升" class="headerlink" title="3.不存在变量提升"></a>3.不存在变量提升</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(song)</span><br><span class="line">    <span class="keyword">var</span> song = <span class="string">&#x27;9999&#x27;</span>    <span class="comment">//不会报错，会显示undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(song)</span><br><span class="line">    <span class="keyword">let</span> song = <span class="string">&#x27;8999&#x27;</span>   <span class="comment">//报错，无提升</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-不影响作用域链"><a href="#4-不影响作用域链" class="headerlink" title="4.不影响作用域链"></a>4.不影响作用域链</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> school = <span class="string">&#x27;尚硅谷&#x27;</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(school)</span><br><span class="line">    &#125;</span><br><span class="line">    fn();           <span class="comment">//输出尚硅谷</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h1 id="const-定义常量"><a href="#const-定义常量" class="headerlink" title="const 定义常量"></a>const 定义常量</h1><p><strong>声明常量</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> scool = <span class="string">&#x27;山硅谷&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(school)</span><br></pre></td></tr></table></figure>
+<h1 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h1><ul>
+<li>ES6引入新的声明字符串的方式``` `</li>
+</ul>
+<h2 id="1-声明"><a href="#1-声明" class="headerlink" title="1.声明"></a>1.声明</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">`我也是字符串`</span></span><br><span class="line"><span class="built_in">console</span>.log(str,<span class="keyword">typeof</span> str)   </span><br><span class="line"><span class="comment">//我也是字符串  String</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="1-一定要赋初始值"><a href="#1-一定要赋初始值" class="headerlink" title="1.一定要赋初始值"></a>1.一定要赋初始值</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> A     <span class="comment">//报错，未赋予初始值</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-内容中可以直接出现换行符"><a href="#2-内容中可以直接出现换行符" class="headerlink" title="2.内容中可以直接出现换行符"></a>2.内容中可以直接出现换行符</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;&lt;ul&gt;&lt;li&gt;1&lt;/li&gt;&lt;li&gt;2&lt;/li&gt;&lt;li&gt;3&lt;/li&gt;&lt;/ul&gt;&#x27;</span>   <span class="comment">//无法换行</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`&lt;ul&gt;</span></span><br><span class="line"><span class="string">			&lt;li&gt;1&lt;/li&gt;</span></span><br><span class="line"><span class="string">			&lt;li&gt;2&lt;/li&gt;</span></span><br><span class="line"><span class="string">			&lt;li&gt;3&lt;/li&gt;</span></span><br><span class="line"><span class="string">			&lt;/ul&gt;`</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="2-一般常量使用大写（潜规则）"><a href="#2-一般常量使用大写（潜规则）" class="headerlink" title="2.一般常量使用大写（潜规则）"></a>2.一般常量使用大写（潜规则）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-变量拼接"><a href="#3-变量拼接" class="headerlink" title="3.变量拼接"></a>3.变量拼接</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> lovest = <span class="string">&#x27;魏翔&#x27;</span></span><br><span class="line"><span class="keyword">let</span> out = <span class="string">`<span class="subst">$&#123;lovest&#125;</span>是我心目中最搞笑的演员`</span></span><br><span class="line"><span class="built_in">console</span>.log(out)  <span class="comment">//魏翔是我心目中最搞笑的演员</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="3-常量的值不能修改"><a href="#3-常量的值不能修改" class="headerlink" title="3.常量的值不能修改"></a>3.常量的值不能修改</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> scool = <span class="string">&#x27;山硅谷&#x27;</span></span><br><span class="line">school = <span class="string">&#x27;aaaa&#x27;</span>    <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="4-块级作用域"><a href="#4-块级作用域" class="headerlink" title="4.块级作用域"></a>4.块级作用域</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">const</span> Player = <span class="string">&#x27;uzi&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Player)    <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="5-对于数组和对象的元素修改，不算做对常量的修改，不会报错"><a href="#5-对于数组和对象的元素修改，不算做对常量的修改，不会报错" class="headerlink" title="5.对于数组和对象的元素修改，不算做对常量的修改，不会报错"></a>5.对于数组和对象的元素修改，不算做对常量的修改，不会报错</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Tanm = [<span class="string">&#x27;uzi&#x27;</span>,<span class="string">&#x27;mxlg&#x27;</span>]</span><br><span class="line">Tanm.push(<span class="string">&#x27;M&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="对象的简化方法"><a href="#对象的简化方法" class="headerlink" title="对象的简化方法"></a>对象的简化方法</h1><blockquote>
+<p>ES6允许在大括号里面，直接写入变量和函数，作为对象的属性和方法。</p>
+<p>这样的书写更加简洁</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;尚硅谷&#x27;</span></span><br><span class="line"><span class="keyword">let</span> change = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;我们可以改变&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> school = &#123;</span><br><span class="line">    name,</span><br><span class="line">    change,</span><br><span class="line">    <span class="function"><span class="title">improve</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;我们可以提升你的技能&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<hr>
+<h1 id="箭头函数以及声明特点"><a href="#箭头函数以及声明特点" class="headerlink" title="箭头函数以及声明特点"></a>箭头函数以及声明特点</h1><blockquote>
+<p>ES6允许使用箭头(=&gt;)定义函数</p>
+<p>声明一个函数</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fn = <span class="function">(<span class="params">a,b</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用函数</span></span><br><span class="line"><span class="keyword">let</span> result = fn(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result)  <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-this是静态的，this始终指向函数声明时所在作用域下的this的值"><a href="#1-this是静态的，this始终指向函数声明时所在作用域下的this的值" class="headerlink" title="1.this是静态的，this始终指向函数声明时所在作用域下的this的值"></a>1.this是静态的，this始终指向函数声明时所在作用域下的this的值</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> getName2 = <span class="function">() =&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//设置window对象的name属性</span></span><br><span class="line"><span class="built_in">window</span>.name = <span class="string">&#x27;尚硅谷&#x27;</span></span><br><span class="line"><span class="keyword">const</span> school = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;ATGUIGU&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//直接调用</span></span><br><span class="line">getName();   尚硅谷</span><br><span class="line">getName2();  尚硅谷</span><br><span class="line"> </span><br><span class="line"><span class="comment">//call方法调用</span></span><br><span class="line">getName.call(school)   <span class="comment">//ATGUIGU</span></span><br><span class="line">getName2.call(school)  <span class="comment">//尚硅谷</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-不能作为构造实例化对象"><a href="#2-不能作为构造实例化对象" class="headerlink" title="2.不能作为构造实例化对象"></a>2.不能作为构造实例化对象</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Person = <span class="function">(<span class="params">name,age</span>) =&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">    <span class="built_in">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> me = New Person(<span class="string">&#x27;xiao&#x27;</span>,<span class="number">30</span>);</span><br><span class="line"><span class="built_in">console</span>.log(me)  <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-不能使用arguments变量"><a href="#3-不能使用arguments变量" class="headerlink" title="3.不能使用arguments变量"></a>3.不能使用arguments变量</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arguements)</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)     <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-箭头函数的简写"><a href="#4-箭头函数的简写" class="headerlink" title="4.箭头函数的简写"></a>4.箭头函数的简写</h2><blockquote>
+<p>省略小括号，当形参有且只有一个的时候</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> add = <span class="function"><span class="params">n</span> =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n+n</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">9</span>))  <span class="comment">//18</span></span><br></pre></td></tr></table></figure>
+
+<p>省略花括号，当代码体只有一条语句的时候，此时return必须省略</p>
+<p>而且语句的执行结果就是函数的返回值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> pow = <span class="function">(<span class="params">n</span>)=&gt;</span> n *n</span><br><span class="line"><span class="built_in">console</span>.log(pow(<span class="number">9</span>))  <span class="comment">//81</span></span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
 
       
     </div>
@@ -406,7 +428,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://daniellin0516.github.io/2021/10/09/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%BB%91%E5%AE%9A/" title="块级作用域绑定" target="_blank" rel="external">http://daniellin0516.github.io/2021/10/09/块级作用域绑定/</a>
+      <a href="http://daniellin0516.github.io/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" title="变量的解构赋值" target="_blank" rel="external">http://daniellin0516.github.io/2021/10/09/变量的解构赋值/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -452,13 +474,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" title="变量的解构赋值"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2021/09/28/%E6%A0%91%EF%BC%88%E5%85%A5%E9%97%A8%EF%BC%89/" title="树（入门）"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/10/09/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%BB%91%E5%AE%9A/" title="块级作用域绑定"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
