@@ -17,21 +17,25 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>变量的解构赋值 | DanielLin</title>
-  <meta name="description" content="解构ES6允许按照一定模式从数组和对象中提取值，对变量进行复制，这被称为解构赋值 1.数组的解构123456const F4 &#x3D; [&amp;#x27;11&amp;#x27;,&amp;#x27;22&amp;#x27;,&amp;#x27;33&amp;#x27;,&amp;#x27;44&amp;#x27;]let [xiao,liu,zhao,song] &#x3D; F4console.log(xiao)  &#x2F;&#x2F;11console.log(liu)  &#x2F;&#x2F;22">
+  <title>函数参数默认值设置、reset参数、扩展运算符 | DanielLin</title>
+  <meta name="description" content="函数参数的默认值设置1.形参初始值 具有默认值的参数 一般位置要靠后（潜规则）1234567891011function add(a,b,c &#x3D; 10)&amp;#123;    return a + b + c;&amp;#125;let result &#x3D; add(1,2,3)console.log(result)   &#x2F;&#x2F;输出6function add(a,c &#x3D; 10，b)&amp;#123;    return">
 <meta property="og:type" content="article">
-<meta property="og:title" content="变量的解构赋值">
-<meta property="og:url" content="http://daniellin0516.github.io/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/index.html">
+<meta property="og:title" content="函数参数默认值设置、reset参数、扩展运算符">
+<meta property="og:url" content="http://daniellin0516.github.io/2021/10/10/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE%E3%80%81reset%E5%8F%82%E6%95%B0%E3%80%81%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6/index.html">
 <meta property="og:site_name" content="Daniel Blog">
-<meta property="og:description" content="解构ES6允许按照一定模式从数组和对象中提取值，对变量进行复制，这被称为解构赋值 1.数组的解构123456const F4 &#x3D; [&amp;#x27;11&amp;#x27;,&amp;#x27;22&amp;#x27;,&amp;#x27;33&amp;#x27;,&amp;#x27;44&amp;#x27;]let [xiao,liu,zhao,song] &#x3D; F4console.log(xiao)  &#x2F;&#x2F;11console.log(liu)  &#x2F;&#x2F;22">
+<meta property="og:description" content="函数参数的默认值设置1.形参初始值 具有默认值的参数 一般位置要靠后（潜规则）1234567891011function add(a,b,c &#x3D; 10)&amp;#123;    return a + b + c;&amp;#125;let result &#x3D; add(1,2,3)console.log(result)   &#x2F;&#x2F;输出6function add(a,c &#x3D; 10，b)&amp;#123;    return">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-09T06:58:41.000Z">
-<meta property="article:modified_time" content="2021-10-09T08:31:13.316Z">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/10/5ApORe.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/10/5A9ii8.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/10/5ACi01.png">
+<meta property="article:published_time" content="2021-10-10T01:35:32.000Z">
+<meta property="article:modified_time" content="2021-10-10T02:28:40.323Z">
 <meta property="article:author" content="Daniel Lin">
 <meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/10/10/5ApORe.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://daniellin0516.github.io/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/index.html">
+  <link rel="canonical" href="http://daniellin0516.github.io/2021/10/10/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE%E3%80%81reset%E5%8F%82%E6%95%B0%E3%80%81%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -305,21 +309,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">解构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E7%BB%84%E7%9A%84%E8%A7%A3%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">1.数组的解构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%A7%A3%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">2.对象的解构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.</span> <span class="toc-text">模板字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A3%B0%E6%98%8E"><span class="toc-number">2.1.</span> <span class="toc-text">1.声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%86%85%E5%AE%B9%E4%B8%AD%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E5%87%BA%E7%8E%B0%E6%8D%A2%E8%A1%8C%E7%AC%A6"><span class="toc-number">2.2.</span> <span class="toc-text">2.内容中可以直接出现换行符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%8F%98%E9%87%8F%E6%8B%BC%E6%8E%A5"><span class="toc-number">2.3.</span> <span class="toc-text">3.变量拼接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%AE%80%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">对象的简化方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%A3%B0%E6%98%8E%E7%89%B9%E7%82%B9"><span class="toc-number">4.</span> <span class="toc-text">箭头函数以及声明特点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-this%E6%98%AF%E9%9D%99%E6%80%81%E7%9A%84%EF%BC%8Cthis%E5%A7%8B%E7%BB%88%E6%8C%87%E5%90%91%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E6%97%B6%E6%89%80%E5%9C%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8B%E7%9A%84this%E7%9A%84%E5%80%BC"><span class="toc-number">4.1.</span> <span class="toc-text">1.this是静态的，this始终指向函数声明时所在作用域下的this的值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8D%E8%83%BD%E4%BD%9C%E4%B8%BA%E6%9E%84%E9%80%A0%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.2.</span> <span class="toc-text">2.不能作为构造实例化对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8arguments%E5%8F%98%E9%87%8F"><span class="toc-number">4.3.</span> <span class="toc-text">3.不能使用arguments变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E7%9A%84%E7%AE%80%E5%86%99"><span class="toc-number">4.4.</span> <span class="toc-text">4.箭头函数的简写</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">函数参数的默认值设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BD%A2%E5%8F%82%E5%88%9D%E5%A7%8B%E5%80%BC-%E5%85%B7%E6%9C%89%E9%BB%98%E8%AE%A4%E5%80%BC%E7%9A%84%E5%8F%82%E6%95%B0-%E4%B8%80%E8%88%AC%E4%BD%8D%E7%BD%AE%E8%A6%81%E9%9D%A0%E5%90%8E%EF%BC%88%E6%BD%9C%E8%A7%84%E5%88%99%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">1.形参初始值 具有默认值的参数 一般位置要靠后（潜规则）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8E%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E7%BB%93%E5%90%88"><span class="toc-number">1.2.</span> <span class="toc-text">2.与解构赋值结合</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rest%E5%8F%82%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">rest参数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#rest%E5%8F%82%E6%95%B0-1"><span class="toc-number">2.1.</span> <span class="toc-text">rest参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">扩展运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text">扩展运算符的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E7%BB%84%E7%9A%84%E5%90%88%E5%B9%B6"><span class="toc-number">3.1.1.</span> <span class="toc-text">1.数组的合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E7%BB%84%E7%9A%84%E5%85%8B%E9%9A%86"><span class="toc-number">3.1.2.</span> <span class="toc-text">2.数组的克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B0%86%E4%BC%AA%E6%95%B0%E7%BB%84%E8%BD%AC%E4%B8%BA%E7%9C%9F%E6%AD%A3%E7%9A%84%E6%95%B0%E7%BB%84"><span class="toc-number">3.1.3.</span> <span class="toc-text">3.将伪数组转为真正的数组</span></a></li></ol></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-变量的解构赋值" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-函数参数默认值设置、reset参数、扩展运算符" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      变量的解构赋值
+      函数参数默认值设置、reset参数、扩展运算符
     </h1>
   
 
@@ -327,8 +331,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" class="article-date">
-	  <time datetime="2021-10-09T06:58:41.000Z" itemprop="datePublished">2021-10-09</time>
+	<a href="/2021/10/10/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE%E3%80%81reset%E5%8F%82%E6%95%B0%E3%80%81%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6/" class="article-date">
+	  <time datetime="2021-10-10T01:35:32.000Z" itemprop="datePublished">2021-10-10</time>
 	</a>
 </span>
         
@@ -350,75 +354,63 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" class="leancloud_visitors"  data-flag-title="变量的解构赋值">0</span>
+    	<span id="/2021/10/10/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE%E3%80%81reset%E5%8F%82%E6%95%B0%E3%80%81%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6/" class="leancloud_visitors"  data-flag-title="函数参数默认值设置、reset参数、扩展运算符">0</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/10/10/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE%E3%80%81reset%E5%8F%82%E6%95%B0%E3%80%81%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 660(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 457(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h1><p>ES6允许按照一定模式从数组和对象中提取值，对变量进行复制，这被称为解构赋值</p>
-<h2 id="1-数组的解构"><a href="#1-数组的解构" class="headerlink" title="1.数组的解构"></a>1.数组的解构</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> F4 = [<span class="string">&#x27;11&#x27;</span>,<span class="string">&#x27;22&#x27;</span>,<span class="string">&#x27;33&#x27;</span>,<span class="string">&#x27;44&#x27;</span>]</span><br><span class="line"><span class="keyword">let</span> [xiao,liu,zhao,song] = F4</span><br><span class="line"><span class="built_in">console</span>.log(xiao)  <span class="comment">//11</span></span><br><span class="line"><span class="built_in">console</span>.log(liu)  <span class="comment">//22</span></span><br><span class="line"><span class="built_in">console</span>.log(zhao)  <span class="comment">//33</span></span><br><span class="line"><span class="built_in">console</span>.log(song)  <span class="comment">//44</span></span><br></pre></td></tr></table></figure>
+        <h1 id="函数参数的默认值设置"><a href="#函数参数的默认值设置" class="headerlink" title="函数参数的默认值设置"></a>函数参数的默认值设置</h1><h2 id="1-形参初始值-具有默认值的参数-一般位置要靠后（潜规则）"><a href="#1-形参初始值-具有默认值的参数-一般位置要靠后（潜规则）" class="headerlink" title="1.形参初始值 具有默认值的参数 一般位置要靠后（潜规则）"></a>1.形参初始值 具有默认值的参数 一般位置要靠后（潜规则）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b,c = <span class="number">10</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b + c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> result = add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result)   <span class="comment">//输出6</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,c = <span class="number">10</span>，b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b + c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> result = add(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result)   <span class="comment">//输出NaN</span></span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="2-对象的解构"><a href="#2-对象的解构" class="headerlink" title="2.对象的解构"></a>2.对象的解构</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> zhao = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;赵本山&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>:<span class="string">&#x27;不详&#x27;</span>,</span><br><span class="line">    <span class="attr">xiaopin</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;我可以演小品&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123;name,age,xiaopin&#125; = zhao</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2-与解构赋值结合"><a href="#2-与解构赋值结合" class="headerlink" title="2.与解构赋值结合"></a>2.与解构赋值结合</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">connect</span>(<span class="params">&#123;host,username,password,port&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(host)      <span class="comment">//localhost</span></span><br><span class="line">    <span class="built_in">console</span>.log(username)  <span class="comment">//root</span></span><br><span class="line">    <span class="built_in">console</span>.log(password)  <span class="comment">//root</span></span><br><span class="line">    <span class="built_in">console</span>.log(port)    <span class="comment">//3306</span></span><br><span class="line">&#125;</span><br><span class="line">connect(&#123;</span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;localhost&#x27;</span>,</span><br><span class="line">    <span class="attr">username</span>: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    <span class="attr">password</span>: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    <span class="attr">pot</span>: <span class="number">3306</span>    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
 <hr>
-<h1 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h1><ul>
-<li>ES6引入新的声明字符串的方式``` `</li>
-</ul>
-<h2 id="1-声明"><a href="#1-声明" class="headerlink" title="1.声明"></a>1.声明</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">`我也是字符串`</span></span><br><span class="line"><span class="built_in">console</span>.log(str,<span class="keyword">typeof</span> str)   </span><br><span class="line"><span class="comment">//我也是字符串  String</span></span><br></pre></td></tr></table></figure>
+<h1 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h1><blockquote>
+<p>ES6引入reset参数，用于获取函数的实参，用来代替arguement</p>
+<p>ES5获取实参的方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">date</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arguement)</span><br><span class="line">&#125;</span><br><span class="line">date(<span class="string">&#x27;白芷&#x27;</span>,<span class="string">&#x27;阿娇&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-内容中可以直接出现换行符"><a href="#2-内容中可以直接出现换行符" class="headerlink" title="2.内容中可以直接出现换行符"></a>2.内容中可以直接出现换行符</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;&lt;ul&gt;&lt;li&gt;1&lt;/li&gt;&lt;li&gt;2&lt;/li&gt;&lt;li&gt;3&lt;/li&gt;&lt;/ul&gt;&#x27;</span>   <span class="comment">//无法换行</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`&lt;ul&gt;</span></span><br><span class="line"><span class="string">			&lt;li&gt;1&lt;/li&gt;</span></span><br><span class="line"><span class="string">			&lt;li&gt;2&lt;/li&gt;</span></span><br><span class="line"><span class="string">			&lt;li&gt;3&lt;/li&gt;</span></span><br><span class="line"><span class="string">			&lt;/ul&gt;`</span></span><br></pre></td></tr></table></figure>
+<p>结果如下图所示</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5ApORe"><img src="https://z3.ax1x.com/2021/10/10/5ApORe.png" alt="5ApORe.png"></a></p>
+<p>结果是个对象</p>
+</blockquote>
+<h2 id="rest参数-1"><a href="#rest参数-1" class="headerlink" title="rest参数"></a>rest参数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">date</span>(<span class="params">...args</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(args)</span><br><span class="line">&#125;</span><br><span class="line">date(<span class="string">&#x27;白芷&#x27;</span>,<span class="string">&#x27;阿娇&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-变量拼接"><a href="#3-变量拼接" class="headerlink" title="3.变量拼接"></a>3.变量拼接</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> lovest = <span class="string">&#x27;魏翔&#x27;</span></span><br><span class="line"><span class="keyword">let</span> out = <span class="string">`<span class="subst">$&#123;lovest&#125;</span>是我心目中最搞笑的演员`</span></span><br><span class="line"><span class="built_in">console</span>.log(out)  <span class="comment">//魏翔是我心目中最搞笑的演员</span></span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5A9ii8"><img src="https://z3.ax1x.com/2021/10/10/5A9ii8.png" alt="5A9ii8.png"></a></p>
+<p>是个数组，可以用数组的方法：filter some every map</p>
+<p>==rest参数必须要放到最后==</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a,b,...args</span>)</span>&#123;     <span class="comment">//否则会报错</span></span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">    <span class="built_in">console</span>.log(b)</span><br><span class="line">    <span class="built_in">console</span>.log(args)</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
 
 
 
 <hr>
-<h1 id="对象的简化方法"><a href="#对象的简化方法" class="headerlink" title="对象的简化方法"></a>对象的简化方法</h1><blockquote>
-<p>ES6允许在大括号里面，直接写入变量和函数，作为对象的属性和方法。</p>
-<p>这样的书写更加简洁</p>
+<h1 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h1><blockquote>
+<p>『…』扩展运算符能将『数组』转换为逗号分隔的『参数序列』</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明一个数组 ...</span></span><br><span class="line"><span class="keyword">const</span> tfboys = [<span class="string">&#x27;易烊千玺&#x27;</span>,<span class="string">&#x27;王源&#x27;</span>,<span class="string">&#x27;王俊凯&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//声明一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">chunwan</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line">chunwan(tfboys)     <span class="comment">//1</span></span><br><span class="line">chunwan(...tfboys)  <span class="comment">//2    chuwan(&#x27;易烊千玺&#x27;,&#x27;王源&#x27;,&#x27;王俊凯&#x27;)</span></span><br></pre></td></tr></table></figure>
+
+<p>1、2的结果如果所示：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5ACi01"><img src="https://z3.ax1x.com/2021/10/10/5ACi01.png" alt="5ACi01.png"></a></p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;尚硅谷&#x27;</span></span><br><span class="line"><span class="keyword">let</span> change = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;我们可以改变&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> school = &#123;</span><br><span class="line">    name,</span><br><span class="line">    change,</span><br><span class="line">    <span class="function"><span class="title">improve</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;我们可以提升你的技能&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="扩展运算符的应用"><a href="#扩展运算符的应用" class="headerlink" title="扩展运算符的应用"></a>扩展运算符的应用</h2><h3 id="1-数组的合并"><a href="#1-数组的合并" class="headerlink" title="1.数组的合并"></a>1.数组的合并</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> kuaizi = [<span class="string">&#x27;111&#x27;</span>,<span class="string">&#x27;222&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> fenghuang = [<span class="string">&#x27;333&#x27;</span>,<span class="string">&#x27;444&#x27;</span>]</span><br><span class="line"><span class="comment">//const xiaopingguo = kuaizi.concat(fenghuang)   //ES5</span></span><br><span class="line"><span class="keyword">const</span> xiaopingguo = [...kuaizi,...fenghuang]</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h1 id="箭头函数以及声明特点"><a href="#箭头函数以及声明特点" class="headerlink" title="箭头函数以及声明特点"></a>箭头函数以及声明特点</h1><blockquote>
-<p>ES6允许使用箭头(=&gt;)定义函数</p>
-<p>声明一个函数</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fn = <span class="function">(<span class="params">a,b</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用函数</span></span><br><span class="line"><span class="keyword">let</span> result = fn(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result)  <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-数组的克隆"><a href="#2-数组的克隆" class="headerlink" title="2.数组的克隆"></a>2.数组的克隆</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sanzhihua = [<span class="string">&#x27;E&#x27;</span>,<span class="string">&#x27;G&#x27;</span>,<span class="string">&#x27;M&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> sannyecao = [...sanzhihua]; <span class="comment">//[&#x27;E&#x27;,&#x27;G&#x27;,&#x27;M&#x27;]</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="1-this是静态的，this始终指向函数声明时所在作用域下的this的值"><a href="#1-this是静态的，this始终指向函数声明时所在作用域下的this的值" class="headerlink" title="1.this是静态的，this始终指向函数声明时所在作用域下的this的值"></a>1.this是静态的，this始终指向函数声明时所在作用域下的this的值</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> getName2 = <span class="function">() =&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//设置window对象的name属性</span></span><br><span class="line"><span class="built_in">window</span>.name = <span class="string">&#x27;尚硅谷&#x27;</span></span><br><span class="line"><span class="keyword">const</span> school = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;ATGUIGU&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//直接调用</span></span><br><span class="line">getName();   尚硅谷</span><br><span class="line">getName2();  尚硅谷</span><br><span class="line"> </span><br><span class="line"><span class="comment">//call方法调用</span></span><br><span class="line">getName.call(school)   <span class="comment">//ATGUIGU</span></span><br><span class="line">getName2.call(school)  <span class="comment">//尚硅谷</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-将伪数组转为真正的数组"><a href="#3-将伪数组转为真正的数组" class="headerlink" title="3.将伪数组转为真正的数组"></a>3.将伪数组转为真正的数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> divs = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> divArr = [...divs]</span><br><span class="line"><span class="built_in">console</span>.log(divArr)    <span class="comment">//将对象转换为</span></span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="2-不能作为构造实例化对象"><a href="#2-不能作为构造实例化对象" class="headerlink" title="2.不能作为构造实例化对象"></a>2.不能作为构造实例化对象</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Person = <span class="function">(<span class="params">name,age</span>) =&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">    <span class="built_in">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> me = New Person(<span class="string">&#x27;xiao&#x27;</span>,<span class="number">30</span>);</span><br><span class="line"><span class="built_in">console</span>.log(me)  <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-不能使用arguments变量"><a href="#3-不能使用arguments变量" class="headerlink" title="3.不能使用arguments变量"></a>3.不能使用arguments变量</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arguements)</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)     <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="4-箭头函数的简写"><a href="#4-箭头函数的简写" class="headerlink" title="4.箭头函数的简写"></a>4.箭头函数的简写</h2><blockquote>
-<p>省略小括号，当形参有且只有一个的时候</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> add = <span class="function"><span class="params">n</span> =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n+n</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">9</span>))  <span class="comment">//18</span></span><br></pre></td></tr></table></figure>
-
-<p>省略花括号，当代码体只有一条语句的时候，此时return必须省略</p>
-<p>而且语句的执行结果就是函数的返回值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> pow = <span class="function">(<span class="params">n</span>)=&gt;</span> n *n</span><br><span class="line"><span class="built_in">console</span>.log(pow(<span class="number">9</span>))  <span class="comment">//81</span></span><br></pre></td></tr></table></figure>
-
-
-</blockquote>
 
       
     </div>
@@ -428,7 +420,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://daniellin0516.github.io/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" title="变量的解构赋值" target="_blank" rel="external">http://daniellin0516.github.io/2021/10/09/变量的解构赋值/</a>
+      <a href="http://daniellin0516.github.io/2021/10/10/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE%E3%80%81reset%E5%8F%82%E6%95%B0%E3%80%81%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6/" title="函数参数默认值设置、reset参数、扩展运算符" target="_blank" rel="external">http://daniellin0516.github.io/2021/10/10/函数参数默认值设置、reset参数、扩展运算符/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -474,13 +466,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2021/10/10/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC%E8%AE%BE%E7%BD%AE%E3%80%81reset%E5%8F%82%E6%95%B0%E3%80%81%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6/" title="函数参数默认值设置、reset参数、扩展运算符"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2021/10/09/%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%BB%91%E5%AE%9A/" title="块级作用域绑定"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/10/09/%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" title="变量的解构赋值"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
