@@ -5527,7 +5527,7 @@ pre .js .function {
 
 pre,
 .highlight {
-  background: #fafafa;
+  background: rgb(182,201,215);
   margin: 10px 0;
   padding: 15px 10px;
   overflow: auto;
@@ -5571,7 +5571,7 @@ pre code {
   top: 0;
   left: 0;
   right: 0;
-  background-color: #f6f6f6;
+  background-color: rgb(182,201,215);
   padding: 0 10px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
