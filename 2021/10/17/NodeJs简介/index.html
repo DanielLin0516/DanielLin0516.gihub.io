@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>CSS修改元素样式和语法 | DanielLin</title>
-  <meta name="description" content="使用css修改元素样式1.第一种 内联样式，行内样式（不推荐使用，只能对一个标签生效） 在标签内部通过style属性设置元素样式 1&lt;p style&#x3D;&quot;color:red font-size:20px&quot;&gt;&lt;&#x2F;p&gt;  2.第二种 内部样式表（方便更改，使用，只能对一个网页作用） 1234567&lt;head&gt;&lt;style&gt;p&amp;#123;">
+  <title>NodeJs简介 | DanielLin</title>
+  <meta name="description" content="Node.js优点优点 1.异步非阻塞的I&#x2F;O（I&#x2F;O线程池） 2.特别适用于I&#x2F;O密集型应用 3.事件循环机制 4.单线程（成也单线程，败也单线程） 5.跨平台  缺点 1.回调函数嵌套太多，太深（俗称回调地狱） 2.单线程，处理不好CPU密集型任务   node中的函数通过argument.callee.toString()可以看到一个函数“ 1function (exports, requi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS修改元素样式和语法">
-<meta property="og:url" content="http://daniellin0516.github.io/2021/07/22/CSS%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F%E5%92%8C%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:title" content="NodeJs简介">
+<meta property="og:url" content="http://daniellin0516.github.io/2021/10/17/NodeJs%E7%AE%80%E4%BB%8B/index.html">
 <meta property="og:site_name" content="Daniel Blog">
-<meta property="og:description" content="使用css修改元素样式1.第一种 内联样式，行内样式（不推荐使用，只能对一个标签生效） 在标签内部通过style属性设置元素样式 1&lt;p style&#x3D;&quot;color:red font-size:20px&quot;&gt;&lt;&#x2F;p&gt;  2.第二种 内部样式表（方便更改，使用，只能对一个网页作用） 1234567&lt;head&gt;&lt;style&gt;p&amp;#123;">
+<meta property="og:description" content="Node.js优点优点 1.异步非阻塞的I&#x2F;O（I&#x2F;O线程池） 2.特别适用于I&#x2F;O密集型应用 3.事件循环机制 4.单线程（成也单线程，败也单线程） 5.跨平台  缺点 1.回调函数嵌套太多，太深（俗称回调地狱） 2.单线程，处理不好CPU密集型任务   node中的函数通过argument.callee.toString()可以看到一个函数“ 1function (exports, requi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-22T05:58:02.000Z">
-<meta property="article:modified_time" content="2021-07-29T01:41:58.094Z">
+<meta property="article:published_time" content="2021-10-17T08:44:43.000Z">
+<meta property="article:modified_time" content="2021-10-17T12:39:22.878Z">
 <meta property="article:author" content="Daniel Lin">
-<meta property="article:tag" content="HTML&amp;&amp;CSS">
+<meta property="article:tag" content="NodeJs">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://daniellin0516.github.io/2021/07/22/CSS%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F%E5%92%8C%E8%AF%AD%E6%B3%95/index.html">
+  <link rel="canonical" href="http://daniellin0516.github.io/2021/10/17/NodeJs%E7%AE%80%E4%BB%8B/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -305,21 +305,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8css%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">使用css修改元素样式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%AC%AC%E4%B8%80%E7%A7%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1.第一种</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%AC%AC%E4%BA%8C%E7%A7%8D"><span class="toc-number">1.2.</span> <span class="toc-text">2.第二种</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%AC%AC%E4%B8%89%E7%A7%8D"><span class="toc-number">1.3.</span> <span class="toc-text">3.第三种</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">CSS语法</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js%E4%BC%98%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">Node.js优点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#node%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">node中的函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#node%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">node中的事件循环模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%85%E5%92%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">包和包管理器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">4.1.</span> <span class="toc-text">npm是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text">npm常用命令</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-CSS修改元素样式和语法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-NodeJs简介" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      CSS修改元素样式和语法
+      NodeJs简介
     </h1>
   
 
@@ -327,15 +327,15 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2021/07/22/CSS%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F%E5%92%8C%E8%AF%AD%E6%B3%95/" class="article-date">
-	  <time datetime="2021-07-22T05:58:02.000Z" itemprop="datePublished">2021-07-22</time>
+	<a href="/2021/10/17/NodeJs%E7%AE%80%E4%BB%8B/" class="article-date">
+	  <time datetime="2021-10-17T08:44:43.000Z" itemprop="datePublished">2021-10-17</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/HTML-CSS/" rel="tag">HTML&&CSS</a>
+	<a class="article-tag-link-link" href="/tags/NodeJs/" rel="tag">NodeJs</a>
   </span>
 
 
@@ -350,42 +350,109 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2021/07/22/CSS%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F%E5%92%8C%E8%AF%AD%E6%B3%95/" class="leancloud_visitors"  data-flag-title="CSS修改元素样式和语法">0</span>
+    	<span id="/2021/10/17/NodeJs%E7%AE%80%E4%BB%8B/" class="leancloud_visitors"  data-flag-title="NodeJs简介">0</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/07/22/CSS%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F%E5%92%8C%E8%AF%AD%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/10/17/NodeJs%E7%AE%80%E4%BB%8B/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 216(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 679(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="使用css修改元素样式"><a href="#使用css修改元素样式" class="headerlink" title="使用css修改元素样式"></a>使用css修改元素样式</h2><h3 id="1-第一种"><a href="#1-第一种" class="headerlink" title="1.第一种"></a>1.第一种</h3><blockquote>
-<p>内联样式，行内样式（不推荐使用，只能对一个标签生效）</p>
-<p>在标签内部通过style属性设置元素样式</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color:red font-size:20px&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="Node-js优点"><a href="#Node-js优点" class="headerlink" title="Node.js优点"></a>Node.js优点</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><blockquote>
+<p>1.异步非阻塞的I/O（I/O线程池）</p>
+<p>2.特别适用于I/O密集型应用</p>
+<p>3.事件循环机制</p>
+<p>4.单线程（成也单线程，败也单线程）</p>
+<p>5.跨平台</p>
 </blockquote>
-<h3 id="2-第二种"><a href="#2-第二种" class="headerlink" title="2.第二种"></a>2.第二种</h3><blockquote>
-<p>内部样式表（方便更改，使用，只能对一个网页作用）</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:<span class="string">&quot;green&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="3-第三种"><a href="#3-第三种" class="headerlink" title="3.第三种"></a>3.第三种</h3><blockquote>
-<p>外部样式表（加快网页加载速度，提高用户体验）</p>
-<p>将css样式编写到一个外部的CSS文件中</p>
-<p>通过<code>link</code>标签引入外部css文件</p>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><blockquote>
+<p>1.回调函数嵌套太多，太深（俗称回调地狱）</p>
+<p>2.单线程，处理不好CPU密集型任务</p>
 </blockquote>
 <hr>
-<h2 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h2><ul>
-<li>基本语法：选择器    声明块</li>
-<li>选择器：可选中页面指定元素，比如p作用就是选中页面所有p元素</li>
-<li>声明块：通过声明块来指定为元素设置样式</li>
+<h1 id="node中的函数"><a href="#node中的函数" class="headerlink" title="node中的函数"></a>node中的函数</h1><p>通过<code>argument.callee.toString()</code>可以看到一个函数“</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">exports</span>, <span class="built_in">require</span>, <span class="built_in">module</span>, __filename, __dirname</span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个函数是所有模块都有的，node编译时往其中注入5个参数：</p>
+<p><code>exports</code>     暴露模块</p>
+<p><code>require </code>      引入模块</p>
+<p><code>module </code>     exports属性暴露模块</p>
+<p><code>__filename </code>  文件的绝对路径</p>
+<p><code>_dirname</code>   文件夹的绝对路径</p>
+<hr>
+<h1 id="node中的事件循环模型"><a href="#node中的事件循环模型" class="headerlink" title="node中的事件循环模型"></a>node中的事件循环模型</h1><ol>
+<li>第一个阶段：timers(定时器阶段–<code>setTimeout</code>,<code>setInterval</code>)</li>
+</ol>
+<ul>
+<li>开始计时</li>
+<li>执行定时器的回调</li>
 </ul>
+<ol start="2">
+<li><p>第二个阶段：pending callbacks(系统阶段)</p>
+</li>
+<li><p>第三个阶段：idle,prepare(准备阶段)</p>
+</li>
+<li><p>第四个阶段：poll(轮询阶段，核心)</p>
+<ul>
+<li><p>如果回调队列有待执行的回调函数</p>
+<p>从回调队列中取出回调函数同步执行(一个一个执行)，直到回调队列为空了，或者达到系统最大限度</p>
+</li>
+<li><p>如果回调队列为空</p>
+<ul>
+<li><p>如果有设置过<code>setImmediate</code>,进入下一个check阶段,目的：为了执行<code>setImmediate</code>所设置的回调</p>
+</li>
+<li><p>如果未设置过<code>setImmediate</code>，在此阶段停留，等待回调函数被插入回调队列，若定时器到点了进入下一个check阶段，目的：为了走第五阶段，随后走第六阶段，随后第一阶段(最后目的)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>第五个阶段：check(专门用于执行setImmediate所设置的回调)</p>
+</li>
+<li><p>第六个阶段：close callbacks(关闭回调阶段)</p>
+</li>
+</ol>
+<hr>
+<h1 id="包和包管理器"><a href="#包和包管理器" class="headerlink" title="包和包管理器"></a>包和包管理器</h1><blockquote>
+<p>包实际上就是一个压缩文件，解压以后还原为目录。符合CommonJs规范的目录，应该包含如下文件和文件夹</p>
+<p>1.package.json 描述文件(包的说明书，必须要有！！)</p>
+<p>2.bin 可执行二进制文件</p>
+<p>3.lib js代码</p>
+<p>4.doc 文档</p>
+<p>5.test 单元测试</p>
+</blockquote>
+<h2 id="npm是什么"><a href="#npm是什么" class="headerlink" title="npm是什么"></a>npm是什么</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">全称：Node Package Manager , Node的包管理器</span><br></pre></td></tr></table></figure>
+
+<h2 id="npm常用命令"><a href="#npm常用命令" class="headerlink" title="npm常用命令"></a>npm常用命令</h2><ul>
+<li>搜索</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm search xxxxx</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装</li>
+</ul>
+<p>1.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install xxxx --save</span><br><span class="line"><span class="comment">//或</span></span><br><span class="line">npm i xxxx -S</span><br><span class="line"><span class="comment">//或</span></span><br><span class="line">npm i xxxx</span><br></pre></td></tr></table></figure>
+
+<p>2.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install xxxx --asve-dev  </span><br><span class="line"><span class="comment">//或</span></span><br><span class="line">npm i xxxx -D</span><br><span class="line"><span class="comment">//安装包并将该包写入到(开发依赖中development)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>生产（代码写完了，部署到服务器上，给客户用）依赖(dependendcies)：</p>
+<p>Jquery、bootstrap等</p>
+<p>开发（程序员正在写代码的时候，正在写代码的时候）依赖(devDependencies)：语法检查、压缩代码、扩展css前缀，Jquery、编译less的包</p>
+<p>注意：某些包既属于开发依赖、又属于生产依赖—例如jquery</p>
+</blockquote>
 
       
     </div>
@@ -395,7 +462,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://daniellin0516.github.io/2021/07/22/CSS%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E6%A0%B7%E5%BC%8F%E5%92%8C%E8%AF%AD%E6%B3%95/" title="CSS修改元素样式和语法" target="_blank" rel="external">http://daniellin0516.github.io/2021/07/22/CSS修改元素样式和语法/</a>
+      <a href="http://daniellin0516.github.io/2021/10/17/NodeJs%E7%AE%80%E4%BB%8B/" title="NodeJs简介" target="_blank" rel="external">http://daniellin0516.github.io/2021/10/17/NodeJs简介/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -441,13 +508,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2021/07/22/%E9%80%89%E6%8B%A9%E5%99%A8/" title="选择器"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2021/07/20/HTML-1/" title="HTML"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/10/13/%E6%A8%A1%E5%9D%97%E5%8C%96/" title="模块化"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
