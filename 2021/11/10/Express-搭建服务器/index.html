@@ -17,23 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>背景和雪碧图 | DanielLin</title>
-  <meta name="description" content="背景background-image设置背景图片  1.可以同时设置背景图片和背景颜色，这样背景颜色将会成为图片的背景色 2.如果背景的图片小于元素，则背景图片会自动在元素中平铺将元素铺满 3.如果背景的图片大于元素，将会一个部分背景无法显示 4.如果背景图片和元素一样大，则会直接正常显示  1background-image:url();     background-repeat 可选值： 1">
+  <title>Express+搭建服务器 | DanielLin</title>
+  <meta name="description" content="搭建Node原生服务器 不借助任何第三方库，去搭建Node原生服务器    引入内置的http模块    12345let http &#x3D; require(&amp;#x27;http&amp;#x27;)&#x2F;&#x2F;引入一个内置模块，用于解析key &#x3D; value&amp;key&#x3D;value....这种形式的字符串为js中的对象&#x2F;&#x2F;编码形式：urlencoded编码形式的参数，叫做：查询字符串参数&#x2F;&#x2F;引入的qs是一个对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="背景和雪碧图">
-<meta property="og:url" content="http://daniellin0516.github.io/2021/08/02/%E8%83%8C%E6%99%AF/index.html">
+<meta property="og:title" content="Express+搭建服务器">
+<meta property="og:url" content="http://daniellin0516.github.io/2021/11/10/Express-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="Daniel Blog">
-<meta property="og:description" content="背景background-image设置背景图片  1.可以同时设置背景图片和背景颜色，这样背景颜色将会成为图片的背景色 2.如果背景的图片小于元素，则背景图片会自动在元素中平铺将元素铺满 3.如果背景的图片大于元素，将会一个部分背景无法显示 4.如果背景图片和元素一样大，则会直接正常显示  1background-image:url();     background-repeat 可选值： 1">
+<meta property="og:description" content="搭建Node原生服务器 不借助任何第三方库，去搭建Node原生服务器    引入内置的http模块    12345let http &#x3D; require(&amp;#x27;http&amp;#x27;)&#x2F;&#x2F;引入一个内置模块，用于解析key &#x3D; value&amp;key&#x3D;value....这种形式的字符串为js中的对象&#x2F;&#x2F;编码形式：urlencoded编码形式的参数，叫做：查询字符串参数&#x2F;&#x2F;引入的qs是一个对象">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://z3.ax1x.com/2021/08/03/fPtktS.png">
-<meta property="article:published_time" content="2021-08-02T09:18:10.000Z">
-<meta property="article:modified_time" content="2021-08-06T03:03:53.163Z">
+<meta property="og:image" content="https://z3.ax1x.com/2021/11/11/IdLjIK.png">
+<meta property="article:published_time" content="2021-11-10T12:54:35.000Z">
+<meta property="article:modified_time" content="2021-11-11T03:12:07.293Z">
 <meta property="article:author" content="Daniel Lin">
-<meta property="article:tag" content="HTML&amp;&amp;CSS">
+<meta property="article:tag" content="NodeJs">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://z3.ax1x.com/2021/08/03/fPtktS.png">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/11/11/IdLjIK.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://daniellin0516.github.io/2021/08/02/%E8%83%8C%E6%99%AF/index.html">
+  <link rel="canonical" href="http://daniellin0516.github.io/2021/11/10/Express-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -307,21 +307,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#background-image"><span class="toc-number">1.1.</span> <span class="toc-text">background-image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-repeat"><span class="toc-number">1.2.</span> <span class="toc-text">background-repeat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-position"><span class="toc-number">1.3.</span> <span class="toc-text">background-position</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-clip"><span class="toc-number">1.4.</span> <span class="toc-text">background-clip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-origin"><span class="toc-number">1.5.</span> <span class="toc-text">background-origin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-size"><span class="toc-number">1.6.</span> <span class="toc-text">background-size</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-attachment"><span class="toc-number">1.7.</span> <span class="toc-text">background-attachment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background"><span class="toc-number">1.8.</span> <span class="toc-text">background</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5%E6%8C%89%E9%92%AE%E7%9A%84%E8%83%8C%E6%99%AF%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">超链接按钮的背景设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2%E7%9A%84%E6%B8%90%E5%8F%98"><span class="toc-number">3.</span> <span class="toc-text">颜色的渐变</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98"><span class="toc-number">3.1.</span> <span class="toc-text">线性渐变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%84%E5%90%91%E6%B8%90%E5%8F%98"><span class="toc-number">3.2.</span> <span class="toc-text">径向渐变</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BANode%E5%8E%9F%E7%94%9F%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">搭建Node原生服务器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#express%E6%A1%86%E6%9E%B6"><span class="toc-number">2.</span> <span class="toc-text">express框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E7%9A%84%E4%B8%80%E4%B8%AA%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">整体的一个搭建服务器代码</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-背景" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Express-搭建服务器" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      背景和雪碧图
+      Express+搭建服务器
     </h1>
   
 
@@ -329,15 +329,15 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2021/08/02/%E8%83%8C%E6%99%AF/" class="article-date">
-	  <time datetime="2021-08-02T09:18:10.000Z" itemprop="datePublished">2021-08-02</time>
+	<a href="/2021/11/10/Express-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="article-date">
+	  <time datetime="2021-11-10T12:54:35.000Z" itemprop="datePublished">2021-11-10</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/HTML-CSS/" rel="tag">HTML&&CSS</a>
+	<a class="article-tag-link-link" href="/tags/NodeJs/" rel="tag">NodeJs</a>
   </span>
 
 
@@ -352,172 +352,86 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2021/08/02/%E8%83%8C%E6%99%AF/" class="leancloud_visitors"  data-flag-title="背景和雪碧图">0</span>
+    	<span id="/2021/11/10/Express-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="leancloud_visitors"  data-flag-title="Express+搭建服务器">0</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/08/02/%E8%83%8C%E6%99%AF/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/11/10/Express-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 621(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="background-image"><a href="#background-image" class="headerlink" title="background-image"></a><code>background-image</code></h3><p>设置背景图片</p>
-<blockquote>
-<p>1.可以同时设置背景图片和背景颜色，这样背景颜色将会成为图片的背景色</p>
-<p>2.如果背景的图片小于元素，则背景图片会自动在元素中平铺将元素铺满</p>
-<p>3.如果背景的图片大于元素，将会一个部分背景无法显示</p>
-<p>4.如果背景图片和元素一样大，则会直接正常显示</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">url</span>();</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h3 id="background-repeat"><a href="#background-repeat" class="headerlink" title="background-repeat"></a><code>background-repeat</code></h3><blockquote>
-<p>可选值：</p>
-<p>1.<code>repeat</code>默认值，背景会沿着x轴，y轴双方向重复</p>
-<p>2.<code>repeat-x</code>沿着x轴方向重复</p>
-<p>3.<code>repeat-y</code>沿着y轴方向重复</p>
-<p>4.<code>no-repeat</code>背景图片不重复</p>
-</blockquote>
-<h3 id="background-position"><a href="#background-position" class="headerlink" title="background-position"></a><code>background-position</code></h3><p>用来设置背景图片的位置</p>
-<p>设置方式：</p>
-<blockquote>
-<p>1.通过 top left right bottom center 几个表示方位的词来设置背景图片位置</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:center center ;  //正中间</span><br><span class="line"><span class="attribute">background-position</span>:top left ;  //左上角</span><br></pre></td></tr></table></figure>
-
-<p>2.通过偏移量来指定背景图片的位置：</p>
-<p>水平方向偏移量  垂直方向偏移量</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">50px</span> <span class="number">50px</span>;</span><br></pre></td></tr></table></figure>
-
-</blockquote>
-<h3 id="background-clip"><a href="#background-clip" class="headerlink" title="background-clip"></a><code>background-clip</code></h3><p>设置背景的范围</p>
-<blockquote>
-<p>可选值：</p>
-<ul>
-<li><code>border-box</code>默认值，背景会出现在边框的下边</li>
-<li><code>padding-box </code>背景不会出现在边框，只出现在内容区和内边距</li>
-<li><code>content-box</code>背景只会出现在内容区</li>
-</ul>
+        <h1 id="搭建Node原生服务器"><a href="#搭建Node原生服务器" class="headerlink" title="搭建Node原生服务器"></a>搭建Node原生服务器</h1><blockquote>
+<p>不借助任何第三方库，去搭建Node原生服务器</p>
 </blockquote>
 <ul>
-<li><h3 id="background-origin"><a href="#background-origin" class="headerlink" title="background-origin"></a><code>background-origin</code></h3></li>
-</ul>
-<p>背景图片的的偏移量计算的原点</p>
-<blockquote>
-<ul>
-<li><p><code>padding-box</code>默认值，background-position从内边距开始计算</p>
-</li>
-<li><p><code>content-box</code>背景图片的偏移量从内容区计算</p>
-</li>
-<li><p><code>border-box</code>背景图片的变量从边框开始计算</p>
+<li><ol>
+<li>引入内置的http模块</li>
+</ol>
 </li>
 </ul>
-</blockquote>
-<ul>
-<li><h3 id="background-size"><a href="#background-size" class="headerlink" title="background-size"></a><code>background-size</code></h3></li>
-</ul>
-<p>设置背景图片的大小</p>
-<p>第一个值表示宽度</p>
-<p>第二个值表示高度</p>
-<p>如果只写一个，则第二个值默认是auto</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-size</span>：<span class="number">100%</span> <span class="attribute">auto</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"><span class="comment">//引入一个内置模块，用于解析key = value&amp;key=value....这种形式的字符串为js中的对象</span></span><br><span class="line"><span class="comment">//编码形式：urlencoded编码形式的参数，叫做：查询字符串参数</span></span><br><span class="line"><span class="comment">//引入的qs是一个对象，该对象身上有很多用的方法，最具有代表性的：parse()</span></span><br><span class="line"><span class="keyword">let</span> qs = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<p>可选值：</p>
 <ul>
-<li><code>cover</code>图片的比例不变，将元素铺满</li>
-<li><code>contain</code>图片比例不变，将图片在元素中完整显示</li>
+<li><ol start="2">
+<li>创造一个“服务员”,创建服务对象</li>
+<li>让服务员开始干活，获取客人点的菜单</li>
+</ol>
+</li>
 </ul>
-<h3 id="background-attachment"><a href="#background-attachment" class="headerlink" title="background-attachment"></a><code>background-attachment</code></h3><p>背景图片是否跟随元素移动</p>
-<p>可选值：</p>
-<ul>
-<li><code>scroll</code>默认值，背景图片会跟随元素移动</li>
-<li><code>fixed</code>背景会固定在页面中，不会跟随元素移动</li>
-</ul>
-<h3 id="background"><a href="#background" class="headerlink" title="background"></a><code>background</code></h3><p>背景图片的相关的简写属性，所有背景相关的样式都可以通过该样式来设置</p>
-<p>并且该样式没有顺序要求，也没有哪个属性是必须写的</p>
-<p>注意：</p>
-<p>background-size必须写在background-position后边，并且使用/隔开</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-position</span>/<span class="attribute">background-size</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request,response</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> params = request.url.split(<span class="string">&#x27;?&#x27;</span>)[<span class="number">1</span>]   <span class="comment">//获取客户端袖带过来的urlencoded:name=zhangsan&amp;age=18</span></span><br><span class="line">    <span class="keyword">let</span> objParams = qs.parse(params)  <span class="comment">//&#123;name:&#x27;zhangsan&#x27;,age:18&#125;</span></span><br><span class="line">    <span class="keyword">let</span> &#123;name,age&#125; = objParams <span class="comment">//解构赋值</span></span><br><span class="line">    response.setHeader(<span class="string">&#x27;content-type&#x27;</span>,<span class="string">&#x27;text/html;charset=utf-8&#x27;</span>)  <span class="comment">//设置响应头</span></span><br><span class="line">    response.end(<span class="string">`你好<span class="subst">$&#123;name&#125;</span>,你的年龄是<span class="subst">$&#123;age&#125;</span>`</span>)  <span class="comment">//提交内容</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>background-origin background-clip两个样式，origin要在clip前边</p>
-<h2 id="超链接按钮的背景设置"><a href="#超链接按钮的背景设置" class="headerlink" title="超链接按钮的背景设置"></a>超链接按钮的背景设置</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">93px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">29px</span>;</span><br><span class="line">    <span class="attribute">background-image</span>:<span class="built_in">url</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">background-position</span>:-<span class="number">93px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span>&#123;</span><br><span class="line">    <span class="attribute">background-position</span>:-<span class="number">186px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>解决图片闪烁的问题：</p>
-<p>可以将多个小图片同意保存到一个大图片中，然后通过调整background-position来显示，这样图片会同时加载到网页中，就可以有效的避免出现闪烁的问题，这个技术在网页中应用十分广泛，被称为CSS-Sprite，叫雪碧图</p>
 <blockquote>
-<p>雪碧图使用步骤：</p>
 <ol>
-<li>先确定要使用的图形</li>
-<li>测量图标大小</li>
-<li>根据测量结果创建一个元素</li>
-<li>将雪碧图设置为元素的背景图片</li>
-<li>设置一个偏移量以显示正确的图片</li>
+<li><p>request:请求对象，里面包含客服端给服务器的东西</p>
+</li>
+<li><p>response：响应对象，里面包含服务器要返回给客户端的东西</p>
+</li>
 </ol>
 </blockquote>
-<p>雪碧图特点：</p>
 <ul>
-<li>一次性将多个图片加载进页面，降低请求的次数，加快访问速度，提升用户的体验</li>
+<li><ol start="4">
+<li>指定服务器运行的端口号(绑定端口监听)</li>
+</ol>
+</li>
 </ul>
-<h2 id="颜色的渐变"><a href="#颜色的渐变" class="headerlink" title="颜色的渐变"></a>颜色的渐变</h2><h3 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h3><ul>
-<li><code>background-image</code></li>
-</ul>
-<p>线性渐变，颜色沿着一条直线发生变化</p>
-<p>可选值：</p>
-<ul>
-<li><code>liner-gradient()</code></li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">liner-gradient</span>(red,yellow)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server.listen(<span class="number">3000</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err) <span class="built_in">console</span>.log(<span class="string">&#x27;服务器启动成功了&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fPtktS"><img src="https://z3.ax1x.com/2021/08/03/fPtktS.png" alt="fPtktS.png"></a></p>
-<p>红色在开头，黄色在结尾，中间是过渡区，线性渐变的开头，我们可以指定一个渐变的方向</p>
-<ul>
-<li>to left</li>
-<li>to right</li>
-<li>to bottom</li>
-<li>to top</li>
-<li>xxxdeg（表示度数）</li>
-<li>turn表示圈</li>
-</ul>
-<p>渐变可以同时制定多种颜色，多个颜色默认情况下平均分布，也可以手动指定简便的分布情况</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="selector-class">.box1</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">220px</span>;</span><br><span class="line">        <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to left,red <span class="number">50px</span>,yellow <span class="number">100px</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
 
 <hr>
+<h1 id="express框架"><a href="#express框架" class="headerlink" title="express框架"></a>express框架</h1><ul>
+<li>引入express</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><code>repeating-linear-gradient()</code></li>
+<li>创建app服务对象</li>
 </ul>
-<p>可以平铺的线性渐变</p>
-<h3 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h3><ul>
-<li><code>background-image:</code></li>
-</ul>
-<p>可选值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = express()</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><code>radial-gradient</code></li>
+<li>配置路由—对请求的url进行分类，服务器根据分类决定交给谁去处理</li>
 </ul>
-<p>默认情况下径向渐变圆心的形状根据元素的形状来计算的：</p>
 <blockquote>
-<p>正方形—&gt;圆形</p>
-<p>长方形—-&gt;椭圆形</p>
-<p>我们也可以手动指定径向渐变大小</p>
-<p>circle</p>
-<p>ellipse</p>
+<p>根据路由定义的顺序（写代码的顺序），依次定义好路由，随后放入一个类似数组的结构，当有请求时，依次取出匹配，若匹配成功，不再继续匹配</p>
 </blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="selector-class">.box1</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">220px</span>;</span><br><span class="line">        <span class="attribute">background-image</span>:<span class="built_in">radial-gradient</span>(circle at center,red,yellow);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根路由</span></span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">request,response</span>)</span>&#123;</span><br><span class="line">    response.send(<span class="string">&#x27;我是主页&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//一级路由</span></span><br><span class="line">app.get(<span class="string">&#x27;/meishi&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">request,response</span>)</span>&#123;</span><br><span class="line">    response.send(<span class="string">&#x27;我是美食页面1&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//一级路由   该路由不进行匹配</span></span><br><span class="line">app.get(<span class="string">&#x27;/meishi&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">request,response</span>)</span>&#123;</span><br><span class="line">    response.send(<span class="string">&#x27;我是美食页面2&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>指定服务器运行的端口号</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.listen(<span class="number">3000</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err) <span class="built_in">console</span>.log(<span class="string">&#x27;服务器启动成功了&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/IdLjIK"><img src="https://z3.ax1x.com/2021/11/11/IdLjIK.png" alt="IdLjIK.png"></a></p>
+<h2 id="整体的一个搭建服务器代码"><a href="#整体的一个搭建服务器代码" class="headerlink" title="整体的一个搭建服务器代码"></a>整体的一个搭建服务器代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">request,response</span>)</span>&#123;</span><br><span class="line">    response.send(<span class="string">&#x27;我是主页&#x27;</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(request.query)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">3000</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err) <span class="built_in">console</span>.log(<span class="string">&#x27;服务器启动成功了&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 
       
@@ -528,7 +442,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://daniellin0516.github.io/2021/08/02/%E8%83%8C%E6%99%AF/" title="背景和雪碧图" target="_blank" rel="external">http://daniellin0516.github.io/2021/08/02/背景/</a>
+      <a href="http://daniellin0516.github.io/2021/11/10/Express-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Express+搭建服务器" target="_blank" rel="external">http://daniellin0516.github.io/2021/11/10/Express-搭建服务器/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -574,13 +488,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2021/08/05/CSS%E6%96%B9%E6%B3%95%E5%86%99%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%B0%8F%E4%B8%89%E8%A7%92/" title="CSS方法写下拉菜单小三角"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2021/07/30/%E6%96%87%E6%9C%AC%E7%9A%84%E6%B0%B4%E5%B9%B3%E5%92%8C%E5%9E%82%E7%9B%B4%E5%AF%B9%E9%BD%90/" title="文本的水平和垂直对齐"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/10/30/mangoose%E4%BD%BF%E7%94%A8/" title="mangoose使用"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
