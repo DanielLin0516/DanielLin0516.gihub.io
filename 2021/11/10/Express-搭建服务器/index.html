@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://z3.ax1x.com/2021/11/13/IsA1c4.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/11/13/IsVOcF.png">
 <meta property="article:published_time" content="2021-11-10T12:54:35.000Z">
-<meta property="article:modified_time" content="2021-11-13T04:34:24.801Z">
+<meta property="article:modified_time" content="2021-11-22T08:04:04.753Z">
 <meta property="article:author" content="Daniel Lin">
 <meta property="article:tag" content="NodeJs">
 <meta name="twitter:card" content="summary">
@@ -311,7 +311,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BANode%E5%8E%9F%E7%94%9F%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">搭建Node原生服务器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#express%E6%A1%86%E6%9E%B6"><span class="toc-number">2.</span> <span class="toc-text">express框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E7%9A%84%E4%B8%80%E4%B8%AA%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">整体的一个搭建服务器代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#request%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">request对象的属性</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BANode%E5%8E%9F%E7%94%9F%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">搭建Node原生服务器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#express%E6%A1%86%E6%9E%B6"><span class="toc-number">2.</span> <span class="toc-text">express框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E7%9A%84%E4%B8%80%E4%B8%AA%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">整体的一个搭建服务器代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#request%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">request对象的属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#response%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="toc-number">4.</span> <span class="toc-text">response对象属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%BA%94%E7%94%A8%E7%BA%A7%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">全局应用级中间件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E5%87%BD%E6%95%B0%E5%85%A8%E5%B1%80%E5%BA%94%E7%94%A8%E7%BA%A7%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%94%A8%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">第二种函数全局应用级中间件用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">第三方中间件</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -362,10 +362,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/11/10/Express-%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 867(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
 	
 
       </div>
@@ -473,6 +473,49 @@
 
 <p>输出结果：</p>
 <p><a target="_blank" rel="noopener" href="https://imgtu.com/i/IsVOcF"><img src="https://z3.ax1x.com/2021/11/13/IsVOcF.png" alt="IsVOcF.png"></a></p>
+<hr>
+<h1 id="response对象属性"><a href="#response对象属性" class="headerlink" title="response对象属性"></a>response对象属性</h1><p><code>response.send()</code>：给浏览器做出一个响应</p>
+<p><code>reponse.end()</code>：给浏览器做出一个响应</p>
+<p><code>response.download</code>：告诉浏览器下载一个文件</p>
+<p><code>response.sendFile()</code>：给浏览器下载一个文件</p>
+<p><code>response.redirect()</code>:服务器告诉浏览器重定向</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.redirect(<span class="string">&#x27;http://www.baidu.com&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>response.set(header,value)</code>:自定义响应头内容</p>
+<p><code>response.get(key)</code>:获取响应头指定key对应的value</p>
+<p><code>res.status(code)</code>：设置响应状态码</p>
+<hr>
+<h1 id="全局应用级中间件"><a href="#全局应用级中间件" class="headerlink" title="全局应用级中间件"></a>全局应用级中间件</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">aoo.use(<span class="function">(<span class="params">request,response,next</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">//response.send(&#x27;&#x27;)</span></span><br><span class="line">    <span class="comment">//1.过滤一些合法的请求</span></span><br><span class="line">    next()  <span class="comment">//放行</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在express中，定义路由和中间件的时候，根据定义的顺序，将定义的每一个中间件或路由，放在一个类似与数组的容器中，当请求过来时，依次从容器中取出中间件和路由，进行匹配，如果匹配成功，将由该路由或中间件处理，如果全局中间件写在最开始的位置，name就是请求的“第一扇门”</p>
+<p>对于服务器来说，依次请求，只有一个请求对象民和一个响应对象，其他任何的request和response都是对二者的引用</p>
+</blockquote>
+<ul>
+<li>图片防盗链</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="function">(<span class="params">request, response, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (request.get(<span class="string">&#x27;Referer&#x27;</span>)) &#123;</span><br><span class="line">        <span class="keyword">let</span> mini = request.get(<span class="string">&#x27;Referer&#x27;</span>).split(<span class="string">&#x27;/&#x27;</span>)[<span class="number">2</span>]</span><br><span class="line">        <span class="keyword">if</span> (mini === <span class="string">&#x27;127.0.0.1:5500&#x27;</span>) &#123;</span><br><span class="line">            next()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            response.sendFile(__dirname +<span class="string">&#x27;/pubilc.error.png&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        next()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="第二种函数全局应用级中间件用法"><a href="#第二种函数全局应用级中间件用法" class="headerlink" title="第二种函数全局应用级中间件用法"></a>第二种函数全局应用级中间件用法</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> e = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params">request, response, next</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (request.get(<span class="string">&#x27;Referer&#x27;</span>)) &#123;</span><br><span class="line">        <span class="keyword">let</span> mini = request.get(<span class="string">&#x27;Referer&#x27;</span>).split(<span class="string">&#x27;/&#x27;</span>)[<span class="number">2</span>]</span><br><span class="line">        <span class="keyword">if</span> (mini === <span class="string">&#x27;127.0.0.1:5500&#x27;</span>) &#123;</span><br><span class="line">            next()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            response.sendFile(__dirname + <span class="string">&#x27;/pubilc.error.png&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        next()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">    response.send(<span class="string">&#x27;ok&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">app.get(<span class="string">&#x27;/demo&#x27;</span>, <span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(request.query)</span><br><span class="line">    response.send(<span class="string">&#x27;ok2&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">app.get(<span class="string">&#x27;/picture&#x27;</span>,demo, <span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;  <span class="comment">//只在picture路由使用</span></span><br><span class="line"></span><br><span class="line">    response.sendFile(__dirname + <span class="string">&#x27;/public/demo.jpg&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!err) <span class="built_in">console</span>.log(<span class="string">&#x27;已经启动&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>优点：更加灵活，不是第一扇门，可以在任何地方使用</p>
+</blockquote>
+<h1 id="第三方中间件"><a href="#第三方中间件" class="headerlink" title="第三方中间件"></a>第三方中间件</h1><p><code>npm add body-parser</code>用于解析post参数</p>
+<p>引入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>用法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(bodyParser.urlencoded(&#123;<span class="attr">extended</span>: <span class="literal">true</span>&#125;))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解析post请求请求体中所携带的unrlencoded编码形式的参数为一个对象，随后挂载到request对象</p>
+</blockquote>
+<ul>
+<li>使用内置中间件去暴露静态资源–一次性把你所指定的文件内的资源全部交出去</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(__dirname + <span class="string">&#x27;/public&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
