@@ -17,25 +17,24 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>CSS方法写下拉菜单小三角 | DanielLin</title>
-  <meta name="description" content="小三角组成原理： 利用border给四个边框设置颜色如图所示：  若需要上箭头的话则要把border-top的属性设为none，左边和右边的属性设为transparent（透明色） 1234567.box1&amp;#123;        width: 0px;        height: 0px;        border: 20px solid transparent;        borde">
+  <title>localStorage应用 | DanielLin</title>
+  <meta name="description" content="前言由于项目中，我们会经常使用localStorage去进行存储，可能会存token信息、背景主题、路由参数……，接下来总结一下localStorage的拓展用法或者是面试官喜欢问的点 使用 下面列出一些常用的api供大家参考  localStorage.setItem(key,value)新增数据 localStorage.getItem(key)取数据 localStorage.removeI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS方法写下拉菜单小三角">
-<meta property="og:url" content="http://daniellin0516.github.io/2021/08/05/CSS%E6%96%B9%E6%B3%95%E5%86%99%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%B0%8F%E4%B8%89%E8%A7%92/index.html">
+<meta property="og:title" content="localStorage应用">
+<meta property="og:url" content="http://daniellin0516.github.io/2022/03/23/localStorage%E5%BA%94%E7%94%A8/index.html">
 <meta property="og:site_name" content="Daniel Blog">
-<meta property="og:description" content="小三角组成原理： 利用border给四个边框设置颜色如图所示：  若需要上箭头的话则要把border-top的属性设为none，左边和右边的属性设为transparent（透明色） 1234567.box1&amp;#123;        width: 0px;        height: 0px;        border: 20px solid transparent;        borde">
+<meta property="og:description" content="前言由于项目中，我们会经常使用localStorage去进行存储，可能会存token信息、背景主题、路由参数……，接下来总结一下localStorage的拓展用法或者是面试官喜欢问的点 使用 下面列出一些常用的api供大家参考  localStorage.setItem(key,value)新增数据 localStorage.getItem(key)取数据 localStorage.removeI">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://z3.ax1x.com/2021/08/05/feaUCd.png">
-<meta property="og:image" content="https://z3.ax1x.com/2021/08/05/fed1Rs.png">
-<meta property="og:image" content="https://z3.ax1x.com/2021/08/05/fewgcn.png">
-<meta property="article:published_time" content="2021-08-05T12:19:12.000Z">
-<meta property="article:modified_time" content="2021-08-05T12:46:11.447Z">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/23/q3MEhq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/03/23/q3NeIO.png">
+<meta property="article:published_time" content="2022-03-23T13:11:09.000Z">
+<meta property="article:modified_time" content="2022-03-23T14:41:10.357Z">
 <meta property="article:author" content="Daniel Lin">
-<meta property="article:tag" content="HTML&amp;&amp;CSS">
+<meta property="article:tag" content="项目总结分析">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://z3.ax1x.com/2021/08/05/feaUCd.png">
+<meta name="twitter:image" content="https://s1.ax1x.com/2022/03/23/q3MEhq.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://daniellin0516.github.io/2021/08/05/CSS%E6%96%B9%E6%B3%95%E5%86%99%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%B0%8F%E4%B8%89%E8%A7%92/index.html">
+  <link rel="canonical" href="http://daniellin0516.github.io/2022/03/23/localStorage%E5%BA%94%E7%94%A8/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -309,21 +308,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E4%B8%89%E8%A7%92"><span class="toc-number">1.</span> <span class="toc-text">小三角</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95"><span class="toc-number">2.</span> <span class="toc-text">下拉菜单</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#localStorage%E8%AE%BE%E7%BD%AE%E6%97%B6%E6%95%88%E6%80%A7"><span class="toc-number">4.</span> <span class="toc-text">localStorage设置时效性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8B%A5localStorage%E5%AD%98%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%97%A0%E6%95%88key%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="toc-number">5.</span> <span class="toc-text">若localStorage存在多个无效key怎么办</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E6%B5%8B%E8%AF%95localStorage%E5%A4%A7%E5%B0%8F"><span class="toc-number">6.</span> <span class="toc-text">怎么测试localStorage大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">7.</span> <span class="toc-text">结语</span></a></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-CSS方法写下拉菜单小三角" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-localStorage应用" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      CSS方法写下拉菜单小三角
+      localStorage应用
     </h1>
   
 
@@ -331,15 +330,15 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2021/08/05/CSS%E6%96%B9%E6%B3%95%E5%86%99%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%B0%8F%E4%B8%89%E8%A7%92/" class="article-date">
-	  <time datetime="2021-08-05T12:19:12.000Z" itemprop="datePublished">2021-08-05</time>
+	<a href="/2022/03/23/localStorage%E5%BA%94%E7%94%A8/" class="article-date">
+	  <time datetime="2022-03-23T13:11:09.000Z" itemprop="datePublished">2022-03-23</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/HTML-CSS/" rel="tag">HTML&&CSS</a>
+	<a class="article-tag-link-link" href="/tags/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93%E5%88%86%E6%9E%90/" rel="tag">项目总结分析</a>
   </span>
 
 
@@ -354,39 +353,93 @@
 
 	<span class="article-read hidden-xs">
     	<i class="icon icon-eye-fill" aria-hidden="true"></i>
-    	<span id="/2021/08/05/CSS%E6%96%B9%E6%B3%95%E5%86%99%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%B0%8F%E4%B8%89%E8%A7%92/" class="leancloud_visitors"  data-flag-title="CSS方法写下拉菜单小三角">0</span>
+    	<span id="/2022/03/23/localStorage%E5%BA%94%E7%94%A8/" class="leancloud_visitors"  data-flag-title="localStorage应用">0</span>
     </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/08/05/CSS%E6%96%B9%E6%B3%95%E5%86%99%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%B0%8F%E4%B8%89%E8%A7%92/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/23/localStorage%E5%BA%94%E7%94%A8/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 327(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="小三角"><a href="#小三角" class="headerlink" title="小三角"></a>小三角</h2><p>组成原理：</p>
-<p>利用<code>border</code>给四个边框设置颜色如图所示：</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/feaUCd"><img src="https://z3.ax1x.com/2021/08/05/feaUCd.png" alt="feaUCd.png"></a></p>
-<p>若需要上箭头的话则要把<code>border-top</code>的属性设为none，左边和右边的属性设为transparent（透明色）</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">0px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">0px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">20px</span> solid transparent;</span><br><span class="line">        <span class="attribute">border-top</span>: none;</span><br><span class="line">        <span class="attribute">border-bottom-color</span>: tomato;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于项目中，我们会经常使用<code>localStorage</code>去进行存储，可能会存<code>token信息</code>、<code>背景主题</code>、<code>路由参数</code>……，接下来总结一下localStorage的拓展用法或者是面试官喜欢问的点</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote>
+<p>下面列出一些常用的api供大家参考</p>
+</blockquote>
+<p><code>localStorage.setItem(key,value)</code>新增数据</p>
+<p><code>localStorage.getItem(key)</code>取数据</p>
+<p><code>localStorage.removeItem(key)</code>移除数据</p>
+<p><code>localStorage.clear()</code>清空数据</p>
+<h2 id="localStorage设置时效性"><a href="#localStorage设置时效性" class="headerlink" title="localStorage设置时效性"></a>localStorage设置时效性</h2><blockquote>
+<p>面试官：我们都知道<code>localStorage</code>必须我们手动去清除数据，那我们怎么设置时效性呢？</p>
+</blockquote>
+<p>我们其实可以通过给<code>localStorage</code>设置数据时，我们去添加一个时间戳，并且我们在<code>getItem</code>的时候我们可以根据之前设置的时间戳，进行判断我们需不需要把这个数据清除或者其他操作</p>
+<p>根据我们<code>Date</code>实例对象上的<code>getTime</code>方法（详情见mdn官方文档这里不详细说明）并且我们的时间是一个毫秒的单位，将<code>getItem</code>的时间和<code>setItem</code>相减判断</p>
+<ul>
+<li>封装一下<code>setItem</code>时候的函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> set = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    <span class="built_in">localStorage</span>.setItem(<span class="string">&quot;key&quot;</span>, <span class="built_in">JSON</span>.stringify(&#123; <span class="attr">value</span>: <span class="string">&quot;data&quot;</span>, <span class="attr">time</span>: now &#125;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fed1Rs"><img src="https://z3.ax1x.com/2021/08/05/fed1Rs.png" alt="fed1Rs.png"></a></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:hover</span> &gt; <span class="selector-class">.app</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;   <span class="comment">/*设置绝对定位使小三角上去*/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">8px</span> solid transparent/*透明色*/;</span><br><span class="line">    <span class="comment">/*去除上边框*/</span> </span><br><span class="line">    <span class="attribute">border-top</span>: none ;</span><br><span class="line">    <span class="attribute">border-bottom-color</span>: white;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;     <span class="comment">/*使三角形居中*/</span></span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/q3MEhq"><img src="https://s1.ax1x.com/2022/03/23/q3MEhq.png" alt="q3MEhq.png"></a></p>
+<ul>
+<li>封装一下<code>getItem</code>时候的函数</li>
+</ul>
+<blockquote>
+<p>我们首先拿到key所对应的value值，并且去找到之前设置的一个时间，并且拿到此时的时间，和传入的时间做对比就可以啦，过期的话就直接把key删掉就可以，没过期的话，根据情况是否要更新时间全看自己了，注意：<code>时间传入的值是毫秒为单位的，若设置1000，则是有效期1秒</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> get = <span class="function">(<span class="params">key, time</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> localData = <span class="built_in">localStorage</span>.getItem(key);</span><br><span class="line">    <span class="keyword">if</span> (!localData) <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">const</span> localDataObj = <span class="built_in">JSON</span>.parse(localData);</span><br><span class="line">    <span class="keyword">const</span> nowTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    <span class="keyword">const</span> localDataTime = localDataObj.time || nowTime;</span><br><span class="line">    <span class="keyword">if</span> (nowTime - localDataObj.time &gt; time) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;数据已过期&quot;</span>);</span><br><span class="line">        <span class="comment">// 删除</span></span><br><span class="line">        <span class="built_in">localStorage</span>.removeItem(key);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!localDataObj.data) <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">const</span> data = <span class="built_in">JSON</span>.parse(localDataObj.data);</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">set() <span class="comment">//调用函数set</span></span><br><span class="line">get(key,<span class="number">1000</span>) <span class="comment">// 此时的1000指的是1s喔</span></span><br><span class="line">get(key,<span class="number">1000</span> * <span class="number">60</span> )</span><br></pre></td></tr></table></figure>
 
-<h2 id="下拉菜单"><a href="#下拉菜单" class="headerlink" title="下拉菜单"></a>下拉菜单</h2><p>在有下拉菜单的父元素创建一个<code>div</code>块元素，根据需求调整大小，最重要的是<code>display:none</code>将模块隐藏，下面是小米二维码下拉菜单的一个例子：</p>
-<p>CSS</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:hover</span> &gt; <span class="selector-class">.app</span> <span class="selector-class">.qrcode</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">/*设置app下载的下拉*/</span></span><br><span class="line"><span class="selector-class">.app</span> <span class="selector-class">.qrcode</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">    <span class="attribute">position</span>: absolute;   <span class="comment">/*开启绝对定位后不再占据位置*/</span></span><br><span class="line">    <span class="attribute">left</span>: <span class="number">22px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">62px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">124px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">148px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: white;</span><br><span class="line">    <span class="attribute">line-height</span>:<span class="number">1</span> ;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="若localStorage存在多个无效key怎么办"><a href="#若localStorage存在多个无效key怎么办" class="headerlink" title="若localStorage存在多个无效key怎么办"></a>若localStorage存在多个无效key怎么办</h2><blockquote>
+<p>面试官：会不会有存在多少个无效key的情况呢？若是有的话我们怎么解决？或者说我们现在最多能让localStorage最多存储10个key，我们怎么根据我们最少使用的这么一个key把他删掉，在添加一个新的key呢？</p>
+<p>我：……轮询去查看localStorage，并且设置个标志位count，每当我们<code>getItem</code>的时候我们count++，当数量到达十个的时候，我们遍历这10个key看他的一个count数量（回答到这的时候感觉回答的还是可以的只是自我感觉而已）</p>
+<p>面试官：那也有问题，如果我们第一天访问<code>key1</code>1次，我们第二天访问<code>key1</code>100次，我们第三天访问<code>key2</code>200次,<code>key1</code>访问10次，那我们还是会把<code>key1</code>删掉啊</p>
+<p>我：(面试官反应好快)啊这……那我们可以传一个时间戳进行判断呀</p>
+<p>面试官：可以不用时间戳呢，还有其他办法</p>
+<p>我：实在不会了……</p>
+</blockquote>
+<p>其实此刻的面试官其实想问的是我们的<code>LRU</code>算法，也就是最近最少使用算法（力扣：LRU算法）</p>
+<p>我们可以利用<code>javascript</code>的数据结构<code>Map</code>，因为我们的Map插入是个有序的，并且我们的操作复杂度为O（1）</p>
+<p>我们插入数据的时候，若有旧数据需要把旧数据保存再进行删除，重新<code>set</code>一遍处于底部的位置，并且要判断是否超过你最大的一个容量，若超过容量的话把头部的数据删掉</p>
+<p>访问的时候，我们也会把数据重新插入到底部，和插入数据其实原理是一样的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">capacity</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.capacity = capacity;</span><br><span class="line">        <span class="built_in">this</span>.map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">get</span>(<span class="params">key</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.map.has(key)) &#123;</span><br><span class="line">            <span class="comment">// get表示访问该值</span></span><br><span class="line">            <span class="comment">// 所以在访问的同时，要将其调整位置，放置在最后</span></span><br><span class="line">            <span class="keyword">const</span> temp = <span class="built_in">this</span>.map.get(key);</span><br><span class="line">            <span class="comment">// 先删除，再添加</span></span><br><span class="line">            <span class="built_in">this</span>.map.delete(key);</span><br><span class="line">            <span class="built_in">this</span>.map.set(key, temp);</span><br><span class="line">            <span class="comment">// 返回访问的值</span></span><br><span class="line">            <span class="keyword">return</span> temp;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 不存在，返回-1</span></span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">put</span>(<span class="params">key, value</span>)</span> &#123;</span><br><span class="line">        <span class="comment">// 要将其放在最后，所以若存在key，先删除</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.map.has(key)) <span class="built_in">this</span>.map.delete(key);</span><br><span class="line">        <span class="comment">// 设置key、value</span></span><br><span class="line">        <span class="built_in">this</span>.map.set(key, value);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.map.size &gt; <span class="built_in">this</span>.capacity) &#123;</span><br><span class="line">            <span class="comment">// 若超出范围，将map中头部的删除</span></span><br><span class="line">            <span class="comment">// map.keys()返回一个迭代器</span></span><br><span class="line">            <span class="comment">// 迭代器调用next()方法，返回包含迭代器返回的下一个值，在value中</span></span><br><span class="line">            <span class="built_in">this</span>.map.delete(<span class="built_in">this</span>.map.keys().next().value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>HTML</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span> <span class="attr">href</span>=<span class="string">&quot;ja:;&quot;</span>&gt;</span></span><br><span class="line">                    下载app</span><br><span class="line">                    <span class="comment">&lt;!--添加一个弹出层--&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;qrcode&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./img/download.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">span</span>&gt;</span>小米商城app<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fewgcn"><img src="https://z3.ax1x.com/2021/08/05/fewgcn.png" alt="fewgcn.png"></a></p>
+
+<h2 id="怎么测试localStorage大小"><a href="#怎么测试localStorage大小" class="headerlink" title="怎么测试localStorage大小"></a>怎么测试localStorage大小</h2><blockquote>
+<p>面试官：那我们怎么判断localStorage的大小呢？</p>
+<p>我：（思考了一波）我们可以利用累加的方法……诶？（妈的好像有点不太对……本来想说一直累加数据直到我们不能累加为止）</p>
+<p>面试官：……</p>
+<p>面试官：其实就是我们一直加数据+我们的错误处理，直到localStorage不能添加为止</p>
+<p>我：对对，我刚刚想的就是这个……</p>
+</blockquote>
+<p>首先我们要先对localStorage有一些基本了解，这里就不细讲了</p>
+<ul>
+<li><code>localStorage</code>存储的键和值始终采用<code>UTF-16 DOMString格式</code></li>
+<li>5M的单位就是字符串的长度，而不是字符数</li>
+<li><code>localStorage</code>的键占不占空间？？占空间</li>
+</ul>
+<p>这个其实可以根据一个简单的例子来证明：</p>
+<ul>
+<li>我们把 key和val各自设置长 2.5M的长度</li>
+<li>此时我们把键值 +0.1</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> charTxt = <span class="string">&quot;a&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> count = (<span class="number">2.5</span> * <span class="number">1024</span> * <span class="number">1024</span>);</span><br><span class="line"><span class="keyword">let</span> content = <span class="keyword">new</span> <span class="built_in">Array</span>(count).fill(charTxt).join(<span class="string">&quot;&quot;</span>) + <span class="number">0.1</span>; <span class="comment">//+0.1</span></span><br><span class="line"><span class="keyword">const</span> key = <span class="keyword">new</span> <span class="built_in">Array</span>(count).fill(charTxt).join(<span class="string">&quot;&quot;</span>);</span><br><span class="line"><span class="built_in">localStorage</span>.clear();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.time(<span class="string">&quot;setItem&quot;</span>)</span><br><span class="line">    <span class="built_in">localStorage</span>.setItem(key, content);</span><br><span class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">&quot;setItem&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;err&quot;</span>, err);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面为报错的详情</p>
+<ul>
+<li>若我们此时把我们value -0.1，其实是可以运行的，小伙伴可以试一下！</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/q3NeIO"><img src="https://s1.ax1x.com/2022/03/23/q3NeIO.png" alt="q3NeIO.png"></a></p>
+<p><code>这个方法其实就是测试localStorage大小的方法</code></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>上面总结的问题也是最近春招被问得比较多的问题，也学习到蛮多东西的！</p>
+<p>如果你觉得此文对你有一丁点的帮助，点个赞！</p>
 
       
     </div>
@@ -396,7 +449,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://daniellin0516.github.io/2021/08/05/CSS%E6%96%B9%E6%B3%95%E5%86%99%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%B0%8F%E4%B8%89%E8%A7%92/" title="CSS方法写下拉菜单小三角" target="_blank" rel="external">http://daniellin0516.github.io/2021/08/05/CSS方法写下拉菜单小三角/</a>
+      <a href="http://daniellin0516.github.io/2022/03/23/localStorage%E5%BA%94%E7%94%A8/" title="localStorage应用" target="_blank" rel="external">http://daniellin0516.github.io/2022/03/23/localStorage应用/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -442,13 +495,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2021/09/09/HTTP%E5%8D%8F%E8%AE%AE/" title="HTTP协议"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2021/08/02/%E8%83%8C%E6%99%AF/" title="背景和雪碧图"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2022/02/14/diff%E7%AE%97%E6%B3%95/" title="diff算法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
