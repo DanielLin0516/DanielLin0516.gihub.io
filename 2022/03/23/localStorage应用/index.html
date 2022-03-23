@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2022/03/23/q3MEhq.png">
 <meta property="og:image" content="https://s1.ax1x.com/2022/03/23/q3NeIO.png">
 <meta property="article:published_time" content="2022-03-23T13:11:09.000Z">
-<meta property="article:modified_time" content="2022-03-23T14:41:10.357Z">
+<meta property="article:modified_time" content="2022-03-23T14:47:31.071Z">
 <meta property="article:author" content="Daniel Lin">
 <meta property="article:tag" content="项目总结分析">
 <meta name="twitter:card" content="summary">
@@ -308,7 +308,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#localStorage%E8%AE%BE%E7%BD%AE%E6%97%B6%E6%95%88%E6%80%A7"><span class="toc-number">4.</span> <span class="toc-text">localStorage设置时效性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8B%A5localStorage%E5%AD%98%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%97%A0%E6%95%88key%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="toc-number">5.</span> <span class="toc-text">若localStorage存在多个无效key怎么办</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E6%B5%8B%E8%AF%95localStorage%E5%A4%A7%E5%B0%8F"><span class="toc-number">6.</span> <span class="toc-text">怎么测试localStorage大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">7.</span> <span class="toc-text">结语</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#localStorage%E8%AE%BE%E7%BD%AE%E6%97%B6%E6%95%88%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">localStorage设置时效性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8B%A5localStorage%E5%AD%98%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%97%A0%E6%95%88key%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="toc-number">4.</span> <span class="toc-text">若localStorage存在多个无效key怎么办</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E6%B5%8B%E8%AF%95localStorage%E5%A4%A7%E5%B0%8F"><span class="toc-number">5.</span> <span class="toc-text">怎么测试localStorage大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">6.</span> <span class="toc-text">结语</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -369,7 +369,7 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于项目中，我们会经常使用<code>localStorage</code>去进行存储，可能会存<code>token信息</code>、<code>背景主题</code>、<code>路由参数</code>……，接下来总结一下localStorage的拓展用法或者是面试官喜欢问的点</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于项目中，我们会经常使用<code>localStorage</code>去进行存储，可能会存<code>token信息</code>、<code>背景主题</code>、<code>路由参数</code>……，接下来总结一下localStorage的拓展用法或者是面试官喜欢问的点</p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote>
 <p>下面列出一些常用的api供大家参考</p>
 </blockquote>
