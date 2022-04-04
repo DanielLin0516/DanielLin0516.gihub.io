@@ -34,7 +34,8 @@ width：设置内容区的宽度">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -464,6 +465,9 @@ width：设置内容区的宽度">
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -477,7 +481,14 @@ width：设置内容区的宽度">
 <li>内容区和边框之间的距离是内边距,，内边距设置会影响盒子大小</li>
 </ul>
 <p>背景颜色会延申到内边距上</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>:green;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">10px</span> orange solid;</span><br><span class="line">    <span class="attribute">padding-top</span>:<span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">&lt;style>
+.box1</span><span class="token punctuation">&#123;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span>green<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span>10px orange solid<span class="token punctuation">;</span>
+    <span class="token property">padding-top</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://z3.ax1x.com/2021/07/25/Wgmf6U.png"></p>
 <ul>
@@ -490,7 +501,10 @@ width：设置内容区的宽度">
 <ul>
 <li>padding简写属性：可以同时指定四个方向的内边距，规则和border-width一样</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span> <span class="number">40px</span>;</span><br><span class="line"><span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">20px</span> <span class="number">30px</span>;</span><br><span class="line"><span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">20px</span>;</span><br><span class="line"><span class="attribute">padding</span>:<span class="number">10px</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">padding</span><span class="token punctuation">:</span>10px 20px 30px 40px<span class="token punctuation">;</span>
+<span class="token property">padding</span><span class="token punctuation">:</span>10px 20px 30px<span class="token punctuation">;</span>
+<span class="token property">padding</span><span class="token punctuation">:</span>10px 20px<span class="token punctuation">;</span>
+<span class="token property">padding</span><span class="token punctuation">:</span>10px<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="边框（border）"><a href="#边框（border）" class="headerlink" title="边框（border）"></a>边框（border）</h3><p>边框属于盒子的边缘，边框里面属于盒子的内容，出了边框都是盒子的外部，边框的大小会影响到整个盒子的大小，要设置边框，需要至少设置三个样式：</p>
 <p>边框的宽度：border-width</p>
@@ -565,11 +579,26 @@ width：设置内容区的宽度">
 <li>如果将两个外边距设置为auto，宽度固定值，则会将外边距设置为相同的值，所以我们经常利用这个特点来使一个元素在其父元素中水平居中</li>
 </ul>
 <p>示例：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">width</span>:xxxpx;</span><br><span class="line"><span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">width</span><span class="token punctuation">:</span>xxxpx<span class="token punctuation">;</span>
+<span class="token property">margin</span><span class="token punctuation">:</span>0 auto<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </blockquote>
-<h2 id="垂直方向的布局"><a href="#垂直方向的布局" class="headerlink" title="垂直方向的布局"></a>垂直方向的布局</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        <span class="selector-class">.box1</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">            <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: chartreuse;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-class">.box2</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">height</span>:<span class="number">250px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: coral;</span><br><span class="line">        &#125;  </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="垂直方向的布局"><a href="#垂直方向的布局" class="headerlink" title="垂直方向的布局"></a>垂直方向的布局</h2><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">&lt;style>
+        .box1</span><span class="token punctuation">&#123;</span>
+            <span class="token property">width</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+            <span class="token property">height</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+            <span class="token property">background-color</span><span class="token punctuation">:</span> chartreuse<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token selector">.box2</span><span class="token punctuation">&#123;</span>
+            <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+            <span class="token property">height</span><span class="token punctuation">:</span>250px<span class="token punctuation">;</span>
+            <span class="token property">background-color</span><span class="token punctuation">:</span> coral<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>  
+&lt;/style><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>运行后结果：</p>
 <p><img src="https://z3.ax1x.com/2021/07/26/WRT8QU.png"></p>
@@ -587,7 +616,19 @@ width：设置内容区的宽度">
 <li><p>auto：根据需要生成滚动条</p>
 </li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        <span class="selector-class">.box1</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">            <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: chartreuse;</span><br><span class="line">            <span class="attribute">overflow</span>:hidden;  <span class="comment">/*在父元素下面写overlow*/</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-class">.box2</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">height</span>:<span class="number">250px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: coral;</span><br><span class="line">        &#125;  </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">&lt;style>
+        .box1</span><span class="token punctuation">&#123;</span>
+            <span class="token property">width</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+            <span class="token property">height</span><span class="token punctuation">:</span>200px<span class="token punctuation">;</span>
+            <span class="token property">background-color</span><span class="token punctuation">:</span> chartreuse<span class="token punctuation">;</span>
+            <span class="token property">overflow</span><span class="token punctuation">:</span>hidden<span class="token punctuation">;</span>  <span class="token comment">/*在父元素下面写overlow*/</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token selector">.box2</span><span class="token punctuation">&#123;</span>
+            <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+            <span class="token property">height</span><span class="token punctuation">:</span>250px<span class="token punctuation">;</span>
+            <span class="token property">background-color</span><span class="token punctuation">:</span> coral<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>  
+&lt;/style><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li><p><code>overflow-x</code>：处理水平方向溢出</p>
@@ -606,7 +647,10 @@ width：设置内容区的宽度">
 <p>如果相邻的外边距都是负值，则取两者中绝对值较大的</p>
 <p>兄弟元素之间的外边距重叠，对于开发使有利的，所以我们不需要进行处理</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>父子元素</li>
@@ -615,7 +659,12 @@ width：设置内容区的宽度">
 <p>父子元素间相邻外边距，子元素的会传递给父元素（上外边距）</p>
 <p>父子外边距的折叠会影响到页面的布局，必须要进行处理1.利用padding-top</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -636,7 +685,19 @@ width：设置内容区的宽度">
 <li><code>visibility</code>用来设置元素的显示状态：</li>
 </ul>
 <p>可选值：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```hidden```：元素在页面隐藏，不显示，但是依然占据页面位置</span><br><span class="line"></span><br><span class="line">## 盒子的尺寸大小</span><br><span class="line"></span><br><span class="line">```css</span><br><span class="line">.box1&#123;</span><br><span class="line">    width:100px;</span><br><span class="line">    height:100px;</span><br><span class="line">    backgroud-color:#bfa;</span><br><span class="line">    padding:10px;</span><br><span class="line">    border:10px red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-visible```：默认值，元素在页面显示" data-language="visible```：默认值，元素在页面显示"><code class="language-visible```：默认值，元素在页面显示">
+&#96;&#96;&#96;hidden&#96;&#96;&#96;：元素在页面隐藏，不显示，但是依然占据页面位置
+
+## 盒子的尺寸大小
+
+&#96;&#96;&#96;css
+.box1&#123;
+    width:100px;
+    height:100px;
+    backgroud-color:#bfa;
+    padding:10px;
+    border:10px red solid;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>默认情况下，盒子可见框的大小由内容区、内边距和边框共同决定（上述代码可见框140px）</p>
 <p>box-sizing：用来设置尺寸的计算方式（设置width和height的作用）</p>
@@ -648,14 +709,31 @@ width：设置内容区的宽度">
 <p>​                        width和height指的是内容区和内边距和边框的大小</p>
 </blockquote>
 </blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    backgroud-<span class="attribute">color</span>:<span class="number">#bfa</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">10px</span> red solid;</span><br><span class="line">    <span class="attribute">box-sizing</span>:border-box</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.box1</span><span class="token punctuation">&#123;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+    <span class="token property">backgroud-color</span><span class="token punctuation">:</span>#bfa<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span>10px<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span>10px red solid<span class="token punctuation">;</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span>border-box
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上述代码则为100px×100px的可见框大小，会自动缩小内容区的大小</p>
 <h2 id="轮廓阴影和圆角"><a href="#轮廓阴影和圆角" class="headerlink" title="轮廓阴影和圆角"></a>轮廓阴影和圆角</h2><h3 id="轮廓线"><a href="#轮廓线" class="headerlink" title="轮廓线"></a>轮廓线</h3><p>outline：用来设置元素的轮廓线，用法和border一模一样</p>
 <p>轮廓线不会影响到可见框的大小</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>-colorblue;</span><br><span class="line">    <span class="attribute">outline</span>:<span class="number">10px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.box1</span><span class="token punctuation">&#123;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+    background-colorblue<span class="token punctuation">;</span>
+    <span class="token property">outline</span><span class="token punctuation">:</span>10px red solid<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span>&#123;    </span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;    </span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;    </span><br><span class="line">    <span class="attribute">background-color</span>:blue;    </span><br><span class="line">    <span class="attribute">border</span>:<span class="number">10px</span> red solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.box1</span><span class="token punctuation">&#123;</span>    
+    <span class="token property">width</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>    
+    <span class="token property">height</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>    
+    <span class="token property">background-color</span><span class="token punctuation">:</span>blue<span class="token punctuation">;</span>    
+    <span class="token property">border</span><span class="token punctuation">:</span>10px red solid<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><a target="_blank" rel="noopener" href="https://imgtu.com/i/WIcl1U"><img src="https://z3.ax1x.com/2021/07/28/WIcl1U.png" alt="WIcl1U.png"></a><a target="_blank" rel="noopener" href="https://imgtu.com/i/WIc3X4"><img src="https://z3.ax1x.com/2021/07/28/WIc3X4.png" alt="WIc3X4.png"></a></p>
 <p>​    </p>
@@ -665,7 +743,15 @@ width：设置内容区的宽度">
 <p>第二个值：垂直偏移量 设置阴影的垂直位置 正值向下移动 负值向上移动</p>
 <p>第三个值：阴影的模糊半径，像素越大越模糊</p>
 <p>第四个值：阴影的颜色</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        <span class="selector-class">.box1</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">background-color</span>: blue;</span><br><span class="line">            <span class="attribute">box-shadow</span>:<span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>,<span class="number">0</span>, <span class="number">0.5</span>);</span><br><span class="line">        &#125;</span><br><span class="line">       </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">&lt;style>
+        .box1</span><span class="token punctuation">&#123;</span>
+            <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+            <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+            <span class="token property">background-color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+            <span class="token property">box-shadow</span><span class="token punctuation">:</span>10px 10px 10px <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span>0<span class="token punctuation">,</span> 0.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+       
+&lt;/style><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>效果图：</p>
 <p><img src="https://z3.ax1x.com/2021/07/28/WIcah6.png"></p>
@@ -679,7 +765,7 @@ width：设置内容区的宽度">
 <p>三个值：左上 右上/左下 右下</p>
 <p>两个值：左上/右下 右上/左下</p>
 <p>将图形设置为圆形：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-radius</span>:<span class="number">50%</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">border-radius</span><span class="token punctuation">:</span>50%<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
                 

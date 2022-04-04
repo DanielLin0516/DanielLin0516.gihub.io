@@ -36,7 +36,8 @@ Buffer的效率很高，存储和读取很快">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -466,6 +467,9 @@ Buffer的效率很高，存储和读取很快">
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -484,13 +488,22 @@ Buffer的效率很高，存储和读取很快">
 <li><p>Buffer是Node中的非常核心的模块，无需下载，无需引入，直接即可使用</p>
 </li>
 </ol>
-<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个Buffer的实例对象------性能特别差--1.在堆里开辟空间2.清理</span></span><br><span class="line"><span class="keyword">let</span> buf = <span class="keyword">new</span> Buffer(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">console</span>.log(buf)</span><br><span class="line"><span class="comment">//创建一个Buffer实例对象-------性能比new Buffer（)稍强一点点-----在堆中开辟一块空间(该块空间没有人)</span></span><br><span class="line"><span class="keyword">let</span> buf2 = Buffer.alloc(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">console</span>.log(buf2)</span><br><span class="line"><span class="comment">//创建一个Buffer实例对象-------性能最好的----在堆里开辟空间</span></span><br><span class="line"><span class="keyword">let</span> buf3 = Buffer.allocUnsafe(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">console</span>.log(buf3)</span><br></pre></td></tr></table></figure>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//创建一个Buffer的实例对象------性能特别差--1.在堆里开辟空间2.清理</span>
+<span class="token keyword">let</span> buf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Buffer</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span>
+<span class="token comment">//创建一个Buffer实例对象-------性能比new Buffer（)稍强一点点-----在堆中开辟一块空间(该块空间没有人)</span>
+<span class="token keyword">let</span> buf2 <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">alloc</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>buf2<span class="token punctuation">)</span>
+<span class="token comment">//创建一个Buffer实例对象-------性能最好的----在堆里开辟空间</span>
+<span class="token keyword">let</span> buf3 <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">allocUnsafe</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>buf3<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>输出的Buffer为什么不为空？</p>
 <p>在堆里开辟空间，可能残留着别人用过的数据，所以allocUnsafe</p>
 </blockquote>
-<h2 id="将一个数据存入"><a href="#将一个数据存入" class="headerlink" title="将一个数据存入"></a>将一个数据存入</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> buf4 = Buffer.from(<span class="string">&#x27;hello atguigu&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(buf4)</span><br></pre></td></tr></table></figure>
+<h2 id="将一个数据存入"><a href="#将一个数据存入" class="headerlink" title="将一个数据存入"></a>将一个数据存入</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> buf4 <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token string">'hello atguigu'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>buf4<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <hr>
 <h1 id="Node简单文件写入"><a href="#Node简单文件写入" class="headerlink" title="Node简单文件写入"></a>Node简单文件写入</h1><h2 id="简单文件写入"><a href="#简单文件写入" class="headerlink" title="简单文件写入"></a>简单文件写入</h2><p>1.Node中的文件系统：</p>
@@ -536,7 +549,17 @@ Buffer的效率很高，存储和读取很快">
 </ul>
 <p>在Node中有这样一个原则：错误优先</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入内置的fs模块</span></span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用writeFile方法</span></span><br><span class="line">fs.writeFile(<span class="string">&#x27;./demo.txt&#x27;</span>,<span class="string">&#x27;今天天气真不错&#x27;</span>,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;文件写入失败&#x27;</span>,err)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;文件写入成功&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//引入内置的fs模块</span>
+<span class="token keyword">let</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+
+<span class="token comment">//调用writeFile方法</span>
+fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">'./demo.txt'</span><span class="token punctuation">,</span><span class="token string">'今天天气真不错'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件写入失败'</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件写入成功'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -554,7 +577,24 @@ Buffer的效率很高，存储和读取很快">
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="comment">//创建可写流</span></span><br><span class="line"><span class="keyword">let</span> ws = fs.createWriteStream(__dirname+<span class="string">&#x27;/demo.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//监测流的状态</span></span><br><span class="line">ws.on(<span class="string">&#x27;open&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;可写流打开了&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">ws.on(<span class="string">&#x27;close&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;可写流关闭了&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用可写流写入数据</span></span><br><span class="line">ws.write(<span class="string">&#x27;美女\n&#x27;</span>)</span><br><span class="line">ws.write(<span class="string">&#x27;没诶诶诶\n&#x27;</span>)</span><br><span class="line">ws.write(<span class="string">&#x27;到底是哪一个\n&#x27;</span>)</span><br><span class="line">ws.close()  <span class="comment">//如果在node8版本，用此方法，会造成数据丢失</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+<span class="token comment">//创建可写流</span>
+<span class="token keyword">let</span> ws <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span>__dirname<span class="token operator">+</span><span class="token string">'/demo.txt'</span><span class="token punctuation">)</span>
+
+<span class="token comment">//监测流的状态</span>
+ws<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'open'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'可写流打开了'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+ws<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'可写流关闭了'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment">//使用可写流写入数据</span>
+ws<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'美女\n'</span><span class="token punctuation">)</span>
+ws<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'没诶诶诶\n'</span><span class="token punctuation">)</span>
+ws<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'到底是哪一个\n'</span><span class="token punctuation">)</span>
+ws<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//如果在node8版本，用此方法，会造成数据丢失</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
 <h2 id="简单文件读取"><a href="#简单文件读取" class="headerlink" title="简单文件读取"></a>简单文件读取</h2><p><code>fs.readFile(path[,path],callback)</code>:</p>
@@ -567,7 +607,27 @@ Buffer的效率很高，存储和读取很快">
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//简单文件写入和简单文件读取，都是一次性把所有要读取或要写入的内容加到内存中，很容易造成内存泄漏</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line">fs.readFile(__dirname+<span class="string">&#x27;/demo.txt&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;文件读取失败&#x27;</span>,err)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;文件读取成功&#x27;</span>,data)</span><br><span class="line">        fs.writeFile(<span class="string">&#x27;./haha.txt&#x27;</span>,data,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(err)&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;文件写入失败&#x27;</span>,err)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;文件写入成功&#x27;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">为什么读取出来的东西是buffer？</span></span><br><span class="line"><span class="comment">用户存储的不一定是纯文本</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//简单文件写入和简单文件读取，都是一次性把所有要读取或要写入的内容加到内存中，很容易造成内存泄漏</span>
+
+<span class="token keyword">let</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span>__dirname<span class="token operator">+</span><span class="token string">'/demo.txt'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span>data</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件读取失败'</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件读取成功'</span><span class="token punctuation">,</span>data<span class="token punctuation">)</span>
+        fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">'./haha.txt'</span><span class="token punctuation">,</span>data<span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件写入失败'</span><span class="token punctuation">,</span>err<span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件写入成功'</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token comment">/* 
+为什么读取出来的东西是buffer？
+用户存储的不一定是纯文本
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="流式文件读取"><a href="#流式文件读取" class="headerlink" title="流式文件读取"></a>流式文件读取</h2><p><code>fs.createWriteStream(path[,optoions])</code>:</p>
 <ul>
@@ -585,7 +645,22 @@ Buffer的效率很高，存储和读取很快">
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;createReadStream&#125; = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="comment">//创建一个可读流</span></span><br><span class="line"><span class="keyword">let</span> rs = createReadStream(__dirname+<span class="string">&#x27;/demo.txt&#x27;</span>,&#123;<span class="attr">highWaterMark</span>:<span class="number">10</span>*<span class="number">1024</span>*<span class="number">1024</span>&#125;)</span><br><span class="line"><span class="comment">//监测流的状态</span></span><br><span class="line">rs.on(<span class="string">&#x27;open&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;可读流打开了&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">rs.on(<span class="string">&#x27;close&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;可读流关闭了&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//给可读流绑定一个data事件，就会触发可读流自动读取内容</span></span><br><span class="line">rs.on(<span class="string">&#x27;data&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//buffer实例的length属性，是表示该buffer实例占用内存空间的大小</span></span><br><span class="line">    <span class="built_in">console</span>.log(data.length)  <span class="comment">//输出的时65536，每次读取64kb内容</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> <span class="token punctuation">&#123;</span>createReadStream<span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+<span class="token comment">//创建一个可读流</span>
+<span class="token keyword">let</span> rs <span class="token operator">=</span> <span class="token function">createReadStream</span><span class="token punctuation">(</span>__dirname<span class="token operator">+</span><span class="token string">'/demo.txt'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span>highWaterMark<span class="token operator">:</span><span class="token number">10</span><span class="token operator">*</span><span class="token number">1024</span><span class="token operator">*</span><span class="token number">1024</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token comment">//监测流的状态</span>
+rs<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'open'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'可读流打开了'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+rs<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'可读流关闭了'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment">//给可读流绑定一个data事件，就会触发可读流自动读取内容</span>
+rs<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">//buffer实例的length属性，是表示该buffer实例占用内存空间的大小</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>length<span class="token punctuation">)</span>  <span class="token comment">//输出的时65536，每次读取64kb内容</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 

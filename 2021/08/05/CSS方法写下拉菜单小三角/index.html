@@ -9,7 +9,8 @@
 利用border给四个边框设置颜色如图所示：
 
 若需要上箭头的话则要把border-top的属性设为none，左边和右边的属性设为transparent（透明色）
-1234567.box1&amp;#123;        wid">
+.box1&amp;#123;
+        width: 0p">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -36,7 +37,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -466,6 +468,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -475,17 +480,58 @@
 <p>利用<code>border</code>给四个边框设置颜色如图所示：</p>
 <p><a target="_blank" rel="noopener" href="https://imgtu.com/i/feaUCd"><img src="https://z3.ax1x.com/2021/08/05/feaUCd.png" alt="feaUCd.png"></a></p>
 <p>若需要上箭头的话则要把<code>border-top</code>的属性设为none，左边和右边的属性设为transparent（透明色）</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">0px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">0px</span>;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">20px</span> solid transparent;</span><br><span class="line">        <span class="attribute">border-top</span>: none;</span><br><span class="line">        <span class="attribute">border-bottom-color</span>: tomato;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.box1</span><span class="token punctuation">&#123;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 20px solid transparent<span class="token punctuation">;</span>
+        <span class="token property">border-top</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+        <span class="token property">border-bottom-color</span><span class="token punctuation">:</span> tomato<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fed1Rs"><img src="https://z3.ax1x.com/2021/08/05/fed1Rs.png" alt="fed1Rs.png"></a></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:hover</span> &gt; <span class="selector-class">.app</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;   <span class="comment">/*设置绝对定位使小三角上去*/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">8px</span> solid transparent/*透明色*/;</span><br><span class="line">    <span class="comment">/*去除上边框*/</span> </span><br><span class="line">    <span class="attribute">border-top</span>: none ;</span><br><span class="line">    <span class="attribute">border-bottom-color</span>: white;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;     <span class="comment">/*使三角形居中*/</span></span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">li:hover > .app::after</span><span class="token punctuation">&#123;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>   <span class="token comment">/*设置绝对定位使小三角上去*/</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 8px solid transparent<span class="token comment">/*透明色*/</span><span class="token punctuation">;</span>
+    <span class="token comment">/*去除上边框*/</span> 
+    <span class="token property">border-top</span><span class="token punctuation">:</span> none <span class="token punctuation">;</span>
+    <span class="token property">border-bottom-color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+    <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>     <span class="token comment">/*使三角形居中*/</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="下拉菜单"><a href="#下拉菜单" class="headerlink" title="下拉菜单"></a>下拉菜单</h2><p>在有下拉菜单的父元素创建一个<code>div</code>块元素，根据需求调整大小，最重要的是<code>display:none</code>将模块隐藏，下面是小米二维码下拉菜单的一个例子：</p>
 <p>CSS</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span><span class="selector-pseudo">:hover</span> &gt; <span class="selector-class">.app</span> <span class="selector-class">.qrcode</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">/*设置app下载的下拉*/</span></span><br><span class="line"><span class="selector-class">.app</span> <span class="selector-class">.qrcode</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">    <span class="attribute">position</span>: absolute;   <span class="comment">/*开启绝对定位后不再占据位置*/</span></span><br><span class="line">    <span class="attribute">left</span>: <span class="number">22px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">62px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">124px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">148px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: white;</span><br><span class="line">    <span class="attribute">line-height</span>:<span class="number">1</span> ;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, .<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">li:hover > .app .qrcode</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token comment">/*设置app下载的下拉*/</span>
+<span class="token selector">.app .qrcode</span><span class="token punctuation">&#123;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>   <span class="token comment">/*开启绝对定位后不再占据位置*/</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 22px<span class="token punctuation">;</span>
+    <span class="token property">margin-left</span><span class="token punctuation">:</span> -62px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 124px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 148px<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span>1 <span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 0 10px <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> .3<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>HTML</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;app&quot;</span> <span class="attr">href</span>=<span class="string">&quot;ja:;&quot;</span>&gt;</span></span><br><span class="line">                    下载app</span><br><span class="line">                    <span class="comment">&lt;!--添加一个弹出层--&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;qrcode&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./img/download.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">span</span>&gt;</span>小米商城app<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ja:;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                    下载app
+                    <span class="token comment">&lt;!--添加一个弹出层--></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qrcode<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./img/download.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>小米商城app<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fewgcn"><img src="https://z3.ax1x.com/2021/08/05/fewgcn.png" alt="fewgcn.png"></a></p>
 

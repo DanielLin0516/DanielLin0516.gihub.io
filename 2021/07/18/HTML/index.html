@@ -40,7 +40,8 @@ win+R启动，以管理员身份运行（windows系统自动会切到ro">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -470,6 +471,9 @@ win+R启动，以管理员身份运行（windows系统自动会切到ro">
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -486,18 +490,22 @@ win+R启动，以管理员身份运行（windows系统自动会切到ro">
 <li><p>win+R启动，以管理员身份运行（windows系统自动会切到root用户）</p>
 </li>
 <li><p>在命令行输入：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <p>​        下载淘宝镜像源，稍等几秒</p>
 <ol start="3">
 <li><p>安装hexo框架，在命令行输入：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br><span class="line"><span class="comment">//安装完成之后可以输入hexo -v看版本</span></span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">cnpm install -g hexo-cli
+&#x2F;&#x2F;安装完成之后可以输入hexo -v看版本<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p>查看文件夹，并在该文件夹创建blog文件夹，进入blog文件夹</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pwd           <span class="comment">//查看文件夹</span></span><br><span class="line">mkdir blog    <span class="comment">//创建文件夹</span></span><br><span class="line">cd blog/      <span class="comment">//进入文件夹</span></span><br><span class="line">pwd           <span class="comment">//查看下路径对不对</span></span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">pwd           &#x2F;&#x2F;查看文件夹
+mkdir blog    &#x2F;&#x2F;创建文件夹
+cd blog&#x2F;      &#x2F;&#x2F;进入文件夹
+pwd           &#x2F;&#x2F;查看下路径对不对<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>用hexo生成博客</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">hexo init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>启动博客</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s   <span class="comment">//进入本端给的地址</span></span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">hexo s   &#x2F;&#x2F;进入本端给的地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <hr>
 <h2 id="将我们自己的博客部署到github上公开使用"><a href="#将我们自己的博客部署到github上公开使用" class="headerlink" title="将我们自己的博客部署到github上公开使用"></a>将我们自己的博客部署到github上公开使用</h2><ul>
@@ -512,9 +520,10 @@ win+R启动，以管理员身份运行（windows系统自动会切到ro">
 <ul>
 <li><p>在blog目录下安装一个git部署的插件</p>
 <p>在命令行输入：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pwd   <span class="comment">//查看路径</span></span><br><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">pwd   &#x2F;&#x2F;查看路径
+cnpm install --save hexo-deployer-git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p>去设置_config.yml文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notepad _config.yml    <span class="comment">//用记事本去改Deoloyment里面的东西</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">notepad _config.yml    &#x2F;&#x2F;用记事本去改Deoloyment里面的东西<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <blockquote>
 <p>type: git（注意前面要空一格）</p>
@@ -524,7 +533,7 @@ win+R启动，以管理员身份运行（windows系统自动会切到ro">
 <p>保存后退出即可</p>
 </li>
 <li><p>部署到远端</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>输入账号密码即可</p>
 <p>这时刷新gitub仓库会多了很多内容</p>
@@ -538,11 +547,13 @@ win+R启动，以管理员身份运行（windows系统自动会切到ro">
 <li><p>将git clone内串代码复制到命令行进行下载主题，会下载到theme这个文件夹里</p>
 </li>
 <li><p>在命令行输入：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notepad _config.yml</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">notepad _config.yml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 <p>​        去更改记事本里面的theme：***即可</p>
 <ul>
-<li>在本端进行查看，若可以的话直接上传到github上面<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li>在本端进行查看，若可以的话直接上传到github上面<pre class="line-numbers language-java" data-language="java"><code class="language-java">hexo g
+hexo s
+hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 
                 

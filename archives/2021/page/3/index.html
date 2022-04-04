@@ -32,7 +32,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -312,7 +313,7 @@
         <div class="brand">
             <div class="title center-align">
                 
-                    subtitle
+                Front End
                 
             </div>
 
@@ -485,7 +486,8 @@
                                     替换空格请实现一个函数，把字符串 s 中的每个空格替换成”%20”。
 
 思路一：利用字符串拼接(不推荐，因为 JS中字符串无法被修改，一旦给字符串变量重新赋值，就要花费时间和空间去重新新建一个字符串，从而增加了复杂度！)
-123456789
+/**
+ * @p
                                 
                             </div>
                             <div class="publish-info">
@@ -657,7 +659,8 @@
                                     同源策略同源策略最早由NETscape公司提出，是浏览器一种安全策略。
 同源：协议、域名、端口号  必须完全相同
 违背同源策略就是跨域
-123456789101112131415const btn = document.querySelec
+const btn = document.querySelector("button");
+      
                                 
                             </div>
                             <div class="publish-info">
@@ -712,7 +715,8 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    JQuery发送AJAX请求GET请求12345$(&quot;button&quot;).eq(0).click(function()&#123;            $.get(&quot;http://127.0.0.1:8000/
+                                    JQuery发送AJAX请求GET请求$("button").eq(0).click(function()&#123;
+            $.get("http://127.0.0.1:8000/jquery-server", &#1
                                 
                             </div>
                             <div class="publish-info">
@@ -770,12 +774,15 @@
                                     请求超时和网络异常处理前端设置
 超时设置
 
-12//超时设置xhr.timeout = 2000;
+//超时设置
+xhr.timeout = 2000;
 
 
 超时回调
 
-123xhr.ontimeout = function()&#123;    alert(&quot;网络异常，稍后重试&q
+xhr.ontimeout = function()&#123;
+    alert("网络异常，稍后重试");
+&#125;
                                 
                             </div>
                             <div class="publish-info">
@@ -830,7 +837,11 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    响应JASON数据12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&lt;!DOCTYPE html&gt;&
+                                    响应JASON数据&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta http-equiv="X-UA-Co
                                 
                             </div>
                             <div class="publish-info">
@@ -885,7 +896,10 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    GET请求1234567891011121314151617181920212223242526272829btn.onclick = function()&#123;            //1.创建对象            cons
+                                    GET请求btn.onclick = function()&#123;
+            //1.创建对象
+            const xhr = new XMLHttpRequest;
+            //2.初始化
                                 
                             </div>
                             <div class="publish-info">
@@ -1007,7 +1021,8 @@
 利用border给四个边框设置颜色如图所示：
 
 若需要上箭头的话则要把border-top的属性设为none，左边和右边的属性设为transparent（透明色）
-1234567.box1&#123;        wid
+.box1&#123;
+        width: 0p
                                 
                             </div>
                             <div class="publish-info">

@@ -36,7 +36,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -466,6 +467,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -478,7 +482,7 @@
 <p>3.如果背景的图片大于元素，将会一个部分背景无法显示</p>
 <p>4.如果背景图片和元素一样大，则会直接正常显示</p>
 </blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">url</span>();</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">background-image</span><span class="token punctuation">:</span><span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
@@ -494,11 +498,12 @@
 <p>设置方式：</p>
 <blockquote>
 <p>1.通过 top left right bottom center 几个表示方位的词来设置背景图片位置</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:center center ;  //正中间</span><br><span class="line"><span class="attribute">background-position</span>:top left ;  //左上角</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">background-position</span><span class="token punctuation">:</span>center center <span class="token punctuation">;</span>  //正中间
+<span class="token property">background-position</span><span class="token punctuation">:</span>top left <span class="token punctuation">;</span>  //左上角<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>2.通过偏移量来指定背景图片的位置：</p>
 <p>水平方向偏移量  垂直方向偏移量</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-position</span>:<span class="number">50px</span> <span class="number">50px</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">background-position</span><span class="token punctuation">:</span>50px 50px<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 </blockquote>
 <h3 id="background-clip"><a href="#background-clip" class="headerlink" title="background-clip"></a><code>background-clip</code></h3><p>设置背景的范围</p>
@@ -531,7 +536,7 @@
 <p>第一个值表示宽度</p>
 <p>第二个值表示高度</p>
 <p>如果只写一个，则第二个值默认是auto</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-size</span>：<span class="number">100%</span> <span class="attribute">auto</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">background-size：100% auto<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>可选值：</p>
 <ul>
@@ -548,10 +553,22 @@
 <p>并且该样式没有顺序要求，也没有哪个属性是必须写的</p>
 <p>注意：</p>
 <p>background-size必须写在background-position后边，并且使用/隔开</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-position</span>/<span class="attribute">background-size</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">background-position/background-size<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>background-origin background-clip两个样式，origin要在clip前边</p>
-<h2 id="超链接按钮的背景设置"><a href="#超链接按钮的背景设置" class="headerlink" title="超链接按钮的背景设置"></a>超链接按钮的背景设置</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">93px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">29px</span>;</span><br><span class="line">    <span class="attribute">background-image</span>:<span class="built_in">url</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">background-position</span>:-<span class="number">93px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span>&#123;</span><br><span class="line">    <span class="attribute">background-position</span>:-<span class="number">186px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="超链接按钮的背景设置"><a href="#超链接按钮的背景设置" class="headerlink" title="超链接按钮的背景设置"></a>超链接按钮的背景设置</h2><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">&lt;style>
+a:link</span><span class="token punctuation">&#123;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>93px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>29px<span class="token punctuation">;</span>
+    <span class="token property">background-image</span><span class="token punctuation">:</span><span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">a:hover</span><span class="token punctuation">&#123;</span>
+    <span class="token property">background-position</span><span class="token punctuation">:</span>-93px 0<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">a:active</span><span class="token punctuation">&#123;</span>
+    <span class="token property">background-position</span><span class="token punctuation">:</span>-186px 0<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>解决图片闪烁的问题：</p>
 <p>可以将多个小图片同意保存到一个大图片中，然后通过调整background-position来显示，这样图片会同时加载到网页中，就可以有效的避免出现闪烁的问题，这个技术在网页中应用十分广泛，被称为CSS-Sprite，叫雪碧图</p>
@@ -577,7 +594,7 @@
 <ul>
 <li><code>liner-gradient()</code></li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-image</span>:<span class="built_in">liner-gradient</span>(red,yellow)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">background-image</span><span class="token punctuation">:</span><span class="token function">liner-gradient</span><span class="token punctuation">(</span>red<span class="token punctuation">,</span>yellow<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fPtktS"><img src="https://z3.ax1x.com/2021/08/03/fPtktS.png" alt="fPtktS.png"></a></p>
 <p>红色在开头，黄色在结尾，中间是过渡区，线性渐变的开头，我们可以指定一个渐变的方向</p>
@@ -590,7 +607,13 @@
 <li>turn表示圈</li>
 </ul>
 <p>渐变可以同时制定多种颜色，多个颜色默认情况下平均分布，也可以手动指定简便的分布情况</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="selector-class">.box1</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">220px</span>;</span><br><span class="line">        <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to left,red <span class="number">50px</span>,yellow <span class="number">100px</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">&lt;style>
+    .box1</span><span class="token punctuation">&#123;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 220px<span class="token punctuation">;</span>
+        <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to left<span class="token punctuation">,</span>red 50px<span class="token punctuation">,</span>yellow 100px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+&lt;/style><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
 <ul>
@@ -612,7 +635,13 @@
 <p>circle</p>
 <p>ellipse</p>
 </blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="selector-class">.box1</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">220px</span>;</span><br><span class="line">        <span class="attribute">background-image</span>:<span class="built_in">radial-gradient</span>(circle at center,red,yellow);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">&lt;style>
+    .box1</span><span class="token punctuation">&#123;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 220px<span class="token punctuation">;</span>
+        <span class="token property">background-image</span><span class="token punctuation">:</span><span class="token function">radial-gradient</span><span class="token punctuation">(</span>circle at center<span class="token punctuation">,</span>red<span class="token punctuation">,</span>yellow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+&lt;/style><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 

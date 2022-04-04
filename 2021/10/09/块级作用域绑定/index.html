@@ -6,9 +6,15 @@
     <meta charset="utf-8">
     <meta name="keywords" content="块级作用域绑定, Daniel Blog">
     <meta name="description" content="let声明声明变量
-1234let a;let b,c,d;let e = 100;let f = 521 , g = &amp;#x27;Iloveyou&amp;#x27;
+let a;
+let b,c,d;
+let e = 100;
+let f = 521 , g = &#39;Iloveyou&#39;
 
-1.变量不能重复声明12let star = &amp;#x27;罗志祥&amp;#x27;">
+1.变量不能重复声明let star = &#39;罗志祥&#39;
+let star = &#39;小猪&#39;
+
+2.块级作">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -35,7 +41,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -465,41 +472,72 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="let声明"><a href="#let声明" class="headerlink" title="let声明"></a>let声明</h1><p><strong>声明变量</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a;</span><br><span class="line"><span class="keyword">let</span> b,c,d;</span><br><span class="line"><span class="keyword">let</span> e = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">let</span> f = <span class="number">521</span> , g = <span class="string">&#x27;Iloveyou&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> a<span class="token punctuation">;</span>
+<span class="token keyword">let</span> b<span class="token punctuation">,</span>c<span class="token punctuation">,</span>d<span class="token punctuation">;</span>
+<span class="token keyword">let</span> e <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> f <span class="token operator">=</span> <span class="token number">521</span> <span class="token punctuation">,</span> g <span class="token operator">=</span> <span class="token string">'Iloveyou'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="1-变量不能重复声明"><a href="#1-变量不能重复声明" class="headerlink" title="1.变量不能重复声明"></a>1.变量不能重复声明</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> star = <span class="string">&#x27;罗志祥&#x27;</span></span><br><span class="line"><span class="keyword">let</span> star = <span class="string">&#x27;小猪&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-变量不能重复声明"><a href="#1-变量不能重复声明" class="headerlink" title="1.变量不能重复声明"></a>1.变量不能重复声明</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> star <span class="token operator">=</span> <span class="token string">'罗志祥'</span>
+<span class="token keyword">let</span> star <span class="token operator">=</span> <span class="token string">'小猪'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="2-块级作用域"><a href="#2-块级作用域" class="headerlink" title="2.块级作用域"></a>2.块级作用域</h2><p><strong>全局，函数，eval</strong></p>
 <p><code>if</code> <code>else</code> <code>while</code> <code>for</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> girl = <span class="string">&#x27;周扬青&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(girl)    <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> girl <span class="token operator">=</span> <span class="token string">'周扬青'</span>
+<span class="token punctuation">&#125;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>girl<span class="token punctuation">)</span>    <span class="token comment">//undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> girl = <span class="string">&#x27;周扬青&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(girl)    <span class="comment">//周扬青</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> girl <span class="token operator">=</span> <span class="token string">'周扬青'</span>
+<span class="token punctuation">&#125;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>girl<span class="token punctuation">)</span>    <span class="token comment">//周扬青</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="3-不存在变量提升"><a href="#3-不存在变量提升" class="headerlink" title="3.不存在变量提升"></a>3.不存在变量提升</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(song)</span><br><span class="line">    <span class="keyword">var</span> song = <span class="string">&#x27;9999&#x27;</span>    <span class="comment">//不会报错，会显示undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-不存在变量提升"><a href="#3-不存在变量提升" class="headerlink" title="3.不存在变量提升"></a>3.不存在变量提升</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>song<span class="token punctuation">)</span>
+    <span class="token keyword">var</span> song <span class="token operator">=</span> <span class="token string">'9999'</span>    <span class="token comment">//不会报错，会显示undefined</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(song)</span><br><span class="line">    <span class="keyword">let</span> song = <span class="string">&#x27;8999&#x27;</span>   <span class="comment">//报错，无提升</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>song<span class="token punctuation">)</span>
+    <span class="token keyword">let</span> song <span class="token operator">=</span> <span class="token string">'8999'</span>   <span class="token comment">//报错，无提升</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="4-不影响作用域链"><a href="#4-不影响作用域链" class="headerlink" title="4.不影响作用域链"></a>4.不影响作用域链</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> school = <span class="string">&#x27;尚硅谷&#x27;</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(school)</span><br><span class="line">    &#125;</span><br><span class="line">    fn();           <span class="comment">//输出尚硅谷</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-不影响作用域链"><a href="#4-不影响作用域链" class="headerlink" title="4.不影响作用域链"></a>4.不影响作用域链</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> school <span class="token operator">=</span> <span class="token string">'尚硅谷'</span>
+    <span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>school<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">//输出尚硅谷</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
 <h1 id="const-定义常量"><a href="#const-定义常量" class="headerlink" title="const 定义常量"></a>const 定义常量</h1><p><strong>声明常量</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> scool = <span class="string">&#x27;山硅谷&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(school)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> scool <span class="token operator">=</span> <span class="token string">'山硅谷'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>school<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="1-一定要赋初始值"><a href="#1-一定要赋初始值" class="headerlink" title="1.一定要赋初始值"></a>1.一定要赋初始值</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> A     <span class="comment">//报错，未赋予初始值</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-一定要赋初始值"><a href="#1-一定要赋初始值" class="headerlink" title="1.一定要赋初始值"></a>1.一定要赋初始值</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token constant">A</span>     <span class="token comment">//报错，未赋予初始值</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="2-一般常量使用大写（潜规则）"><a href="#2-一般常量使用大写（潜规则）" class="headerlink" title="2.一般常量使用大写（潜规则）"></a>2.一般常量使用大写（潜规则）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-一般常量使用大写（潜规则）"><a href="#2-一般常量使用大写（潜规则）" class="headerlink" title="2.一般常量使用大写（潜规则）"></a>2.一般常量使用大写（潜规则）</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">100</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="3-常量的值不能修改"><a href="#3-常量的值不能修改" class="headerlink" title="3.常量的值不能修改"></a>3.常量的值不能修改</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> scool = <span class="string">&#x27;山硅谷&#x27;</span></span><br><span class="line">school = <span class="string">&#x27;aaaa&#x27;</span>    <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-常量的值不能修改"><a href="#3-常量的值不能修改" class="headerlink" title="3.常量的值不能修改"></a>3.常量的值不能修改</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> scool <span class="token operator">=</span> <span class="token string">'山硅谷'</span>
+school <span class="token operator">=</span> <span class="token string">'aaaa'</span>    <span class="token comment">//报错</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="4-块级作用域"><a href="#4-块级作用域" class="headerlink" title="4.块级作用域"></a>4.块级作用域</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">const</span> Player = <span class="string">&#x27;uzi&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Player)    <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-块级作用域"><a href="#4-块级作用域" class="headerlink" title="4.块级作用域"></a>4.块级作用域</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> Player <span class="token operator">=</span> <span class="token string">'uzi'</span>
+<span class="token punctuation">&#125;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Player<span class="token punctuation">)</span>    <span class="token comment">//报错</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="5-对于数组和对象的元素修改，不算做对常量的修改，不会报错"><a href="#5-对于数组和对象的元素修改，不算做对常量的修改，不会报错" class="headerlink" title="5.对于数组和对象的元素修改，不算做对常量的修改，不会报错"></a>5.对于数组和对象的元素修改，不算做对常量的修改，不会报错</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Tanm = [<span class="string">&#x27;uzi&#x27;</span>,<span class="string">&#x27;mxlg&#x27;</span>]</span><br><span class="line">Tanm.push(<span class="string">&#x27;M&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="5-对于数组和对象的元素修改，不算做对常量的修改，不会报错"><a href="#5-对于数组和对象的元素修改，不算做对常量的修改，不会报错" class="headerlink" title="5.对于数组和对象的元素修改，不算做对常量的修改，不会报错"></a>5.对于数组和对象的元素修改，不算做对常量的修改，不会报错</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> Tanm <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'uzi'</span><span class="token punctuation">,</span><span class="token string">'mxlg'</span><span class="token punctuation">]</span>
+Tanm<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'M'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
                 

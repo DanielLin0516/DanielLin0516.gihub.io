@@ -33,7 +33,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -463,6 +464,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -475,15 +479,54 @@
 <ul>
 <li>安装插件</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install postcss-px-to-viewport -D</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">npm install postcss<span class="token operator">-</span>px<span class="token operator">-</span>to<span class="token operator">-</span>viewport <span class="token operator">-</span><span class="token constant">D</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>在package.json同级下新建文件vue.config.js,在vue.config.js中配置如下</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    <span class="attr">css</span>: &#123;</span><br><span class="line">        <span class="attr">extract</span>: <span class="literal">false</span>,<span class="comment">//false表示开发环境,true表示生成环境</span></span><br><span class="line">        <span class="attr">sourceMap</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">loaderOptions</span>: &#123;</span><br><span class="line">          <span class="attr">postcss</span>: &#123;</span><br><span class="line">            <span class="attr">plugins</span>: [</span><br><span class="line">              <span class="built_in">require</span>(<span class="string">&quot;postcss-px-to-viewport&quot;</span>)(&#123;</span><br><span class="line">                <span class="attr">unitToConvert</span>: <span class="string">&quot;px&quot;</span>,    <span class="comment">// 需要转换的单位，默认为&quot;px&quot;</span></span><br><span class="line">                <span class="attr">viewportWidth</span>: <span class="number">1920</span>,   <span class="comment">// 视窗的宽度，对应pc设计稿的宽度，一般是1920</span></span><br><span class="line">                <span class="attr">viewportHeight</span>: <span class="number">1080</span>,<span class="comment">// 视窗的高度，对应的是我们设计稿的高度,我做的是大屏监控,高度就是1080</span></span><br><span class="line">                <span class="attr">unitPrecision</span>: <span class="number">3</span>,        <span class="comment">// 单位转换后保留的精度</span></span><br><span class="line">                <span class="attr">propList</span>: [        <span class="comment">// 能转化为vw的属性列表</span></span><br><span class="line">                  <span class="string">&quot;*&quot;</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="attr">viewportUnit</span>: <span class="string">&quot;vw&quot;</span>,        <span class="comment">// 希望使用的视口单位</span></span><br><span class="line">                <span class="attr">fontViewportUnit</span>: <span class="string">&quot;vw&quot;</span>,        <span class="comment">// 字体使用的视口单位</span></span><br><span class="line">                <span class="attr">selectorBlackList</span>: [],    <span class="comment">// 需要忽略的CSS选择器，不会转为视口单位，使用原有的px等单位。</span></span><br><span class="line">                <span class="attr">minPixelValue</span>: <span class="number">1</span>,        <span class="comment">// 设置最小的转换数值，如果为1的话，只有大于1的值会被转换</span></span><br><span class="line">                <span class="attr">mediaQuery</span>: <span class="literal">false</span>,        <span class="comment">// 媒体查询里的单位是否需要转换单位</span></span><br><span class="line">                <span class="attr">replace</span>: <span class="literal">true</span>,        <span class="comment">// 是否直接更换属性值，而不添加备用属性</span></span><br><span class="line">                <span class="attr">exclude</span>: <span class="regexp">/(\/|\\)(node_modules)(\/|\\)/</span>,        <span class="comment">// 忽略某些文件夹下的文件或特定文件，例如 &#x27;node_modules&#x27; 下的文件</span></span><br><span class="line">              &#125;)</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">&#123;</span>
+    css<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        extract<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span><span class="token comment">//false表示开发环境,true表示生成环境</span>
+        sourceMap<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        loaderOptions<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          postcss<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+              <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"postcss-px-to-viewport"</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+                unitToConvert<span class="token operator">:</span> <span class="token string">"px"</span><span class="token punctuation">,</span>    <span class="token comment">// 需要转换的单位，默认为"px"</span>
+                viewportWidth<span class="token operator">:</span> <span class="token number">1920</span><span class="token punctuation">,</span>   <span class="token comment">// 视窗的宽度，对应pc设计稿的宽度，一般是1920</span>
+                viewportHeight<span class="token operator">:</span> <span class="token number">1080</span><span class="token punctuation">,</span><span class="token comment">// 视窗的高度，对应的是我们设计稿的高度,我做的是大屏监控,高度就是1080</span>
+                unitPrecision<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>        <span class="token comment">// 单位转换后保留的精度</span>
+                propList<span class="token operator">:</span> <span class="token punctuation">[</span>        <span class="token comment">// 能转化为vw的属性列表</span>
+                  <span class="token string">"*"</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                viewportUnit<span class="token operator">:</span> <span class="token string">"vw"</span><span class="token punctuation">,</span>        <span class="token comment">// 希望使用的视口单位</span>
+                fontViewportUnit<span class="token operator">:</span> <span class="token string">"vw"</span><span class="token punctuation">,</span>        <span class="token comment">// 字体使用的视口单位</span>
+                selectorBlackList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>    <span class="token comment">// 需要忽略的CSS选择器，不会转为视口单位，使用原有的px等单位。</span>
+                minPixelValue<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>        <span class="token comment">// 设置最小的转换数值，如果为1的话，只有大于1的值会被转换</span>
+                mediaQuery<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>        <span class="token comment">// 媒体查询里的单位是否需要转换单位</span>
+                replace<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>        <span class="token comment">// 是否直接更换属性值，而不添加备用属性</span>
+                exclude<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(\/|\\)(node_modules)(\/|\\)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>        <span class="token comment">// 忽略某些文件夹下的文件或特定文件，例如 'node_modules' 下的文件</span>
+              <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>    
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="animate-css"><a href="#animate-css" class="headerlink" title="animate.css"></a><code>animate.css</code></h3><h3 id="vue-cookies"><a href="#vue-cookies" class="headerlink" title="vue-cookies"></a><code>vue-cookies</code></h3><h3 id="element-UI"><a href="#element-UI" class="headerlink" title="element-UI"></a><code>element-UI</code></h3><p>按需引入组件用法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Row,Col,Button,MenuItem,Menu,Skeleton,SkeletonItem,Card,Icon,Pagination,Alert &#125; <span class="keyword">from</span> <span class="string">&#x27;element-ui&#x27;</span></span><br><span class="line">Vue.use(VueLazyload)</span><br><span class="line">Vue.component(Row);</span><br><span class="line">Vue.component(Col.name,Col);</span><br><span class="line">Vue.component(Button.name,Button);</span><br><span class="line">Vue.component(MenuItem.name,MenuItem);</span><br><span class="line">Vue.component(Skeleton.name,Skeleton);</span><br><span class="line">Vue.component(Menu.name,Menu);</span><br><span class="line">Vue.component(SkeletonItem.name,SkeletonItem);</span><br><span class="line">Vue.component(Card.name,Card);</span><br><span class="line">Vue.component(Icon.name,Icon);</span><br><span class="line">Vue.component(Pagination.name,Pagination);</span><br><span class="line">Vue.component(Alert.name,Alert);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Row<span class="token punctuation">,</span>Col<span class="token punctuation">,</span>Button<span class="token punctuation">,</span>MenuItem<span class="token punctuation">,</span>Menu<span class="token punctuation">,</span>Skeleton<span class="token punctuation">,</span>SkeletonItem<span class="token punctuation">,</span>Card<span class="token punctuation">,</span>Icon<span class="token punctuation">,</span>Pagination<span class="token punctuation">,</span>Alert <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'element-ui'</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueLazyload<span class="token punctuation">)</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>Row<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>Col<span class="token punctuation">.</span>name<span class="token punctuation">,</span>Col<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>Button<span class="token punctuation">.</span>name<span class="token punctuation">,</span>Button<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>MenuItem<span class="token punctuation">.</span>name<span class="token punctuation">,</span>MenuItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>Skeleton<span class="token punctuation">.</span>name<span class="token punctuation">,</span>Skeleton<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>Menu<span class="token punctuation">.</span>name<span class="token punctuation">,</span>Menu<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>SkeletonItem<span class="token punctuation">.</span>name<span class="token punctuation">,</span>SkeletonItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>Card<span class="token punctuation">.</span>name<span class="token punctuation">,</span>Card<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>Icon<span class="token punctuation">.</span>name<span class="token punctuation">,</span>Icon<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>Pagination<span class="token punctuation">.</span>name<span class="token punctuation">,</span>Pagination<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span>Alert<span class="token punctuation">.</span>name<span class="token punctuation">,</span>Alert<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Canvas-next-js"><a href="#Canvas-next-js" class="headerlink" title="Canvas-next.js"></a><code>Canvas-next.js</code></h3><blockquote>
 <p>动画粒子库，很不错的一个背景</p>
@@ -491,12 +534,34 @@
 <ul>
 <li>安装</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm i vue-canvas-nest </span><br><span class="line"><span class="comment">//如果使用淘宝镜像的话</span></span><br><span class="line">cnpm i vue-canvas-nest</span><br><span class="line"><span class="comment">//或者yarn</span></span><br><span class="line">yarn add vue-canvas-nest</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">npm i vue<span class="token operator">-</span>canvas<span class="token operator">-</span>nest 
+<span class="token comment">//如果使用淘宝镜像的话</span>
+cnpm i vue<span class="token operator">-</span>canvas<span class="token operator">-</span>nest
+<span class="token comment">//或者yarn</span>
+yarn add vue<span class="token operator">-</span>canvas<span class="token operator">-</span>nest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>引入界面</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vueCanvasNest <span class="keyword">from</span> <span class="string">&quot;vue-canvas-nest&quot;</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="comment">//配置属性</span></span><br><span class="line">        <span class="attr">config</span>: &#123;</span><br><span class="line">            <span class="attr">color</span>: <span class="string">&quot;255, 255, 255&quot;</span>,</span><br><span class="line">            <span class="attr">opacity</span>: <span class="number">1</span>,</span><br><span class="line">            <span class="attr">zIndex</span>: <span class="number">5</span>,</span><br><span class="line">            <span class="attr">count</span>: <span class="number">99</span>,</span><br><span class="line">      &#125;,<span class="comment">//配置炫酷效果</span></span><br><span class="line">   &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"> <span class="attr">components</span>: &#123;</span><br><span class="line">    vueCanvasNest</span><br><span class="line">  &#125;,</span><br><span class="line"> <span class="attr">methods</span>: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> vueCanvasNest <span class="token keyword">from</span> <span class="token string">"vue-canvas-nest"</span><span class="token punctuation">;</span>
+ 
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//配置属性</span>
+        config<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            color<span class="token operator">:</span> <span class="token string">"255, 255, 255"</span><span class="token punctuation">,</span>
+            opacity<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            zIndex<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            count<span class="token operator">:</span> <span class="token number">99</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token comment">//配置炫酷效果</span>
+   <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ components<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    vueCanvasNest
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 

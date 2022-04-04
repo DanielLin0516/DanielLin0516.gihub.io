@@ -5,15 +5,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Markdown基本用法, Daniel Blog">
-    <meta name="description" content="代码块1```+语言(java)
+    <meta name="description" content="代码块&amp;#96;&amp;#96;&amp;#96;+语言(java)
 
 
-标题1234561.# 一级标题2.## 二级标题3.### 三级标题4.#### 四级标题5.##### 五级标题6.###### 六级标题
+标题1.# 一级标题
+2.## 二级标题
+3.### 三级标题
+4.#### 四级标题
+5.##### 五级标题
+6.###### 六级标题
 
 
 
 
-字体123456781.加粗 **内容**2.代码">
+字体1.加粗 
+**内容**
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -40,7 +47,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -470,25 +478,42 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```+语言(java)</span><br></pre></td></tr></table></figure>
+                <h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java">&#96;&#96;&#96;+语言(java)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <hr>
-<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span># 一级标题</span><br><span class="line"><span class="number">2.</span>## 二级标题</span><br><span class="line"><span class="number">3.</span>### 三级标题</span><br><span class="line"><span class="number">4.</span>#### 四级标题</span><br><span class="line"><span class="number">5.</span>##### 五级标题</span><br><span class="line"><span class="number">6.</span>###### 六级标题</span><br></pre></td></tr></table></figure>
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java">1.# 一级标题
+2.## 二级标题
+3.### 三级标题
+4.#### 四级标题
+5.##### 五级标题
+6.###### 六级标题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <hr>
-<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>加粗 </span><br><span class="line">**内容**</span><br><span class="line"><span class="number">2.</span>代码高亮显示</span><br><span class="line">`内容`</span><br><span class="line"><span class="number">3.</span>删除线</span><br><span class="line">~~内容~~</span><br><span class="line"><span class="number">4.</span>斜体</span><br><span class="line">*内容*</span><br></pre></td></tr></table></figure>
+<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java">1.加粗 
+**内容**
+2.代码高亮显示
+&#96;内容&#96;
+3.删除线
+~~内容~~
+4.斜体
+*内容*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>1.加粗<br><strong>内容</strong><br>2.代码高亮显示<br><code>内容</code>   </p>
 <p>3.删除线<br><del>内容</del><br>4.斜体<br><em>内容</em></p>
 <hr>
-<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;内容</span><br><span class="line">&gt;&gt;内容</span><br><span class="line">&gt;&gt;&gt;内容</span><br></pre></td></tr></table></figure>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java">&gt;内容
+&gt;&gt;内容
+&gt;&gt;&gt;内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>内容</p>
@@ -500,14 +525,17 @@
 </blockquote>
 </blockquote>
 <hr>
-<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">---      <span class="comment">//分割线1</span></span><br><span class="line">***      <span class="comment">//分割线2</span></span><br></pre></td></tr></table></figure>
+<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java">---      &#x2F;&#x2F;分割线1
+***      &#x2F;&#x2F;分割线2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <hr>
 <h1 id="图片插入"><a href="#图片插入" class="headerlink" title="图片插入"></a>图片插入</h1><p>在线图片/本地图片</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![我的照片](照片链接)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">![我的照片](照片链接)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>无序列表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 目录一</span><br><span class="line">- 目录二</span><br><span class="line">- 目录三</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">- 目录一
+- 目录二
+- 目录三<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>目录一</li>
@@ -515,7 +543,9 @@
 <li>目录三</li>
 </ul>
 <p>有序列表</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 名称</span><br><span class="line"><span class="number">2.</span> 名称</span><br><span class="line"><span class="number">3.</span> 名称</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">1. 名称
+2. 名称
+3. 名称<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <ol>
 <li>名称</li>

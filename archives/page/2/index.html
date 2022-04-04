@@ -32,7 +32,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -312,7 +313,7 @@
         <div class="brand">
             <div class="title center-align">
                 
-                    subtitle
+                Front End
                 
             </div>
 
@@ -482,7 +483,12 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    集合介绍与API声明一个set1234//声明一个setlet s = new Set();let s2 = new Set([&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;]
+                                    集合介绍与API声明一个set//声明一个set
+let s = new Set();
+let s2 = new Set(['1','2','3','4'])
+console.log(s2)
+
+元素个数console.log(s2.size
                                 
                             </div>
                             <div class="publish-info">
@@ -540,7 +546,8 @@
                                     Promise
 Promise是ES6异步编程的新解决方案。语法上Promise是一个构造函数，用来封装异步操作并可以获取其成功或失败的结果
 
-1234567891011121314151617//实例化 Promise对象const p 
+//实例化 Promise对象
+const p = new Promise(function(r
                                 
                             </div>
                             <div class="publish-info">
@@ -655,7 +662,10 @@ Sy
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    函数参数的默认值设置1.形参初始值 具有默认值的参数 一般位置要靠后（潜规则）1234567891011function add(a,b,c = 10)&#123;    return a + b + c;&#125;let result 
+                                    函数参数的默认值设置1.形参初始值 具有默认值的参数 一般位置要靠后（潜规则）function add(a,b,c = 10)&#123;
+    return a + b + c;
+&#125;
+let result = add(1,2,
                                 
                             </div>
                             <div class="publish-info">
@@ -711,7 +721,9 @@ Sy
                             <div class="summary block-with-text">
                                 
                                     解构ES6允许按照一定模式从数组和对象中提取值，对变量进行复制，这被称为解构赋值
-1.数组的解构123456const F4 = [&#x27;11&#x27;,&#x27;22&#x27;,&#x27;33&#x27;,&#x27;44&
+1.数组的解构const F4 = ['11','22','33','44']
+let [xiao,liu,zhao,song] = F4
+console.l
                                 
                             </div>
                             <div class="publish-info">
@@ -767,9 +779,15 @@ Sy
                             <div class="summary block-with-text">
                                 
                                     let声明声明变量
-1234let a;let b,c,d;let e = 100;let f = 521 , g = &#x27;Iloveyou&#x27;
+let a;
+let b,c,d;
+let e = 100;
+let f = 521 , g = 'Iloveyou'
 
-1.变量不能重复声明12let star = &#x27;罗志祥&#x27;
+1.变量不能重复声明let star = '罗志祥'
+let star = '小猪'
+
+2.块级作
                                 
                             </div>
                             <div class="publish-info">
@@ -833,7 +851,8 @@ Sy
 
 思路：递归和迭代，前序遍历为中-左-右
 递归
-12345678910111213var preorderTraversal = function(root
+var preorderTraversal = function(root) &#123;
+    if (
                                 
                             </div>
                             <div class="publish-info">

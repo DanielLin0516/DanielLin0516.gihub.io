@@ -32,7 +32,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -312,7 +313,7 @@
         <div class="brand">
             <div class="title center-align">
                 
-                    subtitle
+                Front End
                 
             </div>
 
@@ -482,7 +483,10 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    函数参数的默认值设置1.形参初始值 具有默认值的参数 一般位置要靠后（潜规则）1234567891011function add(a,b,c = 10)&#123;    return a + b + c;&#125;let result 
+                                    函数参数的默认值设置1.形参初始值 具有默认值的参数 一般位置要靠后（潜规则）function add(a,b,c = 10)&#123;
+    return a + b + c;
+&#125;
+let result = add(1,2,
                                 
                             </div>
                             <div class="publish-info">
@@ -538,7 +542,9 @@
                             <div class="summary block-with-text">
                                 
                                     解构ES6允许按照一定模式从数组和对象中提取值，对变量进行复制，这被称为解构赋值
-1.数组的解构123456const F4 = [&#x27;11&#x27;,&#x27;22&#x27;,&#x27;33&#x27;,&#x27;44&
+1.数组的解构const F4 = ['11','22','33','44']
+let [xiao,liu,zhao,song] = F4
+console.l
                                 
                             </div>
                             <div class="publish-info">
@@ -594,9 +600,15 @@
                             <div class="summary block-with-text">
                                 
                                     let声明声明变量
-1234let a;let b,c,d;let e = 100;let f = 521 , g = &#x27;Iloveyou&#x27;
+let a;
+let b,c,d;
+let e = 100;
+let f = 521 , g = 'Iloveyou'
 
-1.变量不能重复声明12let star = &#x27;罗志祥&#x27;
+1.变量不能重复声明let star = '罗志祥'
+let star = '小猪'
+
+2.块级作
                                 
                             </div>
                             <div class="publish-info">
@@ -660,7 +672,8 @@
 
 思路：递归和迭代，前序遍历为中-左-右
 递归
-12345678910111213var preorderTraversal = function(root
+var preorderTraversal = function(root) &#123;
+    if (
                                 
                             </div>
                             <div class="publish-info">
@@ -887,12 +900,12 @@
                                 
                                     推送本地库到远程库基本语法git push别名  分支
 git checkout master  是切换成master分支
-实例1git push xxx(如果没有别名可以不写) master
+实例git push xxx(如果没有别名可以不写) master
 
 
 
 
-拉取远程库到本地库基本语法git pu
+拉取远程库到本地库基本语法git pul
                                 
                             </div>
                             <div class="publish-info">
@@ -950,7 +963,8 @@ git checkout master  是切换成master分支
                                     创建远程仓库
 创建远程仓库别名基本语法git remote -v 查看当前所有远程地址别名
 git remote add 别名 远程地址
-123git remote -vgit reomote add xxxx https://xxxx.g
+git remote -v
+git reomote add xxxx https:&#x2F;&#x2
                                 
                             </div>
                             <div class="publish-info">

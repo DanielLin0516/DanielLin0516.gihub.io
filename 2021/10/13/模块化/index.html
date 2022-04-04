@@ -43,7 +43,8 @@ export">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -473,6 +474,9 @@ export">
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -492,9 +496,43 @@ export">
 <li>export命令用于规定模块的对外接口</li>
 <li>import命令用于输入其他模块提供的功能</li>
 </ul>
-<h2 id="模块暴露数据语法汇总"><a href="#模块暴露数据语法汇总" class="headerlink" title="模块暴露数据语法汇总"></a>模块暴露数据语法汇总</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分别暴露</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> school = <span class="string">&#x27;123&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;我们可以教给你开发技能&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//统一暴露</span></span><br><span class="line"><span class="keyword">let</span> school = <span class="string">&#x27;123&#x27;</span></span><br><span class="line"><span class="function"><span class="title">findJob</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;我们可以帮助你&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;school, findJob&#125;</span><br><span class="line"><span class="comment">//引入模块</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> m2 <span class="keyword">from</span> <span class="string">&#x27;./src/js/m2.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//默认暴露</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">    <span class="attr">school</span>:<span class="string">&#x27;atg&#x27;</span>,</span><br><span class="line">    <span class="attr">change</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;我么可以&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//引入</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> m3 <span class="keyword">from</span> <span class="string">&#x27;./src/js/m3.js&#x27;</span></span><br><span class="line"><span class="comment">//用change方法</span></span><br><span class="line">m3.default.change()</span><br></pre></td></tr></table></figure>
+<h2 id="模块暴露数据语法汇总"><a href="#模块暴露数据语法汇总" class="headerlink" title="模块暴露数据语法汇总"></a>模块暴露数据语法汇总</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//分别暴露</span>
+<span class="token keyword">export</span> <span class="token keyword">let</span> school <span class="token operator">=</span> <span class="token string">'123'</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'我们可以教给你开发技能'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
 
-<h2 id="模块引入数据语法汇总"><a href="#模块引入数据语法汇总" class="headerlink" title="模块引入数据语法汇总"></a>模块引入数据语法汇总</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.通用的导入方式</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> m1 <span class="keyword">from</span> <span class="string">&#x27;./src/js/m1.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2.解构赋值形式</span></span><br><span class="line"><span class="keyword">import</span> &#123;school,teach&#125; <span class="keyword">from</span> <span class="string">&#x27;./src/js/m1.js&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="keyword">default</span> * <span class="keyword">as</span> m3&#125; <span class="keyword">from</span> <span class="string">&#x27;./src/js/m3.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//3.简便形式  针对默认暴露</span></span><br><span class="line"><span class="keyword">import</span> m3 <span class="keyword">from</span> <span class="string">&#x27;./src/js/m3.js&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<span class="token comment">//统一暴露</span>
+<span class="token keyword">let</span> school <span class="token operator">=</span> <span class="token string">'123'</span>
+<span class="token function">findJob</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'我们可以帮助你'</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">export</span> <span class="token punctuation">&#123;</span>school<span class="token punctuation">,</span> findJob<span class="token punctuation">&#125;</span>
+<span class="token comment">//引入模块</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> m2 <span class="token keyword">from</span> <span class="token string">'./src/js/m2.js'</span>
+
+<span class="token comment">//默认暴露</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span><span class="token punctuation">&#123;</span>
+    school<span class="token operator">:</span><span class="token string">'atg'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">change</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'我么可以'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//引入</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> m3 <span class="token keyword">from</span> <span class="token string">'./src/js/m3.js'</span>
+<span class="token comment">//用change方法</span>
+m3<span class="token punctuation">.</span>default<span class="token punctuation">.</span><span class="token function">change</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="模块引入数据语法汇总"><a href="#模块引入数据语法汇总" class="headerlink" title="模块引入数据语法汇总"></a>模块引入数据语法汇总</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//1.通用的导入方式</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> m1 <span class="token keyword">from</span> <span class="token string">'./src/js/m1.js'</span>
+
+<span class="token comment">//2.解构赋值形式</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>school<span class="token punctuation">,</span>teach<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./src/js/m1.js'</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span><span class="token keyword">default</span> <span class="token operator">*</span> <span class="token keyword">as</span> m3<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./src/js/m3.js'</span>
+
+<span class="token comment">//3.简便形式  针对默认暴露</span>
+<span class="token keyword">import</span> m3 <span class="token keyword">from</span> <span class="token string">'./src/js/m3.js'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
